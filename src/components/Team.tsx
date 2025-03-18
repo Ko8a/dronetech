@@ -1,127 +1,64 @@
 
 import React from 'react';
 import AnimatedElement from './ui/AnimatedElement';
-import { cn } from '@/lib/utils';
-import { Linkedin, Twitter, Mail } from 'lucide-react';
-
-interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  bio: string;
-  image: string;
-  socials: {
-    linkedin?: string;
-    twitter?: string;
-    email?: string;
-  };
-}
-
-const teamMembers: TeamMember[] = [
-  {
-    id: 1,
-    name: "Alex Morgan",
-    role: "Chief Executive Officer",
-    bio: "Former aerospace engineer with 15+ years of experience in drone technology and innovation.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&w=500",
-    socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "alex@dronetech.com"
-    }
-  },
-  {
-    id: 2,
-    name: "Jamie Chen",
-    role: "Head of Engineering",
-    bio: "Robotics specialist with a passion for creating intuitive and reliable flight systems.",
-    image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&w=500",
-    socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "jamie@dronetech.com"
-    }
-  },
-  {
-    id: 3,
-    name: "Taylor Wilson",
-    role: "Design Director",
-    bio: "Award-winning industrial designer focused on creating aesthetically pleasing and functional drones.",
-    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&w=500",
-    socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "taylor@dronetech.com"
-    }
-  },
-  {
-    id: 4,
-    name: "Jordan Rivera",
-    role: "Customer Experience Lead",
-    bio: "Dedicated to ensuring every customer achieves success with their DroneTech products.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&w=500",
-    socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "jordan@dronetech.com"
-    }
-  }
-];
 
 const Team = () => {
+  const teamMembers = [
+    {
+      name: "Alex Petrov",
+      title: "Director",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      bio: "With over 15 years of experience in aviation and technology, Alex leads our strategic vision and operations."
+    },
+    {
+      name: "Maria Kim",
+      title: "Development Director",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80",
+      bio: "Maria oversees our educational program development, bringing her expertise in curriculum design and drone technology."
+    },
+    {
+      name: "Dmitry Volkov",
+      title: "Technical Director",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      bio: "A master engineer who leads our hardware development and technical training programs."
+    }
+  ];
+
   return (
-    <section id="team" className="section-padding bg-secondary/50">
-      <div className="container mx-auto">
+    <section id="team" className="section-padding bg-background">
+      <div className="container mx-auto px-6">
         <AnimatedElement animation="animate-fade-in" threshold={0.1}>
           <div className="text-center mb-16">
-            <span className="inline-block px-3 py-1 bg-blue-50 text-primary rounded-full text-sm font-medium mb-3">
-              Our Team
+            <span className="inline-block px-3 py-1 bg-primary/10 text-primary-foreground rounded-full text-sm font-medium mb-3">
+              Meet Our Team
             </span>
-            <h2 className="section-title">The Minds Behind DroneTech</h2>
+            <h2 className="section-title">The Experts Behind DroneTech</h2>
             <p className="section-subtitle">
-              Meet our talented team of innovators, engineers, and designers dedicated to 
-              pushing the boundaries of drone technology.
+              Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.
             </p>
           </div>
         </AnimatedElement>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {teamMembers.map((member, index) => (
             <AnimatedElement
-              key={member.id}
+              key={member.name}
               animation="animate-fade-in"
-              delay={150 * index}
+              delay={index * 200}
+              threshold={0.1}
             >
-              <div className="bg-white rounded-xl overflow-hidden shadow-sm transition-all duration-500 hover:shadow-md">
-                <div className="aspect-square overflow-hidden">
+              <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div className="aspect-[4/5] relative overflow-hidden">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-bold">{member.name}</h3>
-                  <p className="text-primary text-sm mb-2">{member.role}</p>
-                  <p className="text-muted-foreground text-sm mb-4">{member.bio}</p>
-                  <div className="flex space-x-3">
-                    {member.socials.linkedin && (
-                      <a href={member.socials.linkedin} aria-label={`${member.name}'s LinkedIn`} className="text-gray-400 hover:text-primary transition-colors">
-                        <Linkedin className="h-5 w-5" />
-                      </a>
-                    )}
-                    {member.socials.twitter && (
-                      <a href={member.socials.twitter} aria-label={`${member.name}'s Twitter`} className="text-gray-400 hover:text-primary transition-colors">
-                        <Twitter className="h-5 w-5" />
-                      </a>
-                    )}
-                    {member.socials.email && (
-                      <a href={`mailto:${member.socials.email}`} aria-label={`Email ${member.name}`} className="text-gray-400 hover:text-primary transition-colors">
-                        <Mail className="h-5 w-5" />
-                      </a>
-                    )}
-                  </div>
+                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                  <p className="text-primary font-medium mb-3">{member.title}</p>
+                  <p className="text-muted-foreground">{member.bio}</p>
                 </div>
               </div>
             </AnimatedElement>
