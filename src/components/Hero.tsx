@@ -25,9 +25,7 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-6 py-12 md:py-24 flex flex-col items-center justify-center text-center relative z-10 text-white">
-        <AnimatedElement animation="animate-fade-in" delay={200}>
-          <img alt="DroneTech" className="max-w-xs md:max-w-sm mx-auto mb-8" src="/lovable-uploads/135de607-2580-4aed-9387-b809e03e5737.png" />
-        </AnimatedElement>
+        
         
         <AnimatedElement animation="animate-fade-in" delay={400}>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6 text-balance">
