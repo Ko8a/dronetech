@@ -19,9 +19,9 @@ export const translations = {
     // Problem statement
     problemTitle: 'The UAV Operator Shortage',
     problemText1: 'The demand for qualified UAV operators is growing exponentially across industries, from agriculture and construction to emergency services and entertainment. However, there exists a significant gap between market demand and available skilled professionals.',
-    problemText2: 'At DroneTech, we're addressing this critical shortage through comprehensive educational programs that combine theoretical knowledge with extensive hands-on training, preparing the next generation of UAV operators for real-world applications.',
+    problemText2: 'At DroneTech, we\'re addressing this critical shortage through comprehensive educational programs that combine theoretical knowledge with extensive hands-on training, preparing the next generation of UAV operators for real-world applications.',
     initiative: 'Presidential Initiative',
-    quote: 'The development of UAV technology and localization of production is a strategic priority for Kazakhstan's technological advancement and security infrastructure.',
+    quote: 'The development of UAV technology and localization of production is a strategic priority for Kazakhstan\'s technological advancement and security infrastructure.',
     president: 'President Kassym-Jomart Tokayev',
     
     // Products
