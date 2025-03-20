@@ -40,14 +40,13 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isScrolled = false 
       >
         <SelectTrigger 
           className={cn(
-            "w-[60px] sm:w-[130px] bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20",
+            "w-[60px] bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20",
             textColor
           )}
         >
           <SelectValue>
-            <div className="flex items-center">
-              <span className="text-lg mr-2">{currentFlag}</span>
-              <span className="hidden sm:inline">{t('language')}</span>
+            <div className="flex items-center justify-center">
+              <span className="text-lg">{currentFlag}</span>
             </div>
           </SelectValue>
         </SelectTrigger>
