@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { cn } from '@/lib/utils';
 import AnimatedElement from './ui/AnimatedElement';
 import { ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 const Hero = () => {
   const scrollToNextSection = () => {
     const element = document.getElementById('problem');
@@ -15,17 +17,22 @@ const Hero = () => {
       });
     }
   };
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Video Background */}
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* YouTube Video Background */}
       <div className="video-background">
-        <video autoPlay muted loop playsInline>
-          <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <iframe
+          className="absolute w-full h-full top-0 left-0 object-cover"
+          src="https://www.youtube.com/embed/SjgOeHd1Unw?autoplay=1&mute=1&loop=1&playlist=SjgOeHd1Unw&controls=0&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&modestbranding=1"
+          title="DroneTech UAV Championship"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        ></iframe>
+        <div className="absolute inset-0 bg-black/70"></div>
       </div>
       
       <div className="container mx-auto px-6 py-12 md:py-24 flex flex-col items-center justify-center text-center relative z-10 text-white">
-        
         
         <AnimatedElement animation="animate-fade-in" delay={400}>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6 text-balance">
@@ -56,6 +63,8 @@ const Hero = () => {
           <ArrowDown className="w-5 h-5 text-white" />
         </button>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
