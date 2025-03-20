@@ -48,6 +48,10 @@ const Navbar = () => {
     }
   };
   
+  // Define text colors based on scroll state
+  const textColor = isScrolled ? 'text-foreground' : 'text-white';
+  const activeTextColor = isScrolled ? 'text-primary' : 'text-primary';
+  
   return <header className={cn('fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 lg:px-20', isScrolled ? 'bg-background/90 shadow-sm backdrop-blur-md' : 'bg-transparent')}>
       <div className="flex items-center justify-between" dir={dir}>
         <Link to="/" className="relative z-10">
@@ -56,28 +60,28 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/" className={cn("nav-link", location.pathname === "/" && "text-primary font-medium")}>
+          <Link to="/" className={cn("nav-link", textColor, location.pathname === "/" && activeTextColor)}>
             {t('home')}
           </Link>
-          <Link to="/competitions" className={cn("nav-link", location.pathname === "/competitions" && "text-primary font-medium")}>
+          <Link to="/competitions" className={cn("nav-link", textColor, location.pathname === "/competitions" && activeTextColor)}>
             {t('competitions')}
           </Link>
-          <Link to="/training" className={cn("nav-link", location.pathname === "/training" && "text-primary font-medium")}>
+          <Link to="/training" className={cn("nav-link", textColor, location.pathname === "/training" && activeTextColor)}>
             {t('training')}
           </Link>
-          <button onClick={() => scrollToSection('contact')} className="nav-link">
+          <button onClick={() => scrollToSection('contact')} className={cn("nav-link", textColor)}>
             {t('contacts')}
           </button>
           <Link to="/contact" className="inline-flex items-center rounded-lg bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2">
             {t('contactUs')}
           </Link>
-          <LanguageSelector />
+          <LanguageSelector isScrolled={isScrolled} />
         </nav>
 
         {/* Mobile Menu Button */}
         <div className="flex items-center space-x-4 md:hidden">
-          <LanguageSelector />
-          <button className="relative z-10 focus:outline-none" onClick={toggleMenu} aria-label="Toggle menu">
+          <LanguageSelector isScrolled={isScrolled} />
+          <button className={cn("relative z-10 focus:outline-none", textColor)} onClick={toggleMenu} aria-label="Toggle menu">
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
