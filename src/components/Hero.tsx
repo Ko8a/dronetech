@@ -4,8 +4,13 @@ import { cn } from '@/lib/utils';
 import AnimatedElement from './ui/AnimatedElement';
 import { ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '../hooks/useTranslation';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero = () => {
+  const { t } = useTranslation();
+  const { dir } = useLanguage();
+  
   const scrollToNextSection = () => {
     const element = document.getElementById('problem');
     if (element) {
@@ -32,27 +37,28 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black/70"></div>
       </div>
       
-      <div className="container mx-auto px-6 py-12 md:py-24 flex flex-col items-center justify-center text-center relative z-10 text-white">
+      <div className="container mx-auto px-6 py-12 md:py-24 flex flex-col items-center justify-center text-center relative z-10 text-white" dir={dir}>
         
         <AnimatedElement animation="animate-fade-in" delay={400}>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6 text-balance">
-            Elevating UAV <span className="text-primary">Education & Innovation</span>
+            {t('heroTitle').split('Education & Innovation')[0]}
+            <span className="text-primary">{t('heroTitle').includes('Education & Innovation') ? 'Education & Innovation' : ''}</span>
           </h1>
         </AnimatedElement>
         
         <AnimatedElement animation="animate-fade-in" delay={600}>
           <p className="text-white/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-            Training the next generation of UAV operators through cutting-edge educational programs and competitive events.
+            {t('heroSubtitle')}
           </p>
         </AnimatedElement>
         
         <AnimatedElement animation="animate-fade-in" delay={800}>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={scrollToNextSection} className="inline-flex items-center rounded-lg bg-primary px-8 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2">
-              Learn More
+              {t('learnMore')}
             </button>
             <Link to="/training" className="inline-flex items-center rounded-lg bg-white/10 backdrop-blur-sm px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2">
-              Start Training
+              {t('startTraining')}
             </Link>
           </div>
         </AnimatedElement>
