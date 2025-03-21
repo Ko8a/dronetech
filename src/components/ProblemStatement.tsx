@@ -37,7 +37,7 @@ const ProblemStatement = () => {
                   </blockquote>
                   <p className="text-right mt-4 text-muted-foreground">— {t('president')}</p>
                 </div>
-                <div className="md:w-1/3 w-full">
+                <div className="md:w-2/5 w-full">
                   <img 
                     src="/lovable-uploads/3ca062db-8852-42e7-91d9-4c0bbcb73489.png" 
                     alt="President Tokaev" 
