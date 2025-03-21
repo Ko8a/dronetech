@@ -28,27 +28,27 @@ const ProblemStatement = () => {
           </AnimatedElement>
           
           <AnimatedElement animation="animate-fade-in" delay={400} threshold={0.1}>
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="bg-primary/10 border border-primary/20 rounded-2xl p-8 flex-1">
-                <h3 className="text-xl font-semibold mb-4">{t('initiative')}</h3>
-                <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
-                  "{t('quote')}"
-                </blockquote>
-                <p className="text-right mt-4 text-muted-foreground">— {t('president')}</p>
-              </div>
-              
-              <div className="md:w-2/5 w-full">
-                <img 
-                  src="/lovable-uploads/3ca062db-8852-42e7-91d9-4c0bbcb73489.png" 
-                  alt="President Tokaev" 
-                  className="w-full h-auto"
-                  style={{ 
-                    borderRadius: '0',
-                    boxShadow: 'none',
-                    backgroundColor: 'transparent',
-                    mixBlendMode: 'multiply'
-                  }}
-                />
+            <div className="bg-primary/10 border border-primary/20 rounded-2xl p-8">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold mb-4">{t('initiative')}</h3>
+                  <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
+                    "{t('quote')}"
+                  </blockquote>
+                  <p className="text-right mt-4 text-muted-foreground">— {t('president')}</p>
+                </div>
+                <div className="md:w-1/3 w-full">
+                  <img 
+                    src="/lovable-uploads/3ca062db-8852-42e7-91d9-4c0bbcb73489.png" 
+                    alt="President Tokaev" 
+                    className="w-full h-auto mix-blend-multiply"
+                    style={{ 
+                      borderRadius: '0',
+                      boxShadow: 'none',
+                      backgroundColor: 'transparent'
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </AnimatedElement>
