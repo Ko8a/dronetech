@@ -41,7 +41,12 @@ const ProblemStatement = () => {
                   <img 
                     src="/lovable-uploads/3ca062db-8852-42e7-91d9-4c0bbcb73489.png" 
                     alt="President Tokaev" 
-                    className="rounded-lg shadow-md w-full h-auto"
+                    className="w-full h-auto mix-blend-multiply"
+                    style={{ 
+                      borderRadius: '0',
+                      boxShadow: 'none',
+                      backgroundColor: 'transparent'
+                    }}
                   />
                 </div>
               </div>
