@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AnimatedElement from './ui/AnimatedElement';
 import { cn } from '@/lib/utils';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
@@ -13,6 +13,35 @@ const Contact = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const mapContainer = useRef<HTMLDivElement>(null);
+
+  // Initialize map
+  useEffect(() => {
+    if (!mapContainer.current) return;
+    
+    const loadMap = async () => {
+      try {
+        // We'll use plain HTML and CSS for the map since we don't have a MapBox token
+        const mapDiv = mapContainer.current;
+        const mapIframe = document.createElement('iframe');
+        mapIframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.0433371548107!2d76.90992641537817!3d43.2347727791388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883692f027581c7%3A0x2426740f56437e63!2sNazarbayev%20University!5e0!3m2!1sen!2skz!4v1627306586541!5m2!1sen!2skz';
+        mapIframe.style.border = '0';
+        mapIframe.setAttribute('allowfullscreen', '');
+        mapIframe.setAttribute('loading', 'lazy');
+        mapIframe.style.width = '100%';
+        mapIframe.style.height = '100%';
+        mapIframe.style.borderRadius = '0.75rem';
+
+        if (mapDiv.childElementCount === 0) {
+          mapDiv.appendChild(mapIframe);
+        }
+      } catch (error) {
+        console.error('Error loading map:', error);
+      }
+    };
+
+    loadMap();
+  }, [mapContainer]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -52,7 +81,23 @@ const Contact = () => {
           </div>
         </AnimatedElement>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+        {/* Background pattern - added as requested */}
+        <div className="absolute inset-0 z-0 opacity-5 overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full">
+            <svg viewBox="0 0 100 100" className="absolute h-full w-full">
+              <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                  <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+          </div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/10"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-primary/10"></div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 relative z-10">
           <AnimatedElement
             animation="animate-fade-in-left"
             className="lg:col-span-2 bg-white rounded-xl overflow-hidden shadow-sm p-6 lg:p-8"
@@ -91,8 +136,8 @@ const Contact = () => {
                 <div>
                   <h4 className="text-sm font-medium text-muted-foreground mb-1">Headquarters</h4>
                   <p className="text-lg font-medium">
-                    123 Tech Boulevard<br />
-                    San Francisco, CA 94107
+                    53 Kabanbay Batyr Ave<br />
+                    Astana, 010000, Kazakhstan
                   </p>
                 </div>
               </div>
@@ -221,6 +266,12 @@ const Contact = () => {
             </form>
           </AnimatedElement>
         </div>
+        
+        {/* Map section */}
+        <AnimatedElement animation="animate-fade-in" threshold={0.1} className="mt-16">
+          <h3 className="text-2xl font-bold mb-6 text-center">Find Us</h3>
+          <div ref={mapContainer} className="w-full h-96 rounded-xl overflow-hidden shadow-md"></div>
+        </AnimatedElement>
       </div>
     </section>
   );

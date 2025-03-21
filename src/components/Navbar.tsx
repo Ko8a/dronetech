@@ -48,9 +48,18 @@ const Navbar = () => {
     }
   };
   
-  // Define text colors based on scroll state
-  const textColor = isScrolled ? 'text-foreground' : 'text-white';
-  const activeTextColor = isScrolled ? 'text-primary' : 'text-primary';
+  // Check if we're on a subpage (not homepage)
+  const isSubpage = location.pathname !== '/';
+  const isCompetitions = location.pathname === '/competitions';
+  const isTraining = location.pathname === '/training';
+  const isContact = location.pathname === '/contact';
+  
+  // Always use dark text on competitions, training, and contact pages
+  const alwaysDarkText = isCompetitions || isTraining || isContact;
+  
+  // Define text colors based on scroll state and current page
+  const textColor = (isScrolled || alwaysDarkText) ? 'text-foreground' : 'text-white';
+  const activeTextColor = (isScrolled || alwaysDarkText) ? 'text-primary' : 'text-primary';
   
   return <header className={cn('fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 lg:px-20', isScrolled ? 'bg-background/90 shadow-sm backdrop-blur-md' : 'bg-transparent')}>
       <div className="flex items-center justify-between" dir={dir}>
@@ -69,10 +78,7 @@ const Navbar = () => {
           <Link to="/training" className={cn("nav-link", textColor, location.pathname === "/training" && activeTextColor)}>
             {t('training')}
           </Link>
-          <button onClick={() => scrollToSection('contact')} className={cn("nav-link", textColor)}>
-            {t('contacts')}
-          </button>
-          <Link to="/contact" className="inline-flex items-center rounded-lg bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2">
+          <Link to="/contact" className={cn("nav-link", textColor, location.pathname === "/contact" && activeTextColor)}>
             {t('contactUs')}
           </Link>
           <LanguageSelector isScrolled={isScrolled} />
@@ -98,13 +104,7 @@ const Navbar = () => {
             <Link to="/training" className={cn("nav-link", location.pathname === "/training" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
               {t('training')}
             </Link>
-            <button onClick={() => {
-              scrollToSection('contact');
-              setIsMenuOpen(false);
-            }} className="nav-link">
-              {t('contacts')}
-            </button>
-            <Link to="/contact" className="inline-flex items-center rounded-lg bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2" onClick={() => setIsMenuOpen(false)}>
+            <Link to="/contact" className={cn("nav-link", location.pathname === "/contact" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
               {t('contactUs')}
             </Link>
           </nav>

@@ -29,7 +29,8 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isScrolled = false 
   // Find current language flag
   const currentFlag = languages.find(lang => lang.code === language)?.flag || '🌐';
 
-  // Text color based on scroll position
+  // Background and text color based on scroll position
+  const bgColor = isScrolled ? 'bg-secondary/80' : 'bg-white/10';
   const textColor = isScrolled ? 'text-foreground' : 'text-white';
   
   return (
@@ -40,7 +41,8 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isScrolled = false 
       >
         <SelectTrigger 
           className={cn(
-            "w-[60px] bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20",
+            "w-[60px] backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all",
+            bgColor,
             textColor
           )}
         >
