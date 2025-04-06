@@ -151,7 +151,8 @@ const RegistrationForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <style jsx>{`
+        <style>
+          {`
           /* Custom styles for phone input */
           .phone-input-container .PhoneInputCountry {
             margin-right: 0.5rem;
@@ -175,7 +176,8 @@ const RegistrationForm = () => {
             outline: 2px solid hsl(var(--ring));
             outline-offset: 2px;
           }
-        `}</style>
+          `}
+        </style>
 
         <BasicInfoFields 
           form={form} 
