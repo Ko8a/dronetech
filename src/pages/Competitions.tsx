@@ -12,13 +12,13 @@ const Competitions = () => {
   // Set target date for countdown (April 14, 2025)
   const targetDate = new Date(2025, 3, 14); // Month is 0-indexed, so 3 = April
 
-  // Updated gallery images - using all images from the carousel folder
+  // Updated gallery images - using all images from the carousel folder plus the new uploaded image
   const galleryImages = [
+    '/lovable-uploads/745972f4-27ae-49b6-aac2-664a621c5903.png', // New uploaded image
     '/lovable-uploads/careusel/ee3ee671-cf15-4060-9273-0bca95a35423.png',
     '/lovable-uploads/careusel/a65c3213-4056-42f3-ae94-33f0339330d6.png',
     '/lovable-uploads/careusel/b73e5646-e66d-475e-8077-89a55df903c5.png',
-    '/lovable-uploads/careusel/e71c6835-bd5b-4293-a9d0-bb0a5226baa1.png',
-    '/lovable-uploads/careusel/1f23891c-1da1-45f6-afda-c647180e39d5.png'
+    '/lovable-uploads/careusel/e71c6835-bd5b-4293-a9d0-bb0a5226baa1.png'
   ];
 
   const testimonials = [
