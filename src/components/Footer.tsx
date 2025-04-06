@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube, Linkedin } from 'lucide-react';
@@ -13,9 +12,9 @@ const Footer = () => {
           <div>
             <Link to="/" className="inline-block mb-6">
               <img 
-                src="/lovable-uploads/779bdbb1-a797-4451-8d4b-2009985fa95b.png" 
+                src="/lovable-uploads/93547d72-c79f-4b73-8f07-61124bf740d5.png" 
                 alt="DroneTech" 
-                className="h-10 brightness-0 invert" 
+                className="h-10" 
               />
             </Link>
             <p className="text-gray-300 mb-6 max-w-md">

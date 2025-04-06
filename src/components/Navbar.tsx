@@ -68,7 +68,7 @@ const Navbar = () => {
           <img 
             alt="DroneTech" 
             className="h-10 md:h-12 transition-opacity duration-300" 
-            src={isScrolled ? "/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" : "/lovable-uploads/779bdbb1-a797-4451-8d4b-2009985fa95b.png"} 
+            src={isScrolled ? "/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" : "/lovable-uploads/93547d72-c79f-4b73-8f07-61124bf740d5.png"} 
           />
         </Link>
 
