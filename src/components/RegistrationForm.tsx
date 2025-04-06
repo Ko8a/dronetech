@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -40,54 +39,42 @@ const RegistrationForm = () => {
     control: form.control
   });
 
-  // Handle country change
   const handleCountryChange = (value: string) => {
     setSelectedCountry(value);
     form.setValue("country", value);
     form.setValue("city", "");
   };
 
-  // Handle competition type change
   const handleCompetitionTypeChange = (value: string) => {
     setSelectedCompetitionType(value);
     form.setValue("competitionType", value);
     
-    // Find the selected competition type
     const competition = competitionTypes.find(type => type.id === value);
     
     if (competition) {
-      // Get the required number of competitors
       const requiredCompetitors = competition.competitors;
       const currentParticipants = [...fields];
       
-      // If we need to add participants
       if (currentParticipants.length < requiredCompetitors) {
-        // Add necessary number of empty participants
         const participantsToAdd = requiredCompetitors - currentParticipants.length;
         const newParticipants = Array(participantsToAdd).fill({ fullName: "", phone: "", telegram: "" });
         
-        // Use form.setValue to update all participants at once instead of using append multiple times
         const updatedParticipants = [...currentParticipants, ...newParticipants];
         form.setValue("participants", updatedParticipants);
       } 
-      // If we need to remove participants
       else if (currentParticipants.length > requiredCompetitors) {
-        // For Drone Soccer, keep at least 5 but no more than 6
         const targetCount = value === "drone-soccer" ? 
           Math.min(Math.max(currentParticipants.length, 5), 6) : 
           requiredCompetitors;
         
-        // Use setValue to update all participants at once
         const updatedParticipants = currentParticipants.slice(0, targetCount);
         form.setValue("participants", updatedParticipants);
       }
     }
   };
 
-  // Save registration data to Supabase
   const saveRegistrationRecord = async (data: FormValues) => {
     try {
-      // Create record in Supabase
       const { error } = await supabase
         .from('registration_records')
         .insert({
@@ -113,7 +100,6 @@ const RegistrationForm = () => {
   };
 
   async function onSubmit(data: FormValues) {
-    // Check minimum required competitors for drone soccer
     if (data.competitionType === "drone-soccer") {
       const validParticipants = data.participants.filter(p => 
         p.fullName.trim() !== "" && p.phone.trim() !== "" && p.telegram.trim() !== ""
@@ -130,7 +116,6 @@ const RegistrationForm = () => {
     }
 
     try {
-      // Save the registration data to Supabase
       await saveRegistrationRecord(data);
       
       toast({
@@ -138,11 +123,9 @@ const RegistrationForm = () => {
         description: "Thank you for registering! Your data has been recorded.",
       });
       
-      // Reset form
       form.reset();
       setSelectedCountry("");
       setSelectedCompetitionType("");
-      
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
@@ -153,15 +136,12 @@ const RegistrationForm = () => {
     }
   }
 
-  // Get the selected competition type details
   const selectedCompetition = competitionTypes.find(t => t.id === selectedCompetitionType);
 
-  // This update ensures the fields array is synchronized with the form state
   useEffect(() => {
     if (selectedCompetitionType) {
       const competition = competitionTypes.find(type => type.id === selectedCompetitionType);
       if (competition) {
-        // Force re-render of fields by refreshing the form
         form.setValue('participants', form.getValues('participants'));
       }
     }
@@ -193,30 +173,25 @@ const RegistrationForm = () => {
             <>
               <h3 className="text-xl font-semibold border-b pb-2">Participants Information</h3>
               
-              {/* Here we're using the fields from useFieldArray which will reflect the current state */}
               {fields.map((field, index) => (
                 <ParticipantFields
                   key={field.id}
                   index={index}
                   form={form}
                   selectedCountry={selectedCountry}
-                  canRemove={selectedCompetition.id === "drone-soccer" && fields.length > 5}
-                  onRemove={() => {
-                    // Safety check to prevent removing below minimum
-                    if (fields.length > 5) {
-                      remove(index);
-                    }
-                  }}
+                  canRemove={selectedCompetition.id === "drone-soccer" ? 
+                    (index >= 5 && fields.length > 5) : 
+                    fields.length > selectedCompetition.competitors
+                  }
+                  onRemove={() => remove(index)}
                 />
               ))}
               
-              {/* Add participant button (only for Drone Soccer and less than max) */}
               {selectedCompetition.id === "drone-soccer" && fields.length < 6 && (
                 <Button
                   type="button"
                   variant="outline"
                   onClick={() => {
-                    // Safety check to prevent adding too many
                     if (fields.length < 6) {
                       append({ fullName: "", phone: "", telegram: "" });
                     }

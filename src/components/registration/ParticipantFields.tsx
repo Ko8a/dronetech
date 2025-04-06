@@ -92,7 +92,7 @@ const ParticipantFields = ({
         )}
       />
       
-      {/* Remove participant button (only shown when allowed) */}
+      {/* Only show Remove button when allowed (not for Drone Soccer's first 5 participants) */}
       {canRemove && (
         <Button 
           type="button" 
@@ -108,3 +108,4 @@ const ParticipantFields = ({
 };
 
 export default ParticipantFields;
+
