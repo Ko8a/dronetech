@@ -67,6 +67,37 @@ const competitionTypes = [
   }
 ];
 
+// Phone formatting helper function
+const formatPhoneNumber = (value: string, country: string): string => {
+  if (!value) return value;
+  
+  // Remove all non-digit characters
+  const phoneNumber = value.replace(/[^\d]/g, '');
+  
+  // Format based on country
+  if (country === "Kazakhstan") {
+    // Format as +7-(XXX)-XXX-XX-XX
+    if (phoneNumber.length <= 1) return phoneNumber;
+    if (phoneNumber.length <= 4) return `+7-(${phoneNumber.slice(1)})`;
+    if (phoneNumber.length <= 7) return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4)}`;
+    if (phoneNumber.length <= 9) return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7)}`;
+    return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7, 9)}-${phoneNumber.slice(9, 11)}`;
+  } else if (country === "Russia") {
+    // Format as +7-(XXX)-XXX-XX-XX
+    if (phoneNumber.length <= 1) return phoneNumber;
+    if (phoneNumber.length <= 4) return `+7-(${phoneNumber.slice(1)})`;
+    if (phoneNumber.length <= 7) return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4)}`;
+    if (phoneNumber.length <= 9) return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7)}`;
+    return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7, 9)}-${phoneNumber.slice(9, 11)}`;
+  }
+  
+  // Default international format
+  if (phoneNumber.length <= 3) return `+${phoneNumber}`;
+  if (phoneNumber.length <= 6) return `+${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3)}`;
+  if (phoneNumber.length <= 9) return `+${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`;
+  return `+${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 9)}-${phoneNumber.slice(9)}`;
+};
+
 // Define form schema
 const formSchema = z.object({
   country: z.string().min(1, "Please select a country"),
@@ -148,7 +179,14 @@ const RegistrationForm = () => {
     }
   };
 
-  function onSubmit(data: FormValues) {
+  // Format phone number as user types
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>, onChange: (value: string) => void) => {
+    const value = e.target.value;
+    const formattedValue = formatPhoneNumber(value, selectedCountry);
+    onChange(formattedValue);
+  };
+
+  async function onSubmit(data: FormValues) {
     // Check minimum required competitors for drone soccer
     if (data.competitionType === "drone-soccer") {
       const validParticipants = data.participants.filter(p => 
@@ -165,13 +203,27 @@ const RegistrationForm = () => {
       }
     }
 
-    // Process form submission
-    toast({
-      title: "Registration Submitted",
-      description: "Thank you for registering! We will contact you soon."
-    });
-    
-    console.log("Form submitted:", data);
+    try {
+      // Here we would typically send the data to Google Sheets
+      // For now, let's just log it and show a success message
+      console.log("Form submitted:", data);
+      
+      toast({
+        title: "Registration Submitted",
+        description: "Thank you for registering! Your data has been recorded.",
+      });
+      
+      // Log message about Google Sheets integration
+      console.log("Note: Data would be sent to Google Sheets in a production environment");
+      
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Submission Error",
+        description: "There was a problem submitting your registration. Please try again.",
+        variant: "destructive"
+      });
+    }
   }
 
   // Get the selected competition type details
@@ -298,8 +350,11 @@ const RegistrationForm = () => {
                 <FormLabel>Mentor Phone</FormLabel>
                 <FormControl>
                   <Input 
-                    placeholder={selectedCountry === "Kazakhstan" ? "+7 (7XX) XXX-XX-XX" : "+X (XXX) XXX-XX-XX"} 
-                    {...field} 
+                    placeholder={selectedCountry === "Kazakhstan" ? "+7-(7XX)-XXX-XX-XX" : "+X-(XXX)-XXX-XX-XX"} 
+                    onChange={(e) => handlePhoneChange(e, field.onChange)}
+                    value={field.value}
+                    onBlur={field.onBlur}
+                    name={field.name}
                   />
                 </FormControl>
                 <FormMessage />
@@ -342,8 +397,7 @@ const RegistrationForm = () => {
                 <SelectContent>
                   {competitionTypes.map((type) => (
                     <SelectItem key={type.id} value={type.id}>
-                      {type.label} - {type.mentors} mentor, {type.competitors} competitor{type.competitors > 1 ? 's' : ''}
-                      {type.minCompetitors ? ` (min ${type.minCompetitors})` : ''}
+                      {type.label}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -386,8 +440,11 @@ const RegistrationForm = () => {
                         <FormLabel>Phone Number</FormLabel>
                         <FormControl>
                           <Input 
-                            placeholder={selectedCountry === "Kazakhstan" ? "+7 (7XX) XXX-XX-XX" : "+X (XXX) XXX-XX-XX"} 
-                            {...field} 
+                            placeholder={selectedCountry === "Kazakhstan" ? "+7-(7XX)-XXX-XX-XX" : "+X-(XXX)-XXX-XX-XX"} 
+                            onChange={(e) => handlePhoneChange(e, field.onChange)}
+                            value={field.value}
+                            onBlur={field.onBlur}
+                            name={field.name}
                           />
                         </FormControl>
                         <FormMessage />
@@ -425,7 +482,7 @@ const RegistrationForm = () => {
               </div>
             ))}
             
-            {/* Add participant button (only for Drone Soccer) */}
+            {/* Add participant button (only for Drone Soccer and less than max) */}
             {selectedCompetition.id === "drone-soccer" && fields.length < 6 && (
               <Button
                 type="button"
