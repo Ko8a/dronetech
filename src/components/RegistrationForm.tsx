@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -164,17 +163,30 @@ const RegistrationForm = () => {
     const competition = competitionTypes.find(type => type.id === value);
     
     if (competition) {
-      // Clear existing participants
-      const currentParticipants = form.getValues("participants");
+      // Get the required number of competitors
+      const requiredCompetitors = competition.competitors;
+      const currentParticipants = [...fields];
       
-      // Remove all participants
-      while (currentParticipants.length > 0) {
-        remove(0);
-      }
-      
-      // Add the correct number of participants
-      for (let i = 0; i < competition.competitors; i++) {
-        append({ fullName: "", phone: "", telegram: "" });
+      // If we need to add participants
+      if (currentParticipants.length < requiredCompetitors) {
+        // Add necessary number of empty participants
+        const participantsToAdd = requiredCompetitors - currentParticipants.length;
+        const newParticipants = Array(participantsToAdd).fill({ fullName: "", phone: "", telegram: "" });
+        
+        // Use form.setValue to update all participants at once instead of using append multiple times
+        const updatedParticipants = [...currentParticipants, ...newParticipants];
+        form.setValue("participants", updatedParticipants);
+      } 
+      // If we need to remove participants
+      else if (currentParticipants.length > requiredCompetitors) {
+        // For Drone Soccer, keep at least 5 but no more than 6
+        const targetCount = value === "drone-soccer" ? 
+          Math.min(Math.max(currentParticipants.length, 5), 6) : 
+          requiredCompetitors;
+        
+        // Use setValue to update all participants at once
+        const updatedParticipants = currentParticipants.slice(0, targetCount);
+        form.setValue("participants", updatedParticipants);
       }
     }
   };
@@ -228,6 +240,17 @@ const RegistrationForm = () => {
 
   // Get the selected competition type details
   const selectedCompetition = competitionTypes.find(t => t.id === selectedCompetitionType);
+
+  // This update ensures the fields array is synchronized with the form state
+  React.useEffect(() => {
+    if (selectedCompetitionType) {
+      const competition = competitionTypes.find(type => type.id === selectedCompetitionType);
+      if (competition) {
+        // Force re-render of fields by refreshing the form
+        form.setValue('participants', form.getValues('participants'));
+      }
+    }
+  }, [selectedCompetitionType, form]);
 
   return (
     <Form {...form}>
@@ -411,6 +434,7 @@ const RegistrationForm = () => {
           <>
             <h3 className="text-xl font-semibold border-b pb-2">Participants Information</h3>
             
+            {/* Here we're using the fields from useFieldArray which will reflect the current state */}
             {fields.map((field, index) => (
               <div key={field.id} className="space-y-6 p-4 border rounded-md">
                 <h4 className="font-medium">Participant {index + 1}</h4>
@@ -473,7 +497,12 @@ const RegistrationForm = () => {
                   <Button 
                     type="button" 
                     variant="outline" 
-                    onClick={() => remove(index)}
+                    onClick={() => {
+                      // Safety check to prevent removing below minimum
+                      if (fields.length > 5) {
+                        remove(index);
+                      }
+                    }}
                     className="w-full mt-2"
                   >
                     Remove Participant
@@ -487,7 +516,12 @@ const RegistrationForm = () => {
               <Button
                 type="button"
                 variant="outline"
-                onClick={() => append({ fullName: "", phone: "", telegram: "" })}
+                onClick={() => {
+                  // Safety check to prevent adding too many
+                  if (fields.length < 6) {
+                    append({ fullName: "", phone: "", telegram: "" });
+                  }
+                }}
               >
                 Add Participant
               </Button>
