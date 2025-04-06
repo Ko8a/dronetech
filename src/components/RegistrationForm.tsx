@@ -6,7 +6,7 @@ import { Form } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 
 // Import our new components and utilities
-import { formSchema, FormValues } from './registration/schema';
+import { formSchema } from './registration/schema';
 import { competitionTypes } from './registration/utils';
 import BasicInfoFields from './registration/BasicInfoFields';
 import MentorFields from './registration/MentorFields';
@@ -21,8 +21,8 @@ const RegistrationForm = () => {
   const [selectedCompetitionType, setSelectedCompetitionType] = useState<string>("");
   const { toast } = useToast();
 
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+  const form = useForm({
+    resolver: zodResolver(formSchema(selectedCountry)),
     defaultValues: {
       country: "",
       city: "",
@@ -46,6 +46,9 @@ const RegistrationForm = () => {
     setSelectedCountry(value);
     form.setValue("country", value);
     form.setValue("city", "");
+    
+    // Reset the validation resolver with the new country
+    form.clearErrors();
   };
 
   // Handle competition type change
@@ -84,7 +87,7 @@ const RegistrationForm = () => {
     }
   };
 
-  async function onSubmit(data: FormValues) {
+  async function onSubmit(data: any) {
     // Check minimum required competitors for drone soccer
     if (data.competitionType === "drone-soccer") {
       const validParticipants = data.participants.filter(p => 
@@ -138,10 +141,17 @@ const RegistrationForm = () => {
     }
   }, [selectedCompetitionType, form]);
 
+  // Effect to update resolver when country changes
+  useEffect(() => {
+    if (selectedCountry) {
+      form.clearErrors();
+    }
+  }, [selectedCountry, form]);
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <style>{`
+        <style jsx>{`
           /* Custom styles for phone input */
           .phone-input-container .PhoneInputCountry {
             margin-right: 0.5rem;

@@ -1,9 +1,10 @@
 
 import { z } from "zod";
 import { isPossiblePhoneNumber } from 'react-phone-number-input';
+import { getPhoneMaxLength } from './utils';
 
 // Define form schema
-export const formSchema = z.object({
+export const formSchema = (selectedCountry: string) => z.object({
   country: z.string().min(1, "Please select a country"),
   city: z.string().min(1, "Please select a city"),
   institution: z.string().min(2, "Institution name is required"),
@@ -13,8 +14,8 @@ export const formSchema = z.object({
     .refine(value => value && isPossiblePhoneNumber(value), {
       message: "Please enter a valid phone number",
     })
-    .refine(value => !value || value.length <= 16, {
-      message: "Phone number is too long",
+    .refine(value => !value || value.length <= getPhoneMaxLength(selectedCountry), {
+      message: `Phone number is too long for ${selectedCountry}`,
     }),
   mentorEmail: z.string().email("Invalid email format"),
   competitionType: z.string().min(1, "Please select a competition type"),
@@ -25,8 +26,8 @@ export const formSchema = z.object({
         .refine(value => value && isPossiblePhoneNumber(value), {
           message: "Please enter a valid phone number",
         })
-        .refine(value => !value || value.length <= 16, {
-          message: "Phone number is too long",
+        .refine(value => !value || value.length <= getPhoneMaxLength(selectedCountry), {
+          message: `Phone number is too long for ${selectedCountry}`,
         }),
       telegram: z.string().min(2, "Telegram handle is required")
     })
@@ -44,4 +45,4 @@ export const formSchema = z.object({
   })
 });
 
-export type FormValues = z.infer<typeof formSchema>;
+export type FormValues = z.infer<ReturnType<typeof formSchema>>;

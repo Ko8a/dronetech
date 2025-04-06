@@ -12,7 +12,7 @@ import {
 import { FormValues } from "./schema";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
-import type { CountryCode } from 'libphonenumber-js';
+import { getCountryCode, getPhoneMaxLength } from './utils';
 
 interface ParticipantFieldsProps {
   index: number;
@@ -29,24 +29,13 @@ const ParticipantFields = ({
   selectedCountry, 
   isOptional = false
 }: ParticipantFieldsProps) => {
-  // Get country code for default selection
-  const getCountryCode = (country: string): CountryCode | undefined => {
-    const countryMap: Record<string, CountryCode> = {
-      "Kazakhstan": "KZ",
-      "Russia": "RU",
-      "Kyrgyzstan": "KG",
-      "Uzbekistan": "UZ",
-      "Tajikistan": "TJ",
-      "China": "CN"
-    };
-    return countryMap[country];
-  };
-
   // Handle phone number input to limit length
   const handlePhoneChange = (value: string) => {
-    // Limit to a reasonable length (typically 15 digits is the max for international numbers)
-    // E.164 standard: country code (1-3 digits) + national number (max 12 digits)
-    if (value && value.length > 16) {
+    // Get max length based on selected country
+    const maxLength = getPhoneMaxLength(selectedCountry);
+    
+    // Limit to country-specific length
+    if (value && value.length > maxLength) {
       return;
     }
     form.setValue(`participants.${index}.phone`, value || "");
@@ -85,7 +74,7 @@ const ParticipantFields = ({
                 <div className="phone-input-container">
                   <PhoneInput
                     international
-                    defaultCountry={getCountryCode(selectedCountry)}
+                    defaultCountry={getCountryCode(selectedCountry) as any}
                     value={field.value}
                     onChange={handlePhoneChange}
                     onBlur={field.onBlur}
