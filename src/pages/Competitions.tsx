@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -12,14 +11,19 @@ const Competitions = () => {
   // Set target date for countdown (April 14, 2025)
   const targetDate = new Date(2025, 3, 14); // Month is 0-indexed, so 3 = April
 
-  // Updated gallery images with directly uploaded images
+  // Updated gallery images with new uploaded images
   const galleryImages = [
-    '/lovable-uploads/a36bc68d-54a2-48d3-a2d8-3197434dd166.png',
-    '/lovable-uploads/2fcea53e-c71c-4512-aad4-0598bc1e5a1c.png',
-    '/lovable-uploads/e8ed3d34-78fa-43b9-9ede-d1cb86ca5b36.png',
-    '/lovable-uploads/f342149b-cb52-48a5-87bb-765a4ce6e1df.png',
-    '/lovable-uploads/0e3b376c-3a1c-4165-bc66-d7b1e3add275.png',
-    '/lovable-uploads/a1c6fe10-bb9a-4137-b36d-14566a79c1ad.png'
+    '/lovable-uploads/e0878807-6ab3-44d2-a3f1-75f01588f337.png',
+    '/lovable-uploads/d09771f6-5954-4c69-bfb9-c741b2ba2951.png',
+    '/lovable-uploads/a7fa151f-3e18-45f2-ac36-041394603f0e.png',
+    '/lovable-uploads/20e7d01a-034b-4ca7-834a-449887552fca.png',
+    '/lovable-uploads/a7f07bbc-9105-4c22-b441-29089ca6defa.png',
+    '/lovable-uploads/9da651f0-8862-4b52-b9d4-fa47849f1058.png',
+    '/lovable-uploads/e8d4c583-2c1d-4bf7-9776-8d5b41b7a8c8.png',
+    '/lovable-uploads/61e5a18d-0c96-4a5a-86cf-9ec967479eed.png',
+    '/lovable-uploads/945bfa72-1ba0-43cc-a3b8-f651c2eab635.png',
+    '/lovable-uploads/f94ffc42-97d5-4454-8995-80046c03854f.png',
+    '/lovable-uploads/85a3a55c-a9b1-495b-a49f-57f0b2fb24a0.png'
   ];
 
   const testimonials = [
