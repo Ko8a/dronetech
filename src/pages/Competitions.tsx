@@ -1,10 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AnimatedElement from '../components/ui/AnimatedElement';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { Download, Calendar, Users, Award, MapPin } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import RegistrationForm from '../components/RegistrationForm';
 
 const Competitions = () => {
   // State for countdown timer
@@ -15,14 +17,13 @@ const Competitions = () => {
     seconds: 0
   });
 
-  // Set competition date (example: 2 months from now)
-  const competitionDate = new Date();
-  competitionDate.setMonth(competitionDate.getMonth() + 2);
+  // Set target date for countdown (April 14, 2025)
+  const targetDate = new Date(2025, 3, 14); // Month is 0-indexed, so 3 = April
 
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
-      const difference = competitionDate.getTime() - now.getTime();
+      const difference = targetDate.getTime() - now.getTime();
       
       if (difference <= 0) {
         clearInterval(timer);
@@ -39,6 +40,9 @@ const Competitions = () => {
     
     return () => clearInterval(timer);
   }, []);
+
+  // Set competition date (June 1, 2025)
+  const competitionDate = new Date(2025, 5, 1); // Month is 0-indexed, so 5 = June
 
   const testimonials = [
     {
@@ -70,7 +74,7 @@ const Competitions = () => {
         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img 
-              src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+              src="/lovable-uploads/0201f963-f922-489a-8cd2-3cfd195fce9b.png" 
               alt="Drone Competition" 
               className="w-full h-full object-cover"
             />
@@ -99,7 +103,7 @@ const Competitions = () => {
             {/* Countdown Timer */}
             <AnimatedElement animation="animate-fade-in" delay={800}>
               <div className="mb-10">
-                <p className="text-white/80 mb-4">Next competition starts in:</p>
+                <p className="text-white/80 mb-4">Registration for next competition starts in:</p>
                 <div className="flex flex-wrap justify-center md:justify-start gap-4">
                   <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 w-24 text-center">
                     <span className="block text-3xl font-bold">{timeLeft.days}</span>
@@ -122,9 +126,19 @@ const Competitions = () => {
             </AnimatedElement>
             
             <AnimatedElement animation="animate-fade-in" delay={1000}>
-              <button className="inline-flex items-center rounded-lg bg-primary px-8 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2">
-                Register Now
-              </button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="inline-flex items-center rounded-lg bg-primary px-8 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2">
+                    Register Now
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-bold">Registration Form</DialogTitle>
+                  </DialogHeader>
+                  <RegistrationForm />
+                </DialogContent>
+              </Dialog>
             </AnimatedElement>
           </div>
         </section>
@@ -146,12 +160,7 @@ const Competitions = () => {
                     <div>
                       <h3 className="font-semibold text-lg mb-2">Date & Time</h3>
                       <p className="text-muted-foreground">
-                        {competitionDate.toLocaleDateString('en-US', { 
-                          weekday: 'long',
-                          year: 'numeric', 
-                          month: 'long', 
-                          day: 'numeric' 
-                        })}
+                        June 1, 2025
                       </p>
                       <p className="text-muted-foreground">9:00 AM - 6:00 PM</p>
                     </div>
@@ -165,7 +174,7 @@ const Competitions = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg mb-2">Location</h3>
-                      <p className="text-muted-foreground">Digital Hub Technology Park</p>
+                      <p className="text-muted-foreground">AITU</p>
                       <p className="text-muted-foreground">Astana, Kazakhstan</p>
                     </div>
                   </div>
@@ -282,17 +291,22 @@ const Competitions = () => {
               <AnimatedElement animation="animate-fade-in" delay={200} threshold={0.1}>
                 <div className="bg-secondary/30 rounded-xl p-8 mb-8 flex flex-col md:flex-row items-center justify-between">
                   <div className="mb-6 md:mb-0">
-                    <h3 className="font-bold text-xl mb-2">MDC 2023 Rulebook</h3>
+                    <h3 className="font-bold text-xl mb-2">KAT & MDC 2025 Rulebook</h3>
                     <p className="text-muted-foreground mb-4">Complete regulations, scoring criteria, and equipment specifications.</p>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>PDF format, 2.4 MB</li>
-                      <li>Last updated: October 2023</li>
+                      <li>Last updated: April 2025</li>
                     </ul>
                   </div>
-                  <button className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2">
+                  <a 
+                    href="https://docs.google.com/document/d/1zeaUbhghQi6XcOZwImKqgsPRsAFWutuD/edit?usp=sharing&ouid=100434000340394186692&rtpof=true&sd=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2"
+                  >
                     <Download className="mr-2 h-4 w-4" />
                     Download Rulebook
-                  </button>
+                  </a>
                 </div>
               </AnimatedElement>
               
