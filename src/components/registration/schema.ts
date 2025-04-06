@@ -45,4 +45,18 @@ export const formSchema = (selectedCountry: string) => z.object({
   })
 });
 
-export type FormValues = z.infer<ReturnType<typeof formSchema>>;
+export type FormValues = {
+  country: string;
+  city: string;
+  institution: string;
+  teamName: string;
+  mentorFullName: string;
+  mentorPhone: string; 
+  mentorEmail: string;
+  competitionType: string;
+  participants: {
+    fullName: string;
+    phone: string;
+    telegram: string;
+  }[];
+};

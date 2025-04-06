@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -6,7 +7,7 @@ import { Form } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 
 // Import our new components and utilities
-import { formSchema } from './registration/schema';
+import { formSchema, FormValues } from './registration/schema';
 import { competitionTypes } from './registration/utils';
 import BasicInfoFields from './registration/BasicInfoFields';
 import MentorFields from './registration/MentorFields';
@@ -21,7 +22,7 @@ const RegistrationForm = () => {
   const [selectedCompetitionType, setSelectedCompetitionType] = useState<string>("");
   const { toast } = useToast();
 
-  const form = useForm({
+  const form = useForm<FormValues>({
     resolver: zodResolver(formSchema(selectedCountry)),
     defaultValues: {
       country: "",
@@ -87,7 +88,7 @@ const RegistrationForm = () => {
     }
   };
 
-  async function onSubmit(data: any) {
+  async function onSubmit(data: FormValues) {
     // Check minimum required competitors for drone soccer
     if (data.competitionType === "drone-soccer") {
       const validParticipants = data.participants.filter(p => 
