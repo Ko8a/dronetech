@@ -5,12 +5,14 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { toast } from "@/components/ui/use-toast";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { useTranslation } from '../../hooks/useTranslation';
 
 interface PhotoGalleryProps {
   galleryImages: string[];
 }
 
 const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
+  const { t } = useTranslation();
   const [errorCount, setErrorCount] = React.useState(0);
   const [loadedImages, setLoadedImages] = React.useState<boolean[]>(Array(galleryImages.length).fill(false));
   
@@ -24,8 +26,8 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
     setLoadedImages(newLoadedImages);
     
     toast({
-      title: "Ошибка загрузки",
-      description: `Не удалось загрузить изображение #${index + 1}`,
+      title: t('loadingError'),
+      description: `${t('imageLoadFailed')}${index + 1}`,
       variant: "destructive",
     });
   };
@@ -43,11 +45,11 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
         <AnimatedElement animation="animate-fade-in" threshold={0.1}>
           <div className="text-center mb-12">
             <span className="inline-block px-3 py-1 bg-primary/10 text-primary-foreground rounded-full text-sm font-medium mb-3">
-              Фотогалерея соревнований
+              {t('photoGallery')}
             </span>
-            <h2 className="text-3xl font-bold mb-4">Моменты с прошедших мероприятий</h2>
+            <h2 className="text-3xl font-bold mb-4">{t('competitionMoments')}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Переживите заново захватывающие моменты и инновации с наших предыдущих MDC соревнований.
+              {t('galleryDescription')}
             </p>
           </div>
         </AnimatedElement>
@@ -56,9 +58,9 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
           <div className="max-w-5xl mx-auto">
             {errorCount > 0 && (
               <Alert variant="destructive" className="mb-4">
-                <AlertTitle>Проблемы с изображениями</AlertTitle>
+                <AlertTitle>{t('imageProblems')}</AlertTitle>
                 <AlertDescription>
-                  Не удалось загрузить {errorCount} из {galleryImages.length} изображений.
+                  {t('failedToLoad')} {errorCount} {t('outOf')} {galleryImages.length} {t('images')}.
                 </AlertDescription>
               </Alert>
             )}
@@ -71,7 +73,7 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
                       <AspectRatio ratio={16/9} className="bg-muted rounded-xl overflow-hidden">
                         <img 
                           src={image} 
-                          alt={`Соревнование дронов ${index + 1}`} 
+                          alt={`${t('competitions')} ${index + 1}`} 
                           className="w-full h-full object-cover transition-opacity duration-300"
                           style={{ opacity: loadedImages[index] ? 1 : 0 }}
                           onError={() => handleImageError(image, index)}

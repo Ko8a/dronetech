@@ -2,8 +2,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube, Linkedin } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
   
   return (
@@ -19,57 +21,57 @@ const Footer = () => {
               />
             </Link>
             <p className="text-gray-300 mb-6 max-w-md">
-              Training the next generation of UAV operators through cutting-edge educational programs and competitive events.
+              {t('heroSubtitle')}
             </p>
             <p className="text-gray-400 text-sm">
-              &copy; {currentYear} DroneTech UAV Laboratory. All rights reserved.
+              &copy; {currentYear} DroneTech UAV Laboratory. {t('rights')}
             </p>
           </div>
           
           <div>
-            <h4 className="font-bold text-gray-200 mb-6">Quick Links</h4>
+            <h4 className="font-bold text-gray-200 mb-6">{t('quickLinks')}</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-primary transition-colors">Home</Link>
+                <Link to="/" className="text-gray-300 hover:text-primary transition-colors">{t('home')}</Link>
               </li>
               <li>
-                <Link to="/competitions" className="text-gray-300 hover:text-primary transition-colors">Competitions</Link>
+                <Link to="/competitions" className="text-gray-300 hover:text-primary transition-colors">{t('competitions')}</Link>
               </li>
               <li>
-                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">Training</Link>
+                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">{t('training')}</Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-primary transition-colors">Contact Us</Link>
+                <Link to="/contact" className="text-gray-300 hover:text-primary transition-colors">{t('contactUs')}</Link>
               </li>
               <li>
-                <a href="#team" className="text-gray-300 hover:text-primary transition-colors">Our Team</a>
+                <a href="#team" className="text-gray-300 hover:text-primary transition-colors">{t('ourTeam')}</a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold text-gray-200 mb-6">Training</h4>
+            <h4 className="font-bold text-gray-200 mb-6">{t('training_footer')}</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">Free Lessons</Link>
+                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">{t('freeLessons')}</Link>
               </li>
               <li>
-                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">RTK Installation</Link>
+                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">{t('rtkInstallation')}</Link>
               </li>
               <li>
-                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">OpticalFlow Setup</Link>
+                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">{t('opticalFlowSetup')}</Link>
               </li>
               <li>
-                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">Payload Drop Systems</Link>
+                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">{t('payloadDropSystems')}</Link>
               </li>
               <li>
-                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">Premium Courses</Link>
+                <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">{t('premiumCourses')}</Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold text-gray-200 mb-6">Contact</h4>
+            <h4 className="font-bold text-gray-200 mb-6">{t('contactInfo')}</h4>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Mail className="w-5 h-5 text-primary mr-3 mt-0.5" />
@@ -115,18 +117,18 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex space-x-6 mb-4 md:mb-0">
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              Privacy Policy
+              {t('privacy')}
             </a>
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              Terms of Service
+              {t('terms')}
             </a>
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              Cookie Policy
+              {t('cookies')}
             </a>
           </div>
           
           <div className="text-gray-400 text-sm">
-            Designed and developed by DroneTech
+            {t('designed')}
           </div>
         </div>
       </div>

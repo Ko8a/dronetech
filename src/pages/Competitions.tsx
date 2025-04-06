@@ -7,8 +7,11 @@ import EventDetails from '../components/competitions/EventDetails';
 import PhotoGallery from '../components/competitions/PhotoGallery';
 import CompetitionRegulations from '../components/competitions/CompetitionRegulations';
 import TestimonialsSection from '../components/competitions/TestimonialsSection';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Competitions = () => {
+  const { t } = useTranslation();
+  
   // Set target date for countdown (April 14, 2025)
   const targetDate = new Date(2025, 3, 14); // Month is 0-indexed, so 3 = April
 

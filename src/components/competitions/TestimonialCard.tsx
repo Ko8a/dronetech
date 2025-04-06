@@ -2,6 +2,7 @@
 import React from 'react';
 import AnimatedElement from '../ui/AnimatedElement';
 import { toast } from "@/components/ui/use-toast";
+import { useTranslation } from '../../hooks/useTranslation';
 
 interface TestimonialCardProps {
   name: string;
@@ -12,11 +13,13 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard = ({ name, role, comment, image, index }: TestimonialCardProps) => {
+  const { t } = useTranslation();
+  
   const handleImageError = (name: string) => {
     console.error(`Failed to load testimonial image for ${name}`);
     toast({
-      title: "Ошибка загрузки",
-      description: `Не удалось загрузить фото для ${name}`,
+      title: t('loadingError'),
+      description: `${t('failedToLoad')} ${name}`,
       variant: "destructive",
     });
   };

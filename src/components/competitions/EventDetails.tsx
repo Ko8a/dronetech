@@ -2,14 +2,17 @@
 import React from 'react';
 import AnimatedElement from '../ui/AnimatedElement';
 import { Calendar, Users, Award, MapPin } from 'lucide-react';
+import { useTranslation } from '../../hooks/useTranslation';
 
 const EventDetails = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <AnimatedElement animation="animate-fade-in" threshold={0.1}>
-            <h2 className="text-3xl font-bold mb-8 text-center">Event Details</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">{t('eventDetails')}</h2>
           </AnimatedElement>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -19,7 +22,7 @@ const EventDetails = () => {
                   <Calendar className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Date & Time</h3>
+                  <h3 className="font-semibold text-lg mb-2">{t('dateTime')}</h3>
                   <p className="text-muted-foreground">
                     June 1, 2025
                   </p>
@@ -34,7 +37,7 @@ const EventDetails = () => {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Location</h3>
+                  <h3 className="font-semibold text-lg mb-2">{t('location')}</h3>
                   <p className="text-muted-foreground">AITU</p>
                   <p className="text-muted-foreground">Astana, Kazakhstan</p>
                 </div>
@@ -47,9 +50,9 @@ const EventDetails = () => {
                   <Users className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Participants</h3>
-                  <p className="text-muted-foreground">Open to individuals and teams</p>
-                  <p className="text-muted-foreground">All skill levels welcome</p>
+                  <h3 className="font-semibold text-lg mb-2">{t('participants')}</h3>
+                  <p className="text-muted-foreground">{t('openToTeams')}</p>
+                  <p className="text-muted-foreground">{t('allSkillLevels')}</p>
                 </div>
               </div>
             </AnimatedElement>
@@ -60,10 +63,10 @@ const EventDetails = () => {
                   <Award className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Prizes</h3>
-                  <p className="text-muted-foreground">1st Place: $5,000</p>
-                  <p className="text-muted-foreground">2nd Place: $2,500</p>
-                  <p className="text-muted-foreground">3rd Place: $1,000</p>
+                  <h3 className="font-semibold text-lg mb-2">{t('prizes')}</h3>
+                  <p className="text-muted-foreground">{t('firstPlace')}</p>
+                  <p className="text-muted-foreground">{t('secondPlace')}</p>
+                  <p className="text-muted-foreground">{t('thirdPlace')}</p>
                 </div>
               </div>
             </AnimatedElement>
