@@ -1,9 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
+import { FileText } from "lucide-react";
 
 // Import our new components and utilities
 import { formSchema, FormValues } from './registration/schema';
@@ -82,6 +85,25 @@ const RegistrationForm = () => {
     }
   };
 
+  // Save registration data to localStorage
+  const saveRegistrationRecord = (data: FormValues) => {
+    try {
+      // Get existing records from localStorage
+      const existingRecordsJson = localStorage.getItem("registrationRecords");
+      const existingRecords: FormValues[] = existingRecordsJson 
+        ? JSON.parse(existingRecordsJson) 
+        : [];
+      
+      // Add new record
+      const updatedRecords = [...existingRecords, data];
+      
+      // Save back to localStorage
+      localStorage.setItem("registrationRecords", JSON.stringify(updatedRecords));
+    } catch (error) {
+      console.error("Error saving registration record:", error);
+    }
+  };
+
   async function onSubmit(data: FormValues) {
     // Check minimum required competitors for drone soccer
     if (data.competitionType === "drone-soccer") {
@@ -100,17 +122,18 @@ const RegistrationForm = () => {
     }
 
     try {
-      // Here we would typically send the data to Google Sheets
-      // For now, let's just log it and show a success message
-      console.log("Form submitted:", data);
+      // Save the registration data
+      saveRegistrationRecord(data);
       
       toast({
         title: "Registration Submitted",
         description: "Thank you for registering! Your data has been recorded.",
       });
       
-      // Log message about Google Sheets integration
-      console.log("Note: Data would be sent to Google Sheets in a production environment");
+      // Reset form
+      form.reset();
+      setSelectedCountry("");
+      setSelectedCompetitionType("");
       
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -137,66 +160,76 @@ const RegistrationForm = () => {
   }, [selectedCompetitionType, form]);
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <BasicInfoFields 
-          form={form} 
-          selectedCountry={selectedCountry} 
-          onCountryChange={handleCountryChange} 
-        />
-        
-        <MentorFields 
-          form={form} 
-          selectedCountry={selectedCountry} 
-        />
-        
-        <CompetitionTypeField 
-          form={form} 
-          onCompetitionTypeChange={handleCompetitionTypeChange} 
-        />
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold">Registration Form</h2>
+        <Link to="/registration-records" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800">
+          <FileText className="w-4 h-4 mr-1" />
+          View Registration Records
+        </Link>
+      </div>
+      
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <BasicInfoFields 
+            form={form} 
+            selectedCountry={selectedCountry} 
+            onCountryChange={handleCountryChange} 
+          />
+          
+          <MentorFields 
+            form={form} 
+            selectedCountry={selectedCountry} 
+          />
+          
+          <CompetitionTypeField 
+            form={form} 
+            onCompetitionTypeChange={handleCompetitionTypeChange} 
+          />
 
-        {selectedCompetition && (
-          <>
-            <h3 className="text-xl font-semibold border-b pb-2">Participants Information</h3>
-            
-            {/* Here we're using the fields from useFieldArray which will reflect the current state */}
-            {fields.map((field, index) => (
-              <ParticipantFields
-                key={field.id}
-                index={index}
-                form={form}
-                selectedCountry={selectedCountry}
-                canRemove={selectedCompetition.id === "drone-soccer" && fields.length > 5}
-                onRemove={() => {
-                  // Safety check to prevent removing below minimum
-                  if (fields.length > 5) {
-                    remove(index);
-                  }
-                }}
-              />
-            ))}
-            
-            {/* Add participant button (only for Drone Soccer and less than max) */}
-            {selectedCompetition.id === "drone-soccer" && fields.length < 6 && (
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => {
-                  // Safety check to prevent adding too many
-                  if (fields.length < 6) {
-                    append({ fullName: "", phone: "", telegram: "" });
-                  }
-                }}
-              >
-                Add Participant
-              </Button>
-            )}
-          </>
-        )}
-        
-        <Button type="submit" className="w-full">Submit Registration</Button>
-      </form>
-    </Form>
+          {selectedCompetition && (
+            <>
+              <h3 className="text-xl font-semibold border-b pb-2">Participants Information</h3>
+              
+              {/* Here we're using the fields from useFieldArray which will reflect the current state */}
+              {fields.map((field, index) => (
+                <ParticipantFields
+                  key={field.id}
+                  index={index}
+                  form={form}
+                  selectedCountry={selectedCountry}
+                  canRemove={selectedCompetition.id === "drone-soccer" && fields.length > 5}
+                  onRemove={() => {
+                    // Safety check to prevent removing below minimum
+                    if (fields.length > 5) {
+                      remove(index);
+                    }
+                  }}
+                />
+              ))}
+              
+              {/* Add participant button (only for Drone Soccer and less than max) */}
+              {selectedCompetition.id === "drone-soccer" && fields.length < 6 && (
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    // Safety check to prevent adding too many
+                    if (fields.length < 6) {
+                      append({ fullName: "", phone: "", telegram: "" });
+                    }
+                  }}
+                >
+                  Add Participant
+                </Button>
+              )}
+            </>
+          )}
+          
+          <Button type="submit" className="w-full">Submit Registration</Button>
+        </form>
+      </Form>
+    </div>
   );
 };
 
