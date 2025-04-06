@@ -12,7 +12,7 @@ import {
 import { FormValues } from "./schema";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
-import { CountryCode } from 'libphonenumber-js/types';
+import type { CountryCode } from 'libphonenumber-js';
 
 interface MentorFieldsProps {
   form: UseFormReturn<FormValues>;
