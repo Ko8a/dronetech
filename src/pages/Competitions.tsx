@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -43,6 +44,20 @@ const Competitions = () => {
 
   // Set competition date (June 1, 2025)
   const competitionDate = new Date(2025, 5, 1); // Month is 0-indexed, so 5 = June
+
+  const galleryImages = [
+    'public/lovable-uploads/f05fecb4-3d2c-4add-8995-74fb113f3574.png',
+    'public/lovable-uploads/df8138ea-f146-4d7b-9c6e-59b7dfff3be3.png',
+    'public/lovable-uploads/eb37e72e-99c2-40c8-97e5-5f1edf1440fc.png',
+    'public/lovable-uploads/189d314c-7c1f-496a-8c9d-2a2178adea78.png',
+    'public/lovable-uploads/bb811f68-22dd-479e-becb-d679c3be8ca0.png',
+    'public/lovable-uploads/15df60ef-8122-43a3-889d-eaf527499d04.png',
+    'public/lovable-uploads/5a2fc48c-91b3-4067-b6c9-c91f3dc26c13.png',
+    'public/lovable-uploads/e6935bfa-9a51-4fc2-8e8c-f592bd8aa4ca.png',
+    'public/lovable-uploads/942617de-94ad-4c5b-a185-4960314b4c4b.png',
+    'public/lovable-uploads/3e53d7e1-6143-4eed-bacb-6a87ced5a212.png',
+    'public/lovable-uploads/be13405b-c38e-4674-aa94-df76d4771f70.png',
+  ];
 
   const testimonials = [
     {
@@ -228,41 +243,21 @@ const Competitions = () => {
             
             <AnimatedElement animation="animate-fade-in" delay={200} threshold={0.1}>
               <div className="max-w-5xl mx-auto">
-                <Carousel className="w-full">
+                <Carousel className="w-full" opts={{ loop: true }} autoplay={true} autoplayInterval={2000}>
                   <CarouselContent>
-                    <CarouselItem>
-                      <div className="p-1">
-                        <div className="overflow-hidden rounded-xl">
-                          <img 
-                            src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                            alt="Competition Scene" 
-                            className="w-full aspect-[16/9] object-cover"
-                          />
+                    {galleryImages.map((image, index) => (
+                      <CarouselItem key={index}>
+                        <div className="p-1">
+                          <div className="overflow-hidden rounded-xl">
+                            <img 
+                              src={image.replace('public/', '/')} 
+                              alt={`Competition Scene ${index + 1}`} 
+                              className="w-full aspect-[16/9] object-cover"
+                            />
+                          </div>
                         </div>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem>
-                      <div className="p-1">
-                        <div className="overflow-hidden rounded-xl">
-                          <img 
-                            src="https://images.unsplash.com/photo-1508444845599-5c89863b1c44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" 
-                            alt="Drone in Flight" 
-                            className="w-full aspect-[16/9] object-cover"
-                          />
-                        </div>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem>
-                      <div className="p-1">
-                        <div className="overflow-hidden rounded-xl">
-                          <img 
-                            src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                            alt="Award Ceremony" 
-                            className="w-full aspect-[16/9] object-cover"
-                          />
-                        </div>
-                      </div>
-                    </CarouselItem>
+                      </CarouselItem>
+                    ))}
                   </CarouselContent>
                   <CarouselPrevious className="left-2" />
                   <CarouselNext className="right-2" />
