@@ -24,6 +24,10 @@ const TestimonialCard = ({ name, role, comment, image, index }: TestimonialCardP
               src={image} 
               alt={name} 
               className="w-full h-full object-cover"
+              onError={(e) => {
+                console.error(`Failed to load testimonial image for ${name}`);
+                e.currentTarget.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80";
+              }}
             />
           </div>
         </div>

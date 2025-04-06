@@ -35,6 +35,10 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
                           src={image} 
                           alt={`Competition Scene ${index + 1}`} 
                           className="w-full aspect-[16/9] object-cover"
+                          onError={(e) => {
+                            console.error(`Failed to load image: ${image}`);
+                            e.currentTarget.src = "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80";
+                          }}
                         />
                       </div>
                     </div>
