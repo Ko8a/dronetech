@@ -4,14 +4,18 @@ import AnimatedElement from '../ui/AnimatedElement';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { toast } from "@/components/ui/use-toast";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 interface PhotoGalleryProps {
   galleryImages: string[];
 }
 
 const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
+  const [errorCount, setErrorCount] = React.useState(0);
+  
   const handleImageError = (image: string, index: number) => {
     console.error(`Failed to load image: ${image}`);
+    setErrorCount(prev => prev + 1);
     toast({
       title: "Ошибка загрузки",
       description: `Не удалось загрузить изображение #${index + 1}`,
@@ -46,10 +50,7 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
                           src={image} 
                           alt={`Соревнование дронов ${index + 1}`} 
                           className="w-full h-full object-cover"
-                          onError={(e) => {
-                            handleImageError(image, index);
-                            e.currentTarget.src = "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80";
-                          }}
+                          onError={() => handleImageError(image, index)}
                         />
                       </AspectRatio>
                     </div>
