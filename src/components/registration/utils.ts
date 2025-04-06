@@ -44,31 +44,33 @@ export const competitionTypes = [
   }
 ];
 
-// Phone number max length by country
-export const phoneMaxLengthByCountry: Record<string, number> = {
-  Kazakhstan: 15,  // +7 (10 digits) + format characters
-  Russia: 15,      // +7 (10 digits) + format characters
-  Kyrgyzstan: 16,  // +996 (9 digits) + format characters
-  Uzbekistan: 17,  // +998 (9 digits) + format characters
-  Tajikistan: 17,  // +992 (9 digits) + format characters
-  China: 17,       // +86 (11 digits) + format characters
-  Other: 20        // Allow longer for other countries
-};
-
-// Get maximum phone length for a country
-export const getPhoneMaxLength = (country: string): number => {
-  return phoneMaxLengthByCountry[country] || 20; // Default to 20 if country not found
-};
-
-// Get country code for phone input
-export const getCountryCode = (country: string): string | undefined => {
-  const countryMap: Record<string, string> = {
-    "Kazakhstan": "KZ",
-    "Russia": "RU",
-    "Kyrgyzstan": "KG",
-    "Uzbekistan": "UZ",
-    "Tajikistan": "TJ",
-    "China": "CN"
-  };
-  return countryMap[country];
+// Phone formatting helper function
+export const formatPhoneNumber = (value: string, country: string): string => {
+  if (!value) return value;
+  
+  // Remove all non-digit characters
+  const phoneNumber = value.replace(/[^\d]/g, '');
+  
+  // Format based on country
+  if (country === "Kazakhstan") {
+    // Format as +7-(XXX)-XXX-XX-XX
+    if (phoneNumber.length <= 1) return phoneNumber;
+    if (phoneNumber.length <= 4) return `+7-(${phoneNumber.slice(1)})`;
+    if (phoneNumber.length <= 7) return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4)}`;
+    if (phoneNumber.length <= 9) return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7)}`;
+    return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7, 9)}-${phoneNumber.slice(9, 11)}`;
+  } else if (country === "Russia") {
+    // Format as +7-(XXX)-XXX-XX-XX
+    if (phoneNumber.length <= 1) return phoneNumber;
+    if (phoneNumber.length <= 4) return `+7-(${phoneNumber.slice(1)})`;
+    if (phoneNumber.length <= 7) return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4)}`;
+    if (phoneNumber.length <= 9) return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7)}`;
+    return `+7-(${phoneNumber.slice(1, 4)})-${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7, 9)}-${phoneNumber.slice(9, 11)}`;
+  }
+  
+  // Default international format
+  if (phoneNumber.length <= 3) return `+${phoneNumber}`;
+  if (phoneNumber.length <= 6) return `+${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3)}`;
+  if (phoneNumber.length <= 9) return `+${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`;
+  return `+${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 9)}-${phoneNumber.slice(9)}`;
 };

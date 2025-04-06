@@ -35,10 +35,7 @@ const CompetitionTypeField = ({
         <FormItem>
           <FormLabel>Competition Type</FormLabel>
           <Select 
-            onValueChange={(value) => {
-              field.onChange(value);
-              onCompetitionTypeChange(value);
-            }}
+            onValueChange={(value) => onCompetitionTypeChange(value)}
             defaultValue={field.value}
           >
             <FormControl>

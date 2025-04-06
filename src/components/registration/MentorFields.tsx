@@ -9,10 +9,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { formatPhoneNumber } from "./utils";
 import { FormValues } from "./schema";
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
-import { getCountryCode, getPhoneMaxLength } from './utils';
 
 interface MentorFieldsProps {
   form: UseFormReturn<FormValues>;
@@ -20,16 +18,11 @@ interface MentorFieldsProps {
 }
 
 const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
-  // Handle phone number input to limit length
-  const handlePhoneChange = (value: string) => {
-    // Get max length based on selected country
-    const maxLength = getPhoneMaxLength(selectedCountry);
-    
-    // Limit to country-specific length
-    if (value && value.length > maxLength) {
-      return;
-    }
-    form.setValue("mentorPhone", value || "");
+  // Format phone number as user types
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>, onChange: (value: string) => void) => {
+    const value = e.target.value;
+    const formattedValue = formatPhoneNumber(value, selectedCountry);
+    onChange(formattedValue);
   };
 
   return (
@@ -60,17 +53,13 @@ const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
             <FormItem>
               <FormLabel>Mentor Phone</FormLabel>
               <FormControl>
-                <div className="phone-input-container">
-                  <PhoneInput
-                    international
-                    defaultCountry={getCountryCode(selectedCountry) as any}
-                    value={field.value}
-                    onChange={handlePhoneChange}
-                    onBlur={field.onBlur}
-                    countries={["KZ", "RU", "KG", "UZ", "TJ", "CN"]}
-                    className="phone-input flex h-10 w-full rounded-md border border-input bg-background px-3 py-2"
-                  />
-                </div>
+                <Input 
+                  placeholder={selectedCountry === "Kazakhstan" ? "+7-(7XX)-XXX-XX-XX" : "+X-(XXX)-XXX-XX-XX"} 
+                  onChange={(e) => handlePhoneChange(e, field.onChange)}
+                  value={field.value}
+                  onBlur={field.onBlur}
+                  name={field.name}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
