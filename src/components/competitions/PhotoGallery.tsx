@@ -12,15 +12,29 @@ interface PhotoGalleryProps {
 
 const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
   const [errorCount, setErrorCount] = React.useState(0);
+  const [loadedImages, setLoadedImages] = React.useState<boolean[]>(Array(galleryImages.length).fill(false));
   
   const handleImageError = (image: string, index: number) => {
     console.error(`Failed to load image: ${image}`);
     setErrorCount(prev => prev + 1);
+    
+    // Update loaded status for this image
+    const newLoadedImages = [...loadedImages];
+    newLoadedImages[index] = false;
+    setLoadedImages(newLoadedImages);
+    
     toast({
       title: "Ошибка загрузки",
       description: `Не удалось загрузить изображение #${index + 1}`,
       variant: "destructive",
     });
+  };
+  
+  const handleImageLoad = (index: number) => {
+    // Update loaded status for this image
+    const newLoadedImages = [...loadedImages];
+    newLoadedImages[index] = true;
+    setLoadedImages(newLoadedImages);
   };
 
   return (
@@ -40,6 +54,15 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
         
         <AnimatedElement animation="animate-fade-in" delay={200} threshold={0.1}>
           <div className="max-w-5xl mx-auto">
+            {errorCount > 0 && (
+              <Alert variant="destructive" className="mb-4">
+                <AlertTitle>Проблемы с изображениями</AlertTitle>
+                <AlertDescription>
+                  Не удалось загрузить {errorCount} из {galleryImages.length} изображений.
+                </AlertDescription>
+              </Alert>
+            )}
+            
             <Carousel className="w-full" opts={{ loop: true }} autoplay={true} autoplayInterval={5000}>
               <CarouselContent>
                 {galleryImages.map((image, index) => (
@@ -49,8 +72,10 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
                         <img 
                           src={image} 
                           alt={`Соревнование дронов ${index + 1}`} 
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-opacity duration-300"
+                          style={{ opacity: loadedImages[index] ? 1 : 0 }}
                           onError={() => handleImageError(image, index)}
+                          onLoad={() => handleImageLoad(index)}
                         />
                       </AspectRatio>
                     </div>

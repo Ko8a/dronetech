@@ -12,13 +12,19 @@ const Competitions = () => {
   // Set target date for countdown (April 14, 2025)
   const targetDate = new Date(2025, 3, 14); // Month is 0-indexed, so 3 = April
 
-  // Updated gallery images with default images that are guaranteed to work
+  // Updated gallery images with all our uploaded competition photos
   const galleryImages = [
-    'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?q=80&w=1000',
-    'https://images.unsplash.com/photo-1506947411487-a56738267384?q=80&w=1000',
-    'https://images.unsplash.com/photo-1473968512647-3e447244af8f?q=80&w=1000',
-    'https://images.unsplash.com/photo-1579829366248-204fe8413f31?q=80&w=1000',
-    'https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=1000'
+    '/lovable-uploads/5a730965-4a63-4939-bf41-c3b18e226469.png', // Drone close-up
+    '/lovable-uploads/c2c7286e-ebf8-4fbc-b1c4-a7b4499d53c5.png', // Kids watching competition
+    '/lovable-uploads/39af8e06-09d8-4278-9879-3d80bb67726d.png', // Contestants discussing
+    '/lovable-uploads/1c39704c-41cf-4542-8da8-73b317543b84.png', // Kids using controllers
+    '/lovable-uploads/23f6956e-106a-45b5-b8ae-c21f0044d091.png', // Competitor organizing equipment
+    '/lovable-uploads/e4e0e0b9-f568-4b90-86d9-dc3633d241c6.png', // Award ceremony with confetti
+    '/lovable-uploads/382e55ec-b1c2-495d-92d1-282cbe69b392.png', // Goal net view
+    '/lovable-uploads/e3e0e983-697b-4015-ab39-8245875c7102.png', // FPV pilots
+    '/lovable-uploads/0bbf0597-7a60-4ed3-afb6-4f00bf6d2577.png', // Drone in course structure
+    '/lovable-uploads/9cbb2df4-a30a-4c06-a704-945168520318.png', // FPV pilot with red cap
+    '/lovable-uploads/0023c51c-f5a9-4fb8-9e93-592434731d20.png' // Drone racing through lit-up course
   ];
 
   const testimonials = [
