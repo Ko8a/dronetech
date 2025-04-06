@@ -2,12 +2,22 @@
 import React from 'react';
 import AnimatedElement from '../ui/AnimatedElement';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { toast } from "@/components/ui/use-toast";
 
 interface PhotoGalleryProps {
   galleryImages: string[];
 }
 
 const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
+  const handleImageError = (image: string, index: number) => {
+    console.error(`Failed to load image: ${image}`);
+    toast({
+      title: "Ошибка загрузки",
+      description: `Не удалось загрузить изображение #${index + 1}`,
+      variant: "destructive",
+    });
+  };
+
   return (
     <section className="py-16 bg-secondary/50">
       <div className="container mx-auto px-6">
@@ -25,19 +35,19 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
         
         <AnimatedElement animation="animate-fade-in" delay={200} threshold={0.1}>
           <div className="max-w-5xl mx-auto">
-            <Carousel className="w-full" opts={{ loop: true }} autoplay={true} autoplayInterval={2000}>
+            <Carousel className="w-full" opts={{ loop: true }} autoplay={true} autoplayInterval={3000}>
               <CarouselContent>
                 {galleryImages.map((image, index) => (
                   <CarouselItem key={index}>
                     <div className="p-1">
-                      <div className="overflow-hidden rounded-xl">
+                      <div className="overflow-hidden rounded-xl bg-muted">
                         <img 
                           src={image} 
                           alt={`Competition Scene ${index + 1}`} 
                           className="w-full aspect-[16/9] object-cover"
                           onError={(e) => {
-                            console.error(`Failed to load image: ${image}`);
-                            e.currentTarget.src = "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80";
+                            handleImageError(image, index);
+                            e.currentTarget.src = "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80";
                           }}
                         />
                       </div>
@@ -45,8 +55,8 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
+              <CarouselPrevious className="left-2 bg-white/80 hover:bg-white" />
+              <CarouselNext className="right-2 bg-white/80 hover:bg-white" />
             </Carousel>
           </div>
         </AnimatedElement>

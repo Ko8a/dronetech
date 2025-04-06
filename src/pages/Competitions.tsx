@@ -14,17 +14,18 @@ const Competitions = () => {
 
   // Updated gallery images with the new uploaded images
   const galleryImages = [
-    '/lovable-uploads/0e9f2148-8069-4c29-b49f-20154d419815.png',
-    '/lovable-uploads/bfaecf32-ea44-46e5-b509-a196e1165f9c.png',
-    '/lovable-uploads/c3103704-85c6-44ad-91f3-54693289992e.png',
-    '/lovable-uploads/7f93c6f3-fee1-4645-a1e9-9ddad246aeba.png',
-    '/lovable-uploads/5e052a3d-45a5-4a6c-8805-92d1cb7c21be.png',
-    '/lovable-uploads/d9a93024-6e61-4390-bfdb-ad69799728fe.png',
-    '/lovable-uploads/6aaef658-1925-468e-89d1-8a530e3b0a34.png',
-    '/lovable-uploads/768b028b-82c2-43c2-b392-a7f7ddbb4252.png',
-    '/lovable-uploads/9ddfd0fa-8f08-4080-b110-1b2bf1830a87.png',
-    '/lovable-uploads/c4255f93-f9bb-4d8a-a573-3397e75c144a.png',
-    '/lovable-uploads/1c7f5e74-d277-40df-80fc-79957b30c170.png',
+    '/lovable-uploads/a36bc68d-54a2-48d3-a2d8-3197434dd166.png',
+    '/lovable-uploads/2fcea53e-c71c-4512-aad4-0598bc1e5a1c.png',
+    '/lovable-uploads/e8ed3d34-78fa-43b9-9ede-d1cb86ca5b36.png',
+    '/lovable-uploads/f342149b-cb52-48a5-87bb-765a4ce6e1df.png',
+    '/lovable-uploads/0e3b376c-3a1c-4165-bc66-d7b1e3add275.png',
+    '/lovable-uploads/a1c6fe10-bb9a-4137-b36d-14566a79c1ad.png',
+    '/lovable-uploads/7c485cb1-5242-4fc9-a466-4f968f80e71c.png',
+    '/lovable-uploads/6e42b777-57ac-4876-8356-98918e0334eb.png',
+    '/lovable-uploads/9febdc63-593d-4a5b-941b-fec7e51402f1.png',
+    '/lovable-uploads/2b6c60fb-0938-4f71-b3d1-25d6b5073a42.png',
+    '/lovable-uploads/6e1e3d4a-81a4-49f5-99ce-5fb16f59d43b.png',
+    '/lovable-uploads/d30145a2-bd82-4f68-a108-9bdd2ee3415c.png'
   ];
 
   const testimonials = [
