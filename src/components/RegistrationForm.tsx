@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -12,6 +13,9 @@ import BasicInfoFields from './registration/BasicInfoFields';
 import MentorFields from './registration/MentorFields';
 import CompetitionTypeField from './registration/CompetitionTypeField';
 import ParticipantFields from './registration/ParticipantFields';
+
+// Import styles for phone input
+import 'react-phone-number-input/style.css';
 
 const RegistrationForm = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>("");
@@ -72,8 +76,7 @@ const RegistrationForm = () => {
       else if (currentParticipants.length > requiredCompetitors) {
         // For Drone Soccer, keep at least 5 but no more than 6
         const targetCount = value === "drone-soccer" ? 
-          Math.min(Math.max(currentParticipants.length, 5), 6) : 
-          requiredCompetitors;
+          6 : requiredCompetitors;
         
         // Use setValue to update all participants at once
         const updatedParticipants = currentParticipants.slice(0, targetCount);
@@ -139,6 +142,32 @@ const RegistrationForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <style jsx global>{`
+          /* Custom styles for phone input */
+          .phone-input-container .PhoneInputCountry {
+            margin-right: 0.5rem;
+          }
+          
+          .phone-input {
+            border: none !important;
+            padding: 0 !important;
+          }
+          
+          .phone-input-container {
+            display: flex;
+            width: 100%;
+            border-radius: 0.375rem;
+            border: 1px solid hsl(var(--input));
+            background-color: hsl(var(--background));
+            padding: 0.5rem 0.75rem;
+          }
+          
+          .phone-input-container:focus-within {
+            outline: 2px solid hsl(var(--ring));
+            outline-offset: 2px;
+          }
+        `}</style>
+
         <BasicInfoFields 
           form={form} 
           selectedCountry={selectedCountry} 
@@ -166,31 +195,11 @@ const RegistrationForm = () => {
                 index={index}
                 form={form}
                 selectedCountry={selectedCountry}
-                canRemove={selectedCompetition.id === "drone-soccer" && fields.length > 5}
-                onRemove={() => {
-                  // Safety check to prevent removing below minimum
-                  if (fields.length > 5) {
-                    remove(index);
-                  }
-                }}
+                canRemove={false} // Remove ability to remove participants
+                onRemove={() => {}} // Empty function since we don't allow removal
+                isOptional={selectedCompetition.id === "drone-soccer" && index === 5} // 6th participant (index 5) is optional for drone soccer
               />
             ))}
-            
-            {/* Add participant button (only for Drone Soccer and less than max) */}
-            {selectedCompetition.id === "drone-soccer" && fields.length < 6 && (
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => {
-                  // Safety check to prevent adding too many
-                  if (fields.length < 6) {
-                    append({ fullName: "", phone: "", telegram: "" });
-                  }
-                }}
-              >
-                Add Participant
-              </Button>
-            )}
           </>
         )}
         

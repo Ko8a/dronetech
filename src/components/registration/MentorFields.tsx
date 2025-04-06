@@ -9,8 +9,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { formatPhoneNumber } from "./utils";
 import { FormValues } from "./schema";
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 interface MentorFieldsProps {
   form: UseFormReturn<FormValues>;
@@ -18,11 +19,17 @@ interface MentorFieldsProps {
 }
 
 const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
-  // Format phone number as user types
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>, onChange: (value: string) => void) => {
-    const value = e.target.value;
-    const formattedValue = formatPhoneNumber(value, selectedCountry);
-    onChange(formattedValue);
+  // Get country code for default selection
+  const getCountryCode = (country: string): string => {
+    const countryMap: Record<string, string> = {
+      "Kazakhstan": "KZ",
+      "Russia": "RU",
+      "Kyrgyzstan": "KG",
+      "Uzbekistan": "UZ",
+      "Tajikistan": "TJ",
+      "China": "CN"
+    };
+    return countryMap[country] || undefined;
   };
 
   return (
@@ -53,13 +60,17 @@ const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
             <FormItem>
               <FormLabel>Mentor Phone</FormLabel>
               <FormControl>
-                <Input 
-                  placeholder={selectedCountry === "Kazakhstan" ? "+7-(7XX)-XXX-XX-XX" : "+X-(XXX)-XXX-XX-XX"} 
-                  onChange={(e) => handlePhoneChange(e, field.onChange)}
-                  value={field.value}
-                  onBlur={field.onBlur}
-                  name={field.name}
-                />
+                <div className="phone-input-container">
+                  <PhoneInput
+                    international
+                    defaultCountry={getCountryCode(selectedCountry)}
+                    value={field.value}
+                    onChange={field.onChange}
+                    onBlur={field.onBlur}
+                    countries={["KZ", "RU", "KG", "UZ", "TJ", "CN"]}
+                    className="phone-input flex h-10 w-full rounded-md border border-input bg-background px-3 py-2"
+                  />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
