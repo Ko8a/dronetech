@@ -67,7 +67,7 @@ const Navbar = () => {
           {/* Logo that switches between white and dark versions based on scroll position */}
           <img 
             alt="DroneTech" 
-            className="h-8 md:h-10 transition-opacity duration-300" 
+            className={isScrolled ? "h-8 md:h-10 transition-all duration-300" : "h-2 md:h-2.5 transition-all duration-300"} 
             src={isScrolled ? "/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" : "/lovable-uploads/93547d72-c79f-4b73-8f07-61124bf740d5.png"} 
           />
         </Link>
