@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -11,13 +12,13 @@ const Competitions = () => {
   // Set target date for countdown (April 14, 2025)
   const targetDate = new Date(2025, 3, 14); // Month is 0-indexed, so 3 = April
 
-  // Updated gallery images - keeping only 5 images
+  // Updated gallery images - using all images from the carousel folder
   const galleryImages = [
-    'public/lovable-uploads/5b8eef5d-3668-4bc0-bba8-96d5d463a01f.png', // New image added
-    'public/lovable-uploads/e536adfe-7047-42ae-bc6c-d9106edbed45.png',
-    'public/lovable-uploads/509db9a5-5b9f-4394-a0bc-ea4fad4fd5ba.png',
-    'public/lovable-uploads/d3656ecf-e773-425e-ba00-638886b45589.png',
-    '/Ko8a/dronetech/public/lovable-uploads/careusel/ee3ee671-cf15-4060-9273-0bca95a35423.png'
+    '/lovable-uploads/careusel/ee3ee671-cf15-4060-9273-0bca95a35423.png',
+    '/lovable-uploads/careusel/a65c3213-4056-42f3-ae94-33f0339330d6.png',
+    '/lovable-uploads/careusel/b73e5646-e66d-475e-8077-89a55df903c5.png',
+    '/lovable-uploads/careusel/e71c6835-bd5b-4293-a9d0-bb0a5226baa1.png',
+    '/lovable-uploads/careusel/1f23891c-1da1-45f6-afda-c647180e39d5.png'
   ];
 
   const testimonials = [
