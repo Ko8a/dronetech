@@ -12,19 +12,19 @@ const Competitions = () => {
   // Set target date for countdown (April 14, 2025)
   const targetDate = new Date(2025, 3, 14); // Month is 0-indexed, so 3 = April
 
-  // Updated gallery images with the newly uploaded images
+  // Updated gallery images with images from the specified path
   const galleryImages = [
-    '/lovable-uploads/ee3ee671-cf15-4060-9273-0bca95a35423.png',
-    '/lovable-uploads/a65c3213-4056-42f3-ae94-33f0339330d6.png',
-    '/lovable-uploads/ff5d085b-300a-4dbd-a683-cbc90b6ff400.png',
-    '/lovable-uploads/c73e89f6-12e9-4641-a741-22912c8b1b56.png',
-    '/lovable-uploads/8d11d15c-daee-4746-b9db-d0c6a636fb7e.png',
-    '/lovable-uploads/9ca102c4-5a54-4dba-9cea-aa3bb783c1ef.png',
-    '/lovable-uploads/31b0508e-ba66-48fb-9b72-2b61ee31eee5.png',
-    '/lovable-uploads/9572de63-7396-4ab0-9971-b178fb8784fc.png',
-    '/lovable-uploads/6daf7bf7-96bf-4469-aad8-b0f6f3a76acf.png',
-    '/lovable-uploads/57c173d7-d5bc-4752-898c-72d61f5638cb.png',
-    '/lovable-uploads/f7ad6df3-591c-436b-97cd-da99364160ad.png'
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/ee3ee671-cf15-4060-9273-0bca95a35423.png',
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/a65c3213-4056-42f3-ae94-33f0339330d6.png',
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/ff5d085b-300a-4dbd-a683-cbc90b6ff400.png',
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/c73e89f6-12e9-4641-a741-22912c8b1b56.png',
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/8d11d15c-daee-4746-b9db-d0c6a636fb7e.png',
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/9ca102c4-5a54-4dba-9cea-aa3bb783c1ef.png',
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/31b0508e-ba66-48fb-9b72-2b61ee31eee5.png',
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/9572de63-7396-4ab0-9971-b178fb8784fc.png',
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/6daf7bf7-96bf-4469-aad8-b0f6f3a76acf.png',
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/57c173d7-d5bc-4752-898c-72d61f5638cb.png',
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/f7ad6df3-591c-436b-97cd-da99364160ad.png'
   ];
 
   const testimonials = [
