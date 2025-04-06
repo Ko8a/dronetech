@@ -2,6 +2,7 @@
 import React from 'react';
 import AnimatedElement from '../ui/AnimatedElement';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { toast } from "@/components/ui/use-toast";
 
 interface PhotoGalleryProps {
@@ -24,33 +25,33 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
         <AnimatedElement animation="animate-fade-in" threshold={0.1}>
           <div className="text-center mb-12">
             <span className="inline-block px-3 py-1 bg-primary/10 text-primary-foreground rounded-full text-sm font-medium mb-3">
-              Competition Gallery
+              Фотогалерея соревнований
             </span>
-            <h2 className="text-3xl font-bold mb-4">Moments from Past Events</h2>
+            <h2 className="text-3xl font-bold mb-4">Моменты с прошедших мероприятий</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Relive the excitement and innovation from our previous MDC competitions.
+              Переживите заново захватывающие моменты и инновации с наших предыдущих MDC соревнований.
             </p>
           </div>
         </AnimatedElement>
         
         <AnimatedElement animation="animate-fade-in" delay={200} threshold={0.1}>
           <div className="max-w-5xl mx-auto">
-            <Carousel className="w-full" opts={{ loop: true }} autoplay={true} autoplayInterval={3000}>
+            <Carousel className="w-full" opts={{ loop: true }} autoplay={true} autoplayInterval={5000}>
               <CarouselContent>
                 {galleryImages.map((image, index) => (
                   <CarouselItem key={index}>
                     <div className="p-1">
-                      <div className="overflow-hidden rounded-xl bg-muted">
+                      <AspectRatio ratio={16/9} className="bg-muted rounded-xl overflow-hidden">
                         <img 
                           src={image} 
-                          alt={`Competition Scene ${index + 1}`} 
-                          className="w-full aspect-[16/9] object-cover"
+                          alt={`Соревнование дронов ${index + 1}`} 
+                          className="w-full h-full object-cover"
                           onError={(e) => {
                             handleImageError(image, index);
                             e.currentTarget.src = "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80";
                           }}
                         />
-                      </div>
+                      </AspectRatio>
                     </div>
                   </CarouselItem>
                 ))}
