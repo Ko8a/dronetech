@@ -1,12 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { Link } from "react-router-dom";
-import { FileText } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 // Import our new components and utilities
 import { formSchema, FormValues } from './registration/schema';
@@ -85,22 +83,31 @@ const RegistrationForm = () => {
     }
   };
 
-  // Save registration data to localStorage
-  const saveRegistrationRecord = (data: FormValues) => {
+  // Save registration data to Supabase
+  const saveRegistrationRecord = async (data: FormValues) => {
     try {
-      // Get existing records from localStorage
-      const existingRecordsJson = localStorage.getItem("registrationRecords");
-      const existingRecords: FormValues[] = existingRecordsJson 
-        ? JSON.parse(existingRecordsJson) 
-        : [];
+      // Create record in Supabase
+      const { error } = await supabase
+        .from('registration_records')
+        .insert({
+          team_name: data.teamName,
+          institution: data.institution,
+          country: data.country,
+          city: data.city,
+          competition_type: data.competitionType,
+          mentor_name: data.mentorFullName,
+          mentor_phone: data.mentorPhone,
+          mentor_email: data.mentorEmail,
+          participants: data.participants
+        });
       
-      // Add new record
-      const updatedRecords = [...existingRecords, data];
-      
-      // Save back to localStorage
-      localStorage.setItem("registrationRecords", JSON.stringify(updatedRecords));
+      if (error) {
+        console.error("Error inserting registration record:", error);
+        throw error;
+      }
     } catch (error) {
       console.error("Error saving registration record:", error);
+      throw error;
     }
   };
 
@@ -122,8 +129,8 @@ const RegistrationForm = () => {
     }
 
     try {
-      // Save the registration data
-      saveRegistrationRecord(data);
+      // Save the registration data to Supabase
+      await saveRegistrationRecord(data);
       
       toast({
         title: "Registration Submitted",
@@ -161,13 +168,7 @@ const RegistrationForm = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Registration Form</h2>
-        <Link to="/registration-records" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800">
-          <FileText className="w-4 h-4 mr-1" />
-          View Registration Records
-        </Link>
-      </div>
+      <h2 className="text-2xl font-bold">Registration Form</h2>
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

@@ -10,7 +10,6 @@ import Competitions from "./pages/Competitions";
 import Training from "./pages/Training";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import RegistrationRecords from "./pages/RegistrationRecords";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +25,6 @@ const App = () => (
             <Route path="/competitions" element={<Competitions />} />
             <Route path="/training" element={<Training />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/registration-records" element={<RegistrationRecords />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
