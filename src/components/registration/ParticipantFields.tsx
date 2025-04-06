@@ -42,6 +42,16 @@ const ParticipantFields = ({
     return countryMap[country];
   };
 
+  // Handle phone number input to limit length
+  const handlePhoneChange = (value: string) => {
+    // Limit to a reasonable length (typically 15 digits is the max for international numbers)
+    // E.164 standard: country code (1-3 digits) + national number (max 12 digits)
+    if (value && value.length > 16) {
+      return;
+    }
+    form.setValue(`participants.${index}.phone`, value || "");
+  };
+
   return (
     <div className={`space-y-6 p-4 border rounded-md ${isOptional ? 'border-dashed' : ''}`}>
       <h4 className="font-medium">
@@ -77,7 +87,7 @@ const ParticipantFields = ({
                     international
                     defaultCountry={getCountryCode(selectedCountry)}
                     value={field.value}
-                    onChange={field.onChange}
+                    onChange={handlePhoneChange}
                     onBlur={field.onBlur}
                     countries={["KZ", "RU", "KG", "UZ", "TJ", "CN"]}
                     className="phone-input flex h-10 w-full rounded-md border border-input bg-background px-3 py-2"

@@ -12,6 +12,9 @@ export const formSchema = z.object({
   mentorPhone: z.string()
     .refine(value => value && isPossiblePhoneNumber(value), {
       message: "Please enter a valid phone number",
+    })
+    .refine(value => !value || value.length <= 16, {
+      message: "Phone number is too long",
     }),
   mentorEmail: z.string().email("Invalid email format"),
   competitionType: z.string().min(1, "Please select a competition type"),
@@ -21,6 +24,9 @@ export const formSchema = z.object({
       phone: z.string()
         .refine(value => value && isPossiblePhoneNumber(value), {
           message: "Please enter a valid phone number",
+        })
+        .refine(value => !value || value.length <= 16, {
+          message: "Phone number is too long",
         }),
       telegram: z.string().min(2, "Telegram handle is required")
     })
