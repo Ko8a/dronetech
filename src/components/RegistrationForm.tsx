@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -98,7 +99,7 @@ const RegistrationForm = () => {
           mentor_name: data.mentorFullName,
           mentor_phone: data.mentorPhone,
           mentor_email: data.mentorEmail,
-          participants: data.participants
+          participants: data.participants as any
         });
       
       if (error) {
