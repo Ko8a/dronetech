@@ -45,18 +45,19 @@ const Competitions = () => {
   // Set competition date (June 1, 2025)
   const competitionDate = new Date(2025, 5, 1); // Month is 0-indexed, so 5 = June
 
+  // Updated gallery images with the new uploaded images
   const galleryImages = [
-    'public/lovable-uploads/f05fecb4-3d2c-4add-8995-74fb113f3574.png',
-    'public/lovable-uploads/df8138ea-f146-4d7b-9c6e-59b7dfff3be3.png',
-    'public/lovable-uploads/eb37e72e-99c2-40c8-97e5-5f1edf1440fc.png',
-    'public/lovable-uploads/189d314c-7c1f-496a-8c9d-2a2178adea78.png',
-    'public/lovable-uploads/bb811f68-22dd-479e-becb-d679c3be8ca0.png',
-    'public/lovable-uploads/15df60ef-8122-43a3-889d-eaf527499d04.png',
-    'public/lovable-uploads/5a2fc48c-91b3-4067-b6c9-c91f3dc26c13.png',
-    'public/lovable-uploads/e6935bfa-9a51-4fc2-8e8c-f592bd8aa4ca.png',
-    'public/lovable-uploads/942617de-94ad-4c5b-a185-4960314b4c4b.png',
-    'public/lovable-uploads/3e53d7e1-6143-4eed-bacb-6a87ced5a212.png',
-    'public/lovable-uploads/be13405b-c38e-4674-aa94-df76d4771f70.png',
+    '/lovable-uploads/0e9f2148-8069-4c29-b49f-20154d419815.png',
+    '/lovable-uploads/bfaecf32-ea44-46e5-b509-a196e1165f9c.png',
+    '/lovable-uploads/c3103704-85c6-44ad-91f3-54693289992e.png',
+    '/lovable-uploads/7f93c6f3-fee1-4645-a1e9-9ddad246aeba.png',
+    '/lovable-uploads/5e052a3d-45a5-4a6c-8805-92d1cb7c21be.png',
+    '/lovable-uploads/d9a93024-6e61-4390-bfdb-ad69799728fe.png',
+    '/lovable-uploads/6aaef658-1925-468e-89d1-8a530e3b0a34.png',
+    '/lovable-uploads/768b028b-82c2-43c2-b392-a7f7ddbb4252.png',
+    '/lovable-uploads/9ddfd0fa-8f08-4080-b110-1b2bf1830a87.png',
+    '/lovable-uploads/c4255f93-f9bb-4d8a-a573-3397e75c144a.png',
+    '/lovable-uploads/1c7f5e74-d277-40df-80fc-79957b30c170.png',
   ];
 
   const testimonials = [
@@ -250,7 +251,7 @@ const Competitions = () => {
                         <div className="p-1">
                           <div className="overflow-hidden rounded-xl">
                             <img 
-                              src={image.replace('public/', '/')} 
+                              src={image} 
                               alt={`Competition Scene ${index + 1}`} 
                               className="w-full aspect-[16/9] object-cover"
                             />
