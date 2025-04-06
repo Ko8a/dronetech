@@ -13,11 +13,11 @@ const Competitions = () => {
 
   // Updated gallery images - keeping only 5 images
   const galleryImages = [
+    'public/lovable-uploads/5b8eef5d-3668-4bc0-bba8-96d5d463a01f.png', // New image added
     'public/lovable-uploads/e536adfe-7047-42ae-bc6c-d9106edbed45.png',
     'public/lovable-uploads/509db9a5-5b9f-4394-a0bc-ea4fad4fd5ba.png',
     'public/lovable-uploads/d3656ecf-e773-425e-ba00-638886b45589.png',
-    '/Ko8a/dronetech/public/lovable-uploads/careusel/ee3ee671-cf15-4060-9273-0bca95a35423.png',
-    '/Ko8a/dronetech/public/lovable-uploads/careusel/a65c3213-4056-42f3-ae94-33f0339330d6.png'
+    '/Ko8a/dronetech/public/lovable-uploads/careusel/ee3ee671-cf15-4060-9273-0bca95a35423.png'
   ];
 
   const testimonials = [
