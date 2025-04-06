@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -142,7 +141,7 @@ const RegistrationForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <style jsx global>{`
+        <style>{`
           /* Custom styles for phone input */
           .phone-input-container .PhoneInputCountry {
             margin-right: 0.5rem;

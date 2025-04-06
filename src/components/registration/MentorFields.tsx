@@ -12,6 +12,7 @@ import {
 import { FormValues } from "./schema";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+import { CountryCode } from 'libphonenumber-js/types';
 
 interface MentorFieldsProps {
   form: UseFormReturn<FormValues>;
@@ -20,8 +21,8 @@ interface MentorFieldsProps {
 
 const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
   // Get country code for default selection
-  const getCountryCode = (country: string): string => {
-    const countryMap: Record<string, string> = {
+  const getCountryCode = (country: string): CountryCode | undefined => {
+    const countryMap: Record<string, CountryCode> = {
       "Kazakhstan": "KZ",
       "Russia": "RU",
       "Kyrgyzstan": "KG",
@@ -29,7 +30,7 @@ const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
       "Tajikistan": "TJ",
       "China": "CN"
     };
-    return countryMap[country] || undefined;
+    return countryMap[country];
   };
 
   return (
