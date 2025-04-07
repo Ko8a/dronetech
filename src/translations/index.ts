@@ -14,6 +14,7 @@ export const translations = {
     heroSubtitle: 'Training the next generation of UAV operators through cutting-edge educational programs and competitive events.',
     learnMore: 'Learn More',
     startTraining: 'Start Training',
+    registerCompetition: 'Registration',
     
     // Problem statement
     problemTitle: 'The UAV Operator Shortage',
@@ -150,6 +151,7 @@ export const translations = {
     heroSubtitle: 'Заманауи оқыту бағдарламалары мен бәсекелі іс-шаралар арқылы UAV операторларының келесі буынын дайындау.',
     learnMore: 'Толығырақ',
     startTraining: 'Оқуды бастау',
+    registerCompetition: 'Тіркелу',
     
     // Problem statement
     problemTitle: 'UAV операторларының тапшылығы',
@@ -286,6 +288,7 @@ export const translations = {
     heroSubtitle: 'Подготовка нового поколения операторов БПЛА с помощью передовых образовательных программ и соревновательных мероприятий.',
     learnMore: 'Узнать больше',
     startTraining: 'Начать обучение',
+    registerCompetition: 'Регистрация',
     
     // Problem statement
     problemTitle: 'Нехватка операторов БПЛА',
@@ -422,6 +425,7 @@ export const translations = {
     heroSubtitle: 'تدريب الجيل القادم من مشغلي الطائرات بدون طيار من خلال برامج تعليمية متطورة وفعاليات تنافسية.',
     learnMore: 'اعرف المزيد',
     startTraining: 'ابدأ التدريب',
+    registerCompetition: 'تسجيل',
     
     // Problem statement
     problemTitle: 'نقص مشغلي الطائرات بدون طيار',
