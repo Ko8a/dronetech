@@ -18,6 +18,7 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   
+  // Effect to handle scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -26,11 +27,43 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  
+  // Effect to prevent background scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      // Save the current scroll position
+      const scrollPosition = window.pageYOffset;
+      // Apply styles to prevent scrolling
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollPosition}px`;
+      document.body.style.width = '100%';
+    } else {
+      // Restore scrolling when menu is closed
+      const scrollY = document.body.style.top;
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+      }
+    }
+    
+    return () => {
+      // Clean up in case component unmounts while menu is open
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    };
+  }, [isMenuOpen]);
   
   const scrollToSection = (id: string) => {
     if (location.pathname !== '/') {
