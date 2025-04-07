@@ -75,9 +75,10 @@ const Navbar = () => {
           <Link to="/competitions" className={cn("nav-link", textColor, location.pathname === "/competitions" && activeTextColor)}>
             {t('competitions')}
           </Link>
-          <Link to="/training" className={cn("nav-link", textColor, location.pathname === "/training" && activeTextColor)}>
+          {/* Training link hidden as requested */}
+          {/* <Link to="/training" className={cn("nav-link", textColor, location.pathname === "/training" && activeTextColor)}>
             {t('training')}
-          </Link>
+          </Link> */}
           <Link to="/contact" className={cn("nav-link", textColor, location.pathname === "/contact" && activeTextColor)}>
             {t('contactUs')}
           </Link>
@@ -101,9 +102,10 @@ const Navbar = () => {
             <Link to="/competitions" className={cn("nav-link", location.pathname === "/competitions" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
               {t('competitions')}
             </Link>
-            <Link to="/training" className={cn("nav-link", location.pathname === "/training" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+            {/* Training link hidden as requested */}
+            {/* <Link to="/training" className={cn("nav-link", location.pathname === "/training" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
               {t('training')}
-            </Link>
+            </Link> */}
             <Link to="/contact" className={cn("nav-link", location.pathname === "/contact" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
               {t('contactUs')}
             </Link>

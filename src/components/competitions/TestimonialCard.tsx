@@ -14,6 +14,7 @@ interface TestimonialCardProps {
 
 const TestimonialCard = ({ name, role, comment, image, index }: TestimonialCardProps) => {
   const { t } = useTranslation();
+  const [imageLoaded, setImageLoaded] = React.useState(false);
   
   const handleImageError = (name: string) => {
     console.error(`Failed to load testimonial image for ${name}`);
@@ -36,10 +37,13 @@ const TestimonialCard = ({ name, role, comment, image, index }: TestimonialCardP
             <img 
               src={image} 
               alt={name} 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-opacity duration-300"
+              style={{ opacity: imageLoaded ? 1 : 0 }}
+              onLoad={() => setImageLoaded(true)}
               onError={(e) => {
                 handleImageError(name);
                 e.currentTarget.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80";
+                setImageLoaded(true);
               }}
             />
           </div>

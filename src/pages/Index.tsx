@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import ProblemStatement from '../components/ProblemStatement';
 import ProductsSection from '../components/ProductsSection';
-import TrainingMaterials from '../components/TrainingMaterials';
+// import TrainingMaterials from '../components/TrainingMaterials'; // Commented out as requested
 import Team from '../components/Team';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -17,7 +17,7 @@ const Index = () => {
         <Hero />
         <ProblemStatement />
         <ProductsSection />
-        <TrainingMaterials />
+        {/* <TrainingMaterials /> */}
         <Team />
         <Contact />
       </main>

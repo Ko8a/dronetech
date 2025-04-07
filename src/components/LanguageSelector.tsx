@@ -20,7 +20,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isScrolled = false 
   const { t } = useTranslation();
   
   const languages = [
-    { code: 'en', name: t('english'), flag: '🇬🇧' },
+    { code: 'en', name: t('english'), flag: '🇺🇸' },
     { code: 'kk', name: t('kazakh'), flag: '🇰🇿' },
     { code: 'ru', name: t('russian'), flag: '🇷🇺' },
     { code: 'ar', name: t('arabic'), flag: '🇸🇦' }

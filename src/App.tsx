@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Index from "./pages/Index";
 import Competitions from "./pages/Competitions";
-import Training from "./pages/Training";
+// import Training from "./pages/Training"; // Commented out as requested
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -23,7 +23,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/competitions" element={<Competitions />} />
-            <Route path="/training" element={<Training />} />
+            {/* <Route path="/training" element={<Training />} /> */}
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

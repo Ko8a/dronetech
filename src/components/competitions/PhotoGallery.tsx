@@ -8,13 +8,27 @@ import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { useTranslation } from '../../hooks/useTranslation';
 
 interface PhotoGalleryProps {
-  galleryImages: string[];
+  galleryImages?: string[];
 }
 
 const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
   const { t } = useTranslation();
   const [errorCount, setErrorCount] = React.useState(0);
-  const [loadedImages, setLoadedImages] = React.useState<boolean[]>(Array(galleryImages.length).fill(false));
+  
+  // Use uploaded images or provided images
+  const competitionImages = [
+    "/lovable-uploads/competition-photos/745a6994-1b63-4bdd-ac55-577a6b48560a.png",
+    "/lovable-uploads/competition-photos/8f742b1a-aaa8-4e2c-baca-e7d4efec735a.png",
+    "/lovable-uploads/competition-photos/94bedda3-4093-4cce-9fe8-6c58c75eb2dc.png",
+    "/lovable-uploads/competition-photos/bb68df05-b021-45fa-a307-ba9d9f0a5dd3.png",
+    "/lovable-uploads/competition-photos/8825dab7-d044-404d-9075-3f409c4c9722.png",
+    "/lovable-uploads/competition-photos/14437bb9-e199-4ff6-9462-07a2dffedf0d.png",
+    "/lovable-uploads/competition-photos/c785e0df-e780-4d0a-aed8-6b7510397e60.png",
+    "/lovable-uploads/competition-photos/d2321178-f432-4d3e-9999-f1111b3f2b8c.png"
+  ];
+  
+  const images = galleryImages || competitionImages;
+  const [loadedImages, setLoadedImages] = React.useState<boolean[]>(Array(images.length).fill(false));
   
   const handleImageError = (image: string, index: number) => {
     console.error(`Failed to load image: ${image}`);
@@ -60,14 +74,14 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
               <Alert variant="destructive" className="mb-4">
                 <AlertTitle>{t('imageProblems')}</AlertTitle>
                 <AlertDescription>
-                  {t('failedToLoad')} {errorCount} {t('outOf')} {galleryImages.length} {t('images')}.
+                  {t('failedToLoad')} {errorCount} {t('outOf')} {images.length} {t('images')}.
                 </AlertDescription>
               </Alert>
             )}
             
             <Carousel className="w-full" opts={{ loop: true }} autoplay={true} autoplayInterval={5000}>
               <CarouselContent>
-                {galleryImages.map((image, index) => (
+                {images.map((image, index) => (
                   <CarouselItem key={index}>
                     <div className="p-1">
                       <AspectRatio ratio={16/9} className="bg-muted rounded-xl overflow-hidden">
