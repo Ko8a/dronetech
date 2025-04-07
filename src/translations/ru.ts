@@ -32,6 +32,7 @@ export const ruTranslations = {
   meetTeam: 'Meet Our Team',
   teamTitle: 'The Experts Behind DroneTech',
   teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
+  team_petrov_name: ffd,
   
   // Competition page
   premierUAVCompetition: 'Ведущие соревнования БПЛА',

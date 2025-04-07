@@ -32,7 +32,7 @@ export const kkTranslations = {
   meetTeam: 'Meet Our Team',
   teamTitle: 'The Experts Behind DroneTech',
   teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
-  
+  team_petrov_name: f334543543fd,
   // Competition page
   premierUAVCompetition: 'Жетекші UAV жарысы',
   mdc: 'MDC',
