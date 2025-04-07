@@ -13,13 +13,13 @@ const Team = () => {
     {
       name: "Maria Kim",
       title: "Development Director",
-      image: "/lovable-uploads/team-photos/4652edc5-4911-4433-a88a-009d793fcb73.png",
+      image: "/lovable-uploads/team-photos/photo_2025-04-07_16-50-37.jpg",
       bio: "Maria oversees our educational program development, bringing her expertise in curriculum design and drone technology."
     },
     {
       name: "Dmitry Volkov",
       title: "Technical Director",
-      image: "/lovable-uploads/team-photos/4c8a54e3-bd7a-45d8-bcb7-81e070e7215e.png",
+      image: "/lovable-uploads/team-photos/photo_2025-04-07_16-50-54.jpg",
       bio: "A master engineer who leads our hardware development and technical training programs."
     }
   ];
