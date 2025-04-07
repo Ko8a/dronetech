@@ -33,7 +33,6 @@ export const translations = {
     meetTeam: 'Meet Our Team',
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
-    petrov: cool,
     
     // Competition page
     premierUAVCompetition: 'Premier UAV Competition',
