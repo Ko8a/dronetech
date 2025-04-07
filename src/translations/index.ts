@@ -47,7 +47,7 @@ export const translations = {
     location: 'Location',
     participants: 'Participants',
     prizes: 'Prizes',
-    firstPlace: '1st Place: $5,000',
+    firstPlace: '1st Place: ',
     secondPlace: '2nd Place: $2,500',
     thirdPlace: '3rd Place: $1,000',
     openToTeams: 'Open to individuals and teams',
