@@ -12,9 +12,9 @@ import { useTranslation } from '../hooks/useTranslation';
 const Competitions = () => {
   const { t } = useTranslation();
   
-  // Set target date for countdown (April 14, 2025)
-  const targetDate = new Date(2025, 4, 25); // Month is 0-indexed, so 3 = April
-
+  // Set target date for countdown (May 25, 2025)
+  const targetDate = new Date(2025, 4, 25); // Month is 0-indexed, so 4 = May
+  
   // Updated gallery images with competition photos
   const galleryImages = [
     '/lovable-uploads/competition-photos/1c39704c-41cf-4542-8da8-73b317543b84.jpg',

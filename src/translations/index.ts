@@ -42,6 +42,7 @@ export const translations = {
     competitionDescription: 'The ultimate test of UAV piloting skills, technical knowledge, and innovation. Join the elite competition showcasing the future of drone technology.',
     registerNow: 'Register Now',
     registrationForm: 'Registration Form',
+    registration: 'Registration',
     eventDetails: 'Event Details',
     dateTime: 'Date & Time',
     location: 'Location',
@@ -152,6 +153,7 @@ export const translations = {
     learnMore: 'Толығырақ',
     startTraining: 'Оқуды бастау',
     registerCompetition: 'Тіркелу',
+    registration: 'Тіркелу',
     
     // Problem statement
     problemTitle: 'UAV операторларының тапшылығы',
@@ -289,6 +291,7 @@ export const translations = {
     learnMore: 'Узнать больше',
     startTraining: 'Начать обучение',
     registerCompetition: 'Регистрация',
+    registration: 'Регистрация',
     
     // Problem statement
     problemTitle: 'Нехватка операторов БПЛА',
@@ -426,6 +429,7 @@ export const translations = {
     learnMore: 'اعرف المزيد',
     startTraining: 'ابدأ التدريب',
     registerCompetition: 'تسجيل',
+    registration: 'تسجيل',
     
     // Problem statement
     problemTitle: 'نقص مشغلي الطائرات بدون طيار',

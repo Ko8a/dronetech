@@ -84,13 +84,31 @@ const Navbar = () => {
       setIsMenuOpen(false);
     }
   };
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    if (location.pathname !== '/') {
+      // If not on homepage, don't prevent default navigation
+      return;
+    }
+    
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const yOffset = -80;
+      const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+      setIsMenuOpen(false);
+    }
+  };
   
   const isSubpage = location.pathname !== '/';
   const isCompetitions = location.pathname === '/competitions';
   const isTraining = location.pathname === '/training';
-  const isContact = location.pathname === '/contact';
   
-  const alwaysDarkText = isCompetitions || isTraining || isContact;
+  const alwaysDarkText = isCompetitions || isTraining;
   
   const textColor = (isScrolled || alwaysDarkText) ? 'text-foreground' : 'text-white';
   const activeTextColor = (isScrolled || alwaysDarkText) ? 'text-primary' : 'text-primary';
@@ -108,7 +126,11 @@ const Navbar = () => {
           <Link to="/competitions" className={cn("nav-link", textColor, location.pathname === "/competitions" && activeTextColor)}>
             {t('competitions')}
           </Link>
-          <Link to="/contact" className={cn("nav-link", textColor, location.pathname === "/contact" && activeTextColor)}>
+          <Link 
+            to={isSubpage ? "/#contact" : "#contact"} 
+            className={cn("nav-link", textColor)} 
+            onClick={handleContactClick}
+          >
             {t('contactUs')}
           </Link>
           <LanguageSelector isScrolled={isScrolled} />
@@ -133,7 +155,16 @@ const Navbar = () => {
               <Link to="/competitions" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/competitions" && "text-primary font-medium")} onClick={toggleMenu}>
                 {t('competitions')}
               </Link>
-              <Link to="/contact" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/contact" && "text-primary font-medium")} onClick={toggleMenu}>
+              <Link 
+                to={isSubpage ? "/#contact" : "#contact"} 
+                className="nav-link text-foreground hover:text-primary" 
+                onClick={(e) => {
+                  toggleMenu();
+                  if (!isSubpage) {
+                    handleContactClick(e);
+                  }
+                }}
+              >
                 {t('contactUs')}
               </Link>
             </nav>

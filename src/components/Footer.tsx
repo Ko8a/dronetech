@@ -1,11 +1,33 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 
 const Footer = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  
+  const isHomePage = location.pathname === '/';
+  
+  const handleContactClick = (e: React.MouseEvent) => {
+    if (!isHomePage) {
+      // If not on homepage, don't prevent default navigation
+      return;
+    }
+    
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const yOffset = -80;
+      const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+    }
+  };
   
   return (
     <footer className="bg-foreground text-white py-16 px-6 md:px-10 lg:px-20">
@@ -37,7 +59,13 @@ const Footer = () => {
                 <Link to="/competitions" className="text-gray-300 hover:text-primary transition-colors">{t('competitions')}</Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-primary transition-colors">{t('contactUs')}</Link>
+                <Link 
+                  to={isHomePage ? "#contact" : "/#contact"} 
+                  className="text-gray-300 hover:text-primary transition-colors"
+                  onClick={handleContactClick}
+                >
+                  {t('contactUs')}
+                </Link>
               </li>
               <li>
                 <a href="#team" className="text-gray-300 hover:text-primary transition-colors">{t('ourTeam')}</a>
