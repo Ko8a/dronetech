@@ -88,29 +88,40 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <div className="flex items-center space-x-4 md:hidden">
           <LanguageSelector isScrolled={isScrolled} />
-          <button className={cn("relative z-10 focus:outline-none", textColor)} onClick={toggleMenu} aria-label="Toggle menu">
+          <button className={cn("relative z-50 focus:outline-none", textColor)} onClick={toggleMenu} aria-label="Toggle menu">
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={cn('fixed inset-0 bg-background flex flex-col items-center justify-center transition-transform duration-300 ease-in-out md:hidden', isMenuOpen ? 'translate-x-0' : 'translate-x-full')}>
-          <nav className="flex flex-col items-center space-y-8 text-lg">
-            <Link to="/" className={cn("nav-link", location.pathname === "/" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
-              {t('home')}
-            </Link>
-            <Link to="/competitions" className={cn("nav-link", location.pathname === "/competitions" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
-              {t('competitions')}
-            </Link>
-            {/* Training link hidden as requested */}
-            {/* <Link to="/training" className={cn("nav-link", location.pathname === "/training" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
-              {t('training')}
-            </Link> */}
-            <Link to="/contact" className={cn("nav-link", location.pathname === "/contact" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
-              {t('contactUs')}
-            </Link>
-          </nav>
-        </div>
+        {/* Mobile Menu - Fixed to ensure it's always visible with proper background */}
+        {isMenuOpen && (
+          <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center md:hidden">
+            <nav className="flex flex-col items-center space-y-8 text-lg">
+              <Link to="/" className={cn("nav-link", location.pathname === "/" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+                {t('home')}
+              </Link>
+              <Link to="/competitions" className={cn("nav-link", location.pathname === "/competitions" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+                {t('competitions')}
+              </Link>
+              {/* Training link hidden as requested */}
+              {/* <Link to="/training" className={cn("nav-link", location.pathname === "/training" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+                {t('training')}
+              </Link> */}
+              <Link to="/contact" className={cn("nav-link", location.pathname === "/contact" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+                {t('contactUs')}
+              </Link>
+            </nav>
+            
+            {/* Close button explicitly added at the top right for better visibility */}
+            <button 
+              className="absolute top-6 right-6 text-foreground focus:outline-none z-50" 
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+        )}
       </div>
     </header>;
 };
