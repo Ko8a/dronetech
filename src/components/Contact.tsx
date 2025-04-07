@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import AnimatedElement from './ui/AnimatedElement';
 import { cn } from '@/lib/utils';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { Instagram, Telegram } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Instagram } from 'lucide-react';
+import TelegramIcon from './icons/TelegramIcon';
 import { toast } from 'sonner';
 
 const Contact = () => {
@@ -146,7 +146,7 @@ const Contact = () => {
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a href="#" className="bg-secondary p-2 rounded-full transition-colors hover:bg-primary/10" aria-label="Telegram">
-                  <Telegram className="h-5 w-5" />
+                  <TelegramIcon className="h-5 w-5" />
                 </a>
               </div>
             </div>
