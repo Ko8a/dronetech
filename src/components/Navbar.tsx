@@ -14,9 +14,34 @@ const Navbar = () => {
   const { dir } = useLanguage();
   const { t } = useTranslation();
   
+  // Toggle menu and control body scroll when menu is open
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    
+    // Toggle body scroll based on menu state
+    if (!isMenuOpen) {
+      // When opening menu, prevent body scrolling
+      document.body.style.overflow = 'hidden';
+    } else {
+      // When closing menu, restore body scrolling
+      document.body.style.overflow = '';
+    }
   };
+  
+  // Clean up body style when component unmounts
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+  
+  // Ensure body scroll is restored when navigating away
+  useEffect(() => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+      document.body.style.overflow = '';
+    }
+  }, [location.pathname]);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -95,7 +120,7 @@ const Navbar = () => {
 
         {/* Mobile Menu - Fixed to ensure it's always visible with proper background */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center md:hidden">
+          <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center md:hidden overflow-hidden">
             <nav className="flex flex-col items-center space-y-8 text-lg">
               <Link to="/" className={cn("nav-link", location.pathname === "/" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
                 {t('home')}
@@ -115,7 +140,7 @@ const Navbar = () => {
             {/* Close button explicitly added at the top right for better visibility */}
             <button 
               className="absolute top-6 right-6 text-foreground focus:outline-none z-50" 
-              onClick={() => setIsMenuOpen(false)}
+              onClick={toggleMenu}
               aria-label="Close menu"
             >
               <X className="w-6 h-6" />
