@@ -7,7 +7,7 @@ const Team = () => {
     {
       name: "Кобыланды Petrov",
       title: "Director",
-      image: "/lovable-uploads/team-photos/a80fc917-6063-46bd-87e2-75b0fe2a35da.png",
+      image: "public/lovable-uploads/team-photos/photo_2025-04-07_18-09-24.jpg",
       bio: "With over 15 years of experience in aviation and technology, Alex leads our strategic vision and operations."
     },
     {
