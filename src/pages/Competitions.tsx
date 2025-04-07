@@ -28,7 +28,7 @@ const Competitions = () => {
   ];
 
   // Use consistent user avatar for all testimonials
-  const userPhotoUrl = "/lovable-uploads/team-photos/photo_2025-04-07_16-50-37.jpg";
+  const userPhotoUrl = "/lovable-uploads/team-photos/user.png";
   
   const testimonials = [
     {
