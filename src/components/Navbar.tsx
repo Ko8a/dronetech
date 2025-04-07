@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -18,7 +17,6 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   
-  // Effect to handle scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -34,18 +32,14 @@ const Navbar = () => {
     };
   }, []);
   
-  // Effect to prevent background scrolling when menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      // Save the current scroll position
       const scrollPosition = window.pageYOffset;
-      // Apply styles to prevent scrolling
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollPosition}px`;
       document.body.style.width = '100%';
     } else {
-      // Restore scrolling when menu is closed
       const scrollY = document.body.style.top;
       document.body.style.overflow = '';
       document.body.style.position = '';
@@ -57,7 +51,6 @@ const Navbar = () => {
     }
     
     return () => {
-      // Clean up in case component unmounts while menu is open
       document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.top = '';
@@ -71,7 +64,7 @@ const Navbar = () => {
     }
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -80; // Header height + some padding
+      const yOffset = -80;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({
         top: y,
@@ -81,16 +74,13 @@ const Navbar = () => {
     }
   };
   
-  // Check if we're on a subpage (not homepage)
   const isSubpage = location.pathname !== '/';
   const isCompetitions = location.pathname === '/competitions';
   const isTraining = location.pathname === '/training';
   const isContact = location.pathname === '/contact';
   
-  // Always use dark text on competitions, training, and contact pages
   const alwaysDarkText = isCompetitions || isTraining || isContact;
   
-  // Define text colors based on scroll state and current page
   const textColor = (isScrolled || alwaysDarkText) ? 'text-foreground' : 'text-white';
   const activeTextColor = (isScrolled || alwaysDarkText) ? 'text-primary' : 'text-primary';
   
@@ -100,7 +90,6 @@ const Navbar = () => {
           <img alt="DroneTech" className="h-10 md:h-12" src="/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" />
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <Link to="/" className={cn("nav-link", textColor, location.pathname === "/" && activeTextColor)}>
             {t('home')}
@@ -108,17 +97,12 @@ const Navbar = () => {
           <Link to="/competitions" className={cn("nav-link", textColor, location.pathname === "/competitions" && activeTextColor)}>
             {t('competitions')}
           </Link>
-          {/* Training link hidden as requested */}
-          {/* <Link to="/training" className={cn("nav-link", textColor, location.pathname === "/training" && activeTextColor)}>
-            {t('training')}
-          </Link> */}
           <Link to="/contact" className={cn("nav-link", textColor, location.pathname === "/contact" && activeTextColor)}>
             {t('contactUs')}
           </Link>
           <LanguageSelector isScrolled={isScrolled} />
         </nav>
 
-        {/* Mobile Menu Button */}
         <div className="flex items-center space-x-4 md:hidden">
           <LanguageSelector isScrolled={isScrolled} />
           <button className={cn("relative z-50 focus:outline-none", textColor)} onClick={toggleMenu} aria-label="Toggle menu">
@@ -126,10 +110,8 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu - Fixed to ensure it's always visible with proper background */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center md:hidden">
-            {/* Logo at the top of the mobile menu */}
+          <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center md:hidden animate-slide-in-right">
             <div className="absolute top-6 left-6">
               <img alt="DroneTech" className="h-10" src="/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" />
             </div>
@@ -141,18 +123,13 @@ const Navbar = () => {
               <Link to="/competitions" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/competitions" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
                 {t('competitions')}
               </Link>
-              {/* Training link hidden as requested */}
-              {/* <Link to="/training" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/training" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
-                {t('training')}
-              </Link> */}
               <Link to="/contact" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/contact" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
                 {t('contactUs')}
               </Link>
             </nav>
             
-            {/* Close button explicitly with improved contrast and positioned for better visibility */}
             <button 
-              className="absolute top-6 right-6 text-primary bg-background/90 rounded-full p-1 focus:outline-none z-50" 
+              className="absolute top-6 right-6 text-black bg-gray-200 hover:bg-gray-300 rounded-full p-1.5 focus:outline-none z-50" 
               onClick={() => setIsMenuOpen(false)}
               aria-label="Close menu"
             >
