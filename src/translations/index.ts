@@ -34,6 +34,19 @@ export const translations = {
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
     
+    // Team members
+    team_petrov_name: 'Alexander Petrov',
+    team_petrov_title: 'Chief Technology Officer',
+    team_petrov_bio: 'With over 15 years in UAV development, Alexander leads our technical innovations and research initiatives.',
+    
+    team_kim_name: 'Minseo Kim',
+    team_kim_title: 'Head of Training',
+    team_kim_bio: 'International drone racing champion who now develops our cutting-edge training curriculum and simulation programs.',
+    
+    team_volkov_name: 'Dmitry Volkov',
+    team_volkov_title: 'Operations Director',
+    team_volkov_bio: 'Former military UAV specialist who oversees all field operations and competition management.',
+    
     // Competition page
     premierUAVCompetition: 'Premier UAV Competition',
     mdc: 'MDC',
@@ -169,6 +182,19 @@ export const translations = {
     meetTeam: 'Meet Our Team',
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
+    
+    // Team members
+    team_petrov_name: 'Alexander Petrov',
+    team_petrov_title: 'Бас технологиялық директор',
+    team_petrov_bio: 'UAV дамытудағы 15 жылдан астам тәжірибесімен, Alexander біздің техникалық инновациялар мен зерттеу бастамаларымызды басқарады.',
+    
+    team_kim_name: 'Minseo Kim',
+    team_kim_title: 'Оқыту бөлімінің басшысы',
+    team_kim_bio: 'Халықаралық дрон жарысының чемпионы, қазір біздің заманауи оқыту бағдарламалары мен симуляция бағдарламаларын әзірлейді.',
+    
+    team_volkov_name: 'Dmitry Volkov',
+    team_volkov_title: 'Операциялық директор',
+    team_volkov_bio: 'Бұрынғы әскери UAV маманы, барлық далалық операциялар мен жарыстарды басқаруды бақылайды.',
     
     // Competition page
     premierUAVCompetition: 'Жетекші UAV жарысы',
@@ -306,6 +332,19 @@ export const translations = {
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
     
+    // Team members
+    team_petrov_name: 'Александр Петров',
+    team_petrov_title: 'Технический директор',
+    team_petrov_bio: 'С более чем 15-летним опытом разработки БПЛА, Александр руководит нашими техническими инновациями и исследовательскими инициативами.',
+    
+    team_kim_name: 'Минсео Ким',
+    team_kim_title: 'Руководитель отдела обучения',
+    team_kim_bio: 'Международный чемпион по гонкам дронов, который теперь разрабатывает нашу передовую учебную программу и программы симуляции.',
+    
+    team_volkov_name: 'Дмитрий Волков',
+    team_volkov_title: 'Директор по операциям',
+    team_volkov_bio: 'Бывший военный специалист по БПЛА, который контролирует все полевые операции и управление соревнованиями.',
+    
     // Competition page
     premierUAVCompetition: 'Ведущие соревнования БПЛА',
     mdc: 'MDC',
@@ -442,6 +481,19 @@ export const translations = {
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
     
+    // Team members
+    team_petrov_name: 'ألكسندر بيتروف',
+    team_petrov_title: 'المدير التقني',
+    team_petrov_bio: 'مع أكثر من 15 عاما في تطوير الطائرات بدون طيار، يقود ألكساندر ابتكاراتنا التقنية ومبادرات البحث.',
+    
+    team_kim_name: 'مينسيو كيم',
+    team_kim_title: 'رئيس قسم التدريب',
+    team_kim_bio: 'بطل دولي في سباقات الطائرات بدون طيار يطور الآن مناهجنا التدريبية المتطورة وبرامج المحاكاة.',
+    
+    team_volkov_name: 'دميتري فولكوف',
+    team_volkov_title: 'مدير العمليات',
+    team_volkov_bio: 'متخصص سابق في الطائرات العسكرية بدون طيار يشرف على جميع العمليات الميدانية وإدارة المسابقات.',
+    
     // Competition page
     premierUAVCompetition: 'مسابقة الطائرات بدون طيار الرائدة',
     mdc: 'MDC',
@@ -541,12 +593,3 @@ export const translations = {
     // Error page
     errorCode: '404 خطأ',
     pageNotFound: 'الصفحة غير موجودة',
-    pageNotFoundMessage: 'عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها. ربما تم نقلها أو أنها غير موجودة.',
-    backToHome: 'العودة إلى الرئيسية'
-  }
-};
-
-export const getTranslation = (language: Language, key: string): string => {
-  if (!translations[language]) return translations.en[key] || key;
-  return translations[language][key] || translations.en[key] || key;
-};
