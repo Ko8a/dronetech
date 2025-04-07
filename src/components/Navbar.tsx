@@ -126,16 +126,15 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu with animation */}
+        {/* Mobile Menu - Fixed to ensure it's always visible with proper background */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-between md:hidden animate-slide-in-right">
+          <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center md:hidden">
             {/* Logo at the top of the mobile menu */}
             <div className="absolute top-6 left-6">
               <img alt="DroneTech" className="h-10" src="/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" />
             </div>
             
-            {/* Navigation links in the center */}
-            <nav className="flex flex-col items-center space-y-8 text-lg mt-20">
+            <nav className="flex flex-col items-center space-y-8 text-lg">
               <Link to="/" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
                 {t('home')}
               </Link>
@@ -151,15 +150,13 @@ const Navbar = () => {
               </Link>
             </nav>
             
-            
-            
-            {/* Close button with better visibility */}
+            {/* Close button explicitly with improved contrast and positioned for better visibility */}
             <button 
-              className="absolute top-6 right-6 text-black bg-gray-200 rounded-full p-2 focus:outline-none z-50 hover:bg-gray-300 transition-colors" 
+              className="absolute top-6 right-6 text-primary bg-background/90 rounded-full p-1 focus:outline-none z-50" 
               onClick={() => setIsMenuOpen(false)}
               aria-label="Close menu"
             >
-              <X className="w-5 h-5" />
+              <X className="w-6 h-6" />
             </button>
           </div>
         )}
