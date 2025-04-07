@@ -593,4 +593,5 @@ export const translations = {
     arabic: 'العربية',
     
     // Error page
-  
+    errorCode: '404 خطأ',
+    pageNotFound: 'الصفحة غير موجودة
