@@ -30,6 +30,7 @@ export const translations = {
     exploreAll: 'Explore All Courses',
     
     // Team
+    // Keep "Meet Our Team" in English as requested
     meetTeam: 'Meet Our Team',
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
@@ -105,6 +106,7 @@ export const translations = {
     submitFeedback: 'Submit Feedback',
     
     // Contact section
+    // Keep "Get In Touch" in English as requested
     getInTouch: 'Get In Touch',
     contactInfo: 'Contact Information',
     email: 'Email',
@@ -591,6 +593,4 @@ export const translations = {
     arabic: 'العربية',
     
     // Error page
-    errorCode: '404 خطأ',
-    pageNotFound: 'الصفحة غير موجودة',
-    pageNotFoundMessage: 'عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها
+  

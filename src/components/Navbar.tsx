@@ -93,50 +93,52 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu - Fixed positioning and improved visibility */}
-        {isMenuOpen && (
-          <div className="fixed inset-0 bg-background/95 flex flex-col items-center justify-center z-40 md:hidden">
-            <button 
+        {/* Mobile Menu - Fixed to ensure it covers the entire screen */}
+        <div className={cn(
+          'fixed inset-0 bg-background flex flex-col items-center justify-center transition-transform duration-300 ease-in-out z-40 md:hidden',
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        )}>
+          <button 
+            className="absolute top-4 right-6 text-foreground z-50 md:hidden" 
+            onClick={() => setIsMenuOpen(false)} 
+            aria-label="Close menu"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <nav className="flex flex-col items-center space-y-8 text-lg">
+            <Link 
+              to="/" 
+              className={cn("nav-link font-medium", location.pathname === "/" && "text-primary font-medium")} 
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-4 right-6 text-foreground"
-              aria-label="Close menu"
             >
-              <X className="w-6 h-6" />
-            </button>
-            <nav className="flex flex-col items-center space-y-8 text-lg">
-              <Link 
-                to="/" 
-                className={cn("nav-link text-foreground", location.pathname === "/" && "text-primary font-medium")} 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('home')}
-              </Link>
-              <Link 
-                to="/competitions" 
-                className={cn("nav-link text-foreground", location.pathname === "/competitions" && "text-primary font-medium")} 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('competitions')}
-              </Link>
-              {/* Training link hidden as requested */}
-              {/* <Link 
-                to="/training" 
-                className={cn("nav-link text-foreground", location.pathname === "/training" && "text-primary font-medium")} 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('training')}
-              </Link> */}
-              <Link 
-                to="/contact" 
-                className={cn("nav-link text-foreground", location.pathname === "/contact" && "text-primary font-medium")} 
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('contactUs')}
-              </Link>
-            </nav>
-          </div>
-        )}
+              {t('home')}
+            </Link>
+            <Link 
+              to="/competitions" 
+              className={cn("nav-link font-medium", location.pathname === "/competitions" && "text-primary font-medium")} 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('competitions')}
+            </Link>
+            {/* Training link hidden as requested */}
+            {/* <Link 
+              to="/training" 
+              className={cn("nav-link", location.pathname === "/training" && "text-primary font-medium")} 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('training')}
+            </Link> */}
+            <Link 
+              to="/contact" 
+              className={cn("nav-link font-medium", location.pathname === "/contact" && "text-primary font-medium")} 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('contactUs')}
+            </Link>
+          </nav>
+        </div>
       </div>
     </header>;
 };
+
 export default Navbar;
