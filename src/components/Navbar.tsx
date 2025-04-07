@@ -88,51 +88,25 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <div className="flex items-center space-x-4 md:hidden">
           <LanguageSelector isScrolled={isScrolled} />
-          <button className={cn("relative z-50 focus:outline-none", textColor)} onClick={toggleMenu} aria-label="Toggle menu">
+          <button className={cn("relative z-10 focus:outline-none", textColor)} onClick={toggleMenu} aria-label="Toggle menu">
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Menu - Fixed to ensure it covers the entire screen */}
-        <div className={cn(
-          'fixed inset-0 bg-background flex flex-col items-center justify-center transition-transform duration-300 ease-in-out z-40 md:hidden',
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        )}>
-          <button 
-            className="absolute top-4 right-6 text-foreground z-50 md:hidden" 
-            onClick={() => setIsMenuOpen(false)} 
-            aria-label="Close menu"
-          >
-            <X className="w-6 h-6" />
-          </button>
+        {/* Mobile Menu */}
+        <div className={cn('fixed inset-0 bg-background flex flex-col items-center justify-center transition-transform duration-300 ease-in-out md:hidden', isMenuOpen ? 'translate-x-0' : 'translate-x-full')}>
           <nav className="flex flex-col items-center space-y-8 text-lg">
-            <Link 
-              to="/" 
-              className={cn("nav-link font-medium", location.pathname === "/" && "text-primary font-medium")} 
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <Link to="/" className={cn("nav-link", location.pathname === "/" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
               {t('home')}
             </Link>
-            <Link 
-              to="/competitions" 
-              className={cn("nav-link font-medium", location.pathname === "/competitions" && "text-primary font-medium")} 
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <Link to="/competitions" className={cn("nav-link", location.pathname === "/competitions" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
               {t('competitions')}
             </Link>
             {/* Training link hidden as requested */}
-            {/* <Link 
-              to="/training" 
-              className={cn("nav-link", location.pathname === "/training" && "text-primary font-medium")} 
-              onClick={() => setIsMenuOpen(false)}
-            >
+            {/* <Link to="/training" className={cn("nav-link", location.pathname === "/training" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
               {t('training')}
             </Link> */}
-            <Link 
-              to="/contact" 
-              className={cn("nav-link font-medium", location.pathname === "/contact" && "text-primary font-medium")} 
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <Link to="/contact" className={cn("nav-link", location.pathname === "/contact" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
               {t('contactUs')}
             </Link>
           </nav>
@@ -140,5 +114,4 @@ const Navbar = () => {
       </div>
     </header>;
 };
-
 export default Navbar;
