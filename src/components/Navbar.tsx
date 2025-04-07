@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -9,12 +10,22 @@ import LanguageSelector from './LanguageSelector';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const location = useLocation();
   const { dir } = useLanguage();
   const { t } = useTranslation();
   
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    if (isMenuOpen) {
+      setIsClosing(true);
+      // Add a small delay before actually closing the menu to allow animation to play
+      setTimeout(() => {
+        setIsMenuOpen(false);
+        setIsClosing(false);
+      }, 300); // Match this with animation duration
+    } else {
+      setIsMenuOpen(true);
+    }
   };
   
   useEffect(() => {
@@ -111,26 +122,25 @@ const Navbar = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center md:hidden animate-slide-in-right">
-            <div className="absolute top-6 left-6">
-              <img alt="DroneTech" className="h-10" src="/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" />
-            </div>
-            
+          <div className={cn(
+            "fixed inset-0 bg-background z-40 flex flex-col items-center justify-center md:hidden",
+            isClosing ? "animate-slide-out-right" : "animate-slide-in-right"
+          )}>
             <nav className="flex flex-col items-center space-y-8 text-lg">
-              <Link to="/" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+              <Link to="/" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/" && "text-primary font-medium")} onClick={toggleMenu}>
                 {t('home')}
               </Link>
-              <Link to="/competitions" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/competitions" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+              <Link to="/competitions" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/competitions" && "text-primary font-medium")} onClick={toggleMenu}>
                 {t('competitions')}
               </Link>
-              <Link to="/contact" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/contact" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+              <Link to="/contact" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/contact" && "text-primary font-medium")} onClick={toggleMenu}>
                 {t('contactUs')}
               </Link>
             </nav>
             
             <button 
               className="absolute top-6 right-6 text-black bg-gray-200 hover:bg-gray-300 rounded-full p-1.5 focus:outline-none z-50" 
-              onClick={() => setIsMenuOpen(false)}
+              onClick={toggleMenu}
               aria-label="Close menu"
             >
               <X className="w-6 h-6" />
