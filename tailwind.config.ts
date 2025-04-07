@@ -175,7 +175,7 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'scale-in': 'scale-in 0.5s ease-out',
 				'blur-in': 'blur-in 0.7s ease-out',
-				'slide-in-right': 'slide-in-right 0.3s ease-out'
+				'slide-in-right': 'slide-in-right 0.3s cubic-bezier(0.25, 1, 0.5, 1)'
 			}
 		}
 	},

@@ -54,10 +54,10 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isScrolled = false 
         </SelectTrigger>
         <SelectContent className="bg-background text-foreground">
           {languages.map((lang) => (
-            <SelectItem key={lang.code} value={lang.code}>
+            <SelectItem key={lang.code} value={lang.code} className="text-foreground">
               <div className="flex items-center">
                 <span className="text-lg mr-2">{lang.flag}</span>
-                <span className="text-foreground">{lang.name}</span>
+                <span>{lang.name}</span>
               </div>
             </SelectItem>
           ))}
