@@ -151,14 +151,7 @@ const Navbar = () => {
               </Link>
             </nav>
             
-            {/* Footer with stacked logo */}
-            <div className="mb-10">
-              <img 
-                src="/lovable-uploads/046a14f6-12af-4ee1-a6b1-f1874d2f5cfc.png" 
-                alt="DroneTech" 
-                className="h-16"
-              />
-            </div>
+            
             
             {/* Close button with better visibility */}
             <button 
