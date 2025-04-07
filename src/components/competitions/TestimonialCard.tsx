@@ -3,6 +3,8 @@ import React from 'react';
 import AnimatedElement from '../ui/AnimatedElement';
 import { toast } from "@/components/ui/use-toast";
 import { useTranslation } from '../../hooks/useTranslation';
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { User } from 'lucide-react';
 
 interface TestimonialCardProps {
   name: string;
@@ -33,12 +35,11 @@ const TestimonialCard = ({ name, role, comment, image, index }: TestimonialCardP
     >
       <div className="bg-white rounded-xl shadow-sm p-6 relative">
         <div className="absolute -top-5 left-6">
-          <div className="rounded-full overflow-hidden border-4 border-white w-16 h-16 bg-muted">
-            <img 
+          <Avatar className="w-16 h-16 border-4 border-white">
+            <AvatarImage 
               src={image} 
               alt={name} 
-              className="w-full h-full object-cover transition-opacity duration-300"
-              style={{ opacity: imageLoaded ? 1 : 0 }}
+              className="object-cover"
               onLoad={() => setImageLoaded(true)}
               onError={(e) => {
                 handleImageError(name);
@@ -46,7 +47,10 @@ const TestimonialCard = ({ name, role, comment, image, index }: TestimonialCardP
                 setImageLoaded(true);
               }}
             />
-          </div>
+            <AvatarFallback className="bg-primary/10">
+              <User className="w-6 h-6 text-primary" />
+            </AvatarFallback>
+          </Avatar>
         </div>
         <div className="pt-8">
           <p className="mb-4 text-muted-foreground">{comment}</p>

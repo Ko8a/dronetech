@@ -3,6 +3,8 @@ import React from 'react';
 import AnimatedElement from '../ui/AnimatedElement';
 import TestimonialCard from './TestimonialCard';
 import { useTranslation } from '../../hooks/useTranslation';
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { User } from 'lucide-react';
 
 interface Testimonial {
   name: string;
