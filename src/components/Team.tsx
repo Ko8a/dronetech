@@ -5,7 +5,7 @@ import AnimatedElement from './ui/AnimatedElement';
 const Team = () => {
   const teamMembers = [
     {
-      name: "Alex Petrov",
+      name: "Кобыланды Petrov",
       title: "Director",
       image: "/lovable-uploads/team-photos/a80fc917-6063-46bd-87e2-75b0fe2a35da.png",
       bio: "With over 15 years of experience in aviation and technology, Alex leads our strategic vision and operations."
