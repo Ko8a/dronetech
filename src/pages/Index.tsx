@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import ProblemStatement from '../components/ProblemStatement';
-import ProductsSection from '../components/ProductsSection';
+// import ProductsSection from '../components/ProductsSection'; // Commented out as requested
 // import TrainingMaterials from '../components/TrainingMaterials'; // Commented out as requested
 import Team from '../components/Team';
 import Contact from '../components/Contact';
@@ -16,7 +16,7 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <ProblemStatement />
-        <ProductsSection />
+        {/* <ProductsSection /> */}
         {/* <TrainingMaterials /> */}
         <Team />
         <Contact />

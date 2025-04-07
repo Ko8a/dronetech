@@ -15,16 +15,16 @@ const PhotoGallery = ({ galleryImages }: PhotoGalleryProps) => {
   const { t } = useTranslation();
   const [errorCount, setErrorCount] = React.useState(0);
   
-  // Use uploaded images or provided images
+  // Use photos from competition-photos directory
   const competitionImages = [
-    "/lovable-uploads/competition-photos/745a6994-1b63-4bdd-ac55-577a6b48560a.png",
-    "/lovable-uploads/competition-photos/8f742b1a-aaa8-4e2c-baca-e7d4efec735a.png",
-    "/lovable-uploads/competition-photos/94bedda3-4093-4cce-9fe8-6c58c75eb2dc.png",
-    "/lovable-uploads/competition-photos/bb68df05-b021-45fa-a307-ba9d9f0a5dd3.png",
-    "/lovable-uploads/competition-photos/8825dab7-d044-404d-9075-3f409c4c9722.png",
-    "/lovable-uploads/competition-photos/14437bb9-e199-4ff6-9462-07a2dffedf0d.png",
-    "/lovable-uploads/competition-photos/c785e0df-e780-4d0a-aed8-6b7510397e60.png",
-    "/lovable-uploads/competition-photos/d2321178-f432-4d3e-9999-f1111b3f2b8c.png"
+    "/lovable-uploads/competition-photos/1c39704c-41cf-4542-8da8-73b317543b84.jpg",
+    "/lovable-uploads/competition-photos/39af8e06-09d8-4278-9879-3d80bb67726d.jpg",
+    "/lovable-uploads/competition-photos/509db9a5-5b9f-4394-a0bc-ea4fad4fd5ba.jpg",
+    "/lovable-uploads/competition-photos/5a730965-4a63-4939-bf41-c3b18e226469.jpg",
+    "/lovable-uploads/competition-photos/c2c7286e-ebf8-4fbc-b1c4-a7b4499d53c5.jpg",
+    "/lovable-uploads/competition-photos/d3656ecf-e773-425e-ba00-638886b45589.jpg",
+    "/lovable-uploads/competition-photos/e3e0e983-697b-4015-ab39-8245875c7102.jpg",
+    "/lovable-uploads/competition-photos/e536adfe-7047-42ae-bc6c-d9106edbed45.jpg"
   ];
   
   const images = galleryImages || competitionImages;

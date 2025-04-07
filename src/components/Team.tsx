@@ -7,19 +7,19 @@ const Team = () => {
     {
       name: "Alex Petrov",
       title: "Director",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "/lovable-uploads/team-photos/a80fc917-6063-46bd-87e2-75b0fe2a35da.png",
       bio: "With over 15 years of experience in aviation and technology, Alex leads our strategic vision and operations."
     },
     {
       name: "Maria Kim",
       title: "Development Director",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80",
+      image: "/lovable-uploads/team-photos/4652edc5-4911-4433-a88a-009d793fcb73.png",
       bio: "Maria oversees our educational program development, bringing her expertise in curriculum design and drone technology."
     },
     {
       name: "Dmitry Volkov",
       title: "Technical Director",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "/lovable-uploads/team-photos/4c8a54e3-bd7a-45d8-bcb7-81e070e7215e.png",
       bio: "A master engineer who leads our hardware development and technical training programs."
     }
   ];
