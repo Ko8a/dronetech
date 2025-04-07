@@ -34,6 +34,19 @@ export const translations = {
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
     
+    // Team Members
+    team_petrov_name: "Кобыланды Petrov",
+    team_petrov_title: "Director",
+    team_petrov_bio: "With over 15 years of experience in aviation and technology, Alex leads our strategic vision and operations.",
+    
+    team_kim_name: "Maria Kim",
+    team_kim_title: "Development Director",
+    team_kim_bio: "Maria oversees our educational program development, bringing her expertise in curriculum design and drone technology.",
+    
+    team_volkov_name: "Dmitry Volkov",
+    team_volkov_title: "Technical Director",
+    team_volkov_bio: "A master engineer who leads our hardware development and technical training programs.",
+    
     // Competition page
     premierUAVCompetition: 'Premier UAV Competition',
     mdc: 'MDC',
@@ -169,6 +182,19 @@ export const translations = {
     meetTeam: 'Meet Our Team',
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
+    
+    // Team Members
+    team_petrov_name: "Кобыланды Петров",
+    team_petrov_title: "Директор",
+    team_petrov_bio: "Авиация мен технология саласында 15 жылдан астам тәжірибесі бар Кобыланды біздің стратегиялық көзқарасымыз бен операцияларымызды басқарады.",
+    
+    team_kim_name: "Мария Ким",
+    team_kim_title: "Даму директоры",
+    team_kim_bio: "Мария білім беру бағдарламаларының дамуын қадағалайды, оқу бағдарламасын жасау және дрондар технологиясы саласындағы сараптамасын қолдана отырып.",
+    
+    team_volkov_name: "Дмитрий Волков",
+    team_volkov_title: "Техникалық директор",
+    team_volkov_bio: "Аппараттық құралдар мен техникалық оқыту бағдарламаларын басқаратын тәжірибелі инженер.",
     
     // Competition page
     premierUAVCompetition: 'Жетекші UAV жарысы',
@@ -306,6 +332,19 @@ export const translations = {
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
     
+    // Team Members
+    team_petrov_name: "Кобыланды Петров",
+    team_petrov_title: "Директор",
+    team_petrov_bio: "Имея более 15 лет опыта в области авиации и технологий, Кобыланды руководит нашим стратегическим видением и операциями.",
+    
+    team_kim_name: "Мария Ким",
+    team_kim_title: "Директор по развитию",
+    team_kim_bio: "Мария курирует разработку наших образовательных программ, внося свой опыт в разработку учебных программ и технологию дронов.",
+    
+    team_volkov_name: "Дмитрий Волков",
+    team_volkov_title: "Технический директор",
+    team_volkov_bio: "Опытный инженер, руководящий разработкой оборудования и программами технического обучения.",
+    
     // Competition page
     premierUAVCompetition: 'Ведущие соревнования БПЛА',
     mdc: 'MDC',
@@ -442,6 +481,19 @@ export const translations = {
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
     
+    // Team Members
+    team_petrov_name: "كوبيلاندي بيتروف",
+    team_petrov_title: "المدير",
+    team_petrov_bio: "بأكثر من 15 عامًا من الخبرة في مجال الطيران والتكنولوجيا، يقود كوبيلاندي رؤيتنا الاستراتيجية وعملياتنا.",
+    
+    team_kim_name: "ماريا كيم",
+    team_kim_title: "مديرة التطوير",
+    team_kim_bio: "تشرف ماريا على تطوير برامجنا التعليمية، وتجلب خبرتها في تصميم المناهج وتكنولوجيا الطائرات بدون طيار.",
+    
+    team_volkov_name: "دميتري فولكوف",
+    team_volkov_title: "المدير التقني",
+    team_volkov_bio: "مهندس متمرس يقود تطوير الأجهزة وبرامج التدريب التقني.",
+    
     // Competition page
     premierUAVCompetition: 'مسابقة الطائرات بدون طيار الرائدة',
     mdc: 'MDC',
@@ -541,12 +593,4 @@ export const translations = {
     // Error page
     errorCode: '404 خطأ',
     pageNotFound: 'الصفحة غير موجودة',
-    pageNotFoundMessage: 'عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها. ربما تم نقلها أو أنها غير موجودة.',
-    backToHome: 'العودة إلى الرئيسية'
-  }
-};
-
-export const getTranslation = (language: Language, key: string): string => {
-  if (!translations[language]) return translations.en[key] || key;
-  return translations[language][key] || translations.en[key] || key;
-};
+    pageNotFoundMessage: 'عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها
