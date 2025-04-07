@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -5,18 +6,24 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { 
+  AlertDialog,
+  AlertDialogContent,
+} from "@/components/ui/alert-dialog";
 
-// Import our new components and utilities
+// Import our components and utilities
 import { formSchema, FormValues } from './registration/schema';
 import { competitionTypes } from './registration/utils';
 import BasicInfoFields from './registration/BasicInfoFields';
 import MentorFields from './registration/MentorFields';
 import CompetitionTypeField from './registration/CompetitionTypeField';
 import ParticipantFields from './registration/ParticipantFields';
+import RegistrationSuccess from './registration/RegistrationSuccess';
 
 const RegistrationForm = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>("");
   const [selectedCompetitionType, setSelectedCompetitionType] = useState<string>("");
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
@@ -118,11 +125,10 @@ const RegistrationForm = () => {
     try {
       await saveRegistrationRecord(data);
       
-      toast({
-        title: "Registration Submitted",
-        description: "Thank you for registering! Your data has been recorded.",
-      });
+      // Show success dialog instead of toast
+      setShowSuccessDialog(true);
       
+      // Reset the form
       form.reset();
       setSelectedCountry("");
       setSelectedCompetitionType("");
@@ -148,65 +154,74 @@ const RegistrationForm = () => {
   }, [selectedCompetitionType, form]);
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold">Registration Form</h2>
-      
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <BasicInfoFields 
-            form={form} 
-            selectedCountry={selectedCountry} 
-            onCountryChange={handleCountryChange} 
-          />
-          
-          <MentorFields 
-            form={form} 
-            selectedCountry={selectedCountry} 
-          />
-          
-          <CompetitionTypeField 
-            form={form} 
-            onCompetitionTypeChange={handleCompetitionTypeChange} 
-          />
+    <>
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold">Registration Form</h2>
+        
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <BasicInfoFields 
+              form={form} 
+              selectedCountry={selectedCountry} 
+              onCountryChange={handleCountryChange} 
+            />
+            
+            <MentorFields 
+              form={form} 
+              selectedCountry={selectedCountry} 
+            />
+            
+            <CompetitionTypeField 
+              form={form} 
+              onCompetitionTypeChange={handleCompetitionTypeChange} 
+            />
 
-          {selectedCompetition && (
-            <>
-              <h3 className="text-xl font-semibold border-b pb-2">Participants Information</h3>
-              
-              {fields.map((field, index) => (
-                <ParticipantFields
-                  key={field.id}
-                  index={index}
-                  form={form}
-                  selectedCountry={selectedCountry}
-                  canRemove={selectedCompetition.id === "drone-soccer" ? 
-                    (index >= 5 && fields.length > 5) : 
-                    fields.length > selectedCompetition.competitors
-                  }
-                  onRemove={() => remove(index)}
-                />
-              ))}
-              
-              {selectedCompetition.id === "drone-soccer" && fields.length < 6 && (
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => {
-                    if (fields.length < 6) {
-                      append({ fullName: "", phone: "", telegram: "" });
+            {selectedCompetition && (
+              <>
+                <h3 className="text-xl font-semibold border-b pb-2">Participants Information</h3>
+                
+                {fields.map((field, index) => (
+                  <ParticipantFields
+                    key={field.id}
+                    index={index}
+                    form={form}
+                    selectedCountry={selectedCountry}
+                    canRemove={selectedCompetition.id === "drone-soccer" ? 
+                      (index >= 5 && fields.length > 5) : 
+                      fields.length > selectedCompetition.competitors
                     }
-                  }}
-                >
-                  Add Participant
-                </Button>
-              )}
-            </>
-          )}
-          
-          <Button type="submit" className="w-full">Submit Registration</Button>
-        </form>
-      </Form>
-    </div>
+                    onRemove={() => remove(index)}
+                  />
+                ))}
+                
+                {selectedCompetition.id === "drone-soccer" && fields.length < 6 && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      if (fields.length < 6) {
+                        append({ fullName: "", phone: "", telegram: "" });
+                      }
+                    }}
+                  >
+                    Add Participant
+                  </Button>
+                )}
+              </>
+            )}
+            
+            <Button type="submit" className="w-full">Submit Registration</Button>
+          </form>
+        </Form>
+      </div>
+
+      {/* Success Dialog */}
+      <AlertDialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
+        <AlertDialogContent className="sm:max-w-md">
+          <RegistrationSuccess onClose={() => setShowSuccessDialog(false)} />
+        </AlertDialogContent>
+      </AlertDialog>
+    </>
   );
 };
 

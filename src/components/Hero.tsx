@@ -57,8 +57,8 @@ const Hero = () => {
             <button onClick={scrollToNextSection} className="inline-flex items-center rounded-lg bg-primary px-8 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2">
               {t('learnMore')}
             </button>
-            <Link to="/training" className="inline-flex items-center rounded-lg bg-white/10 backdrop-blur-sm px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2">
-              {t('startTraining')}
+            <Link to="/competitions" className="inline-flex items-center rounded-lg bg-white/10 backdrop-blur-sm px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2">
+              {t('registerCompetition')}
             </Link>
           </div>
         </AnimatedElement>
