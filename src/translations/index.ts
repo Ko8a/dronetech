@@ -165,7 +165,7 @@ export const translations = {
     programsSubtitle: 'Пилотсыз ұшу аппараттарының тез дамып келе жатқан саласында жетістікке жету үшін қажетті дағдылар мен білімді дамытыңыз.',
     exploreAll: 'Барлық курстарды қарау',
     
-    // Team - Keep in English
+    // Team - Keep in English as requested
     meetTeam: 'Meet Our Team',
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
@@ -227,7 +227,7 @@ export const translations = {
     uploadPhoto: 'Фото жүктеу (міндетті емес)',
     submitFeedback: 'Пікір жіберу',
     
-    // Contact section - Keep in English
+    // Contact section - Keep in English as requested
     getInTouch: 'Get In Touch',
     contactInfo: 'Байланыс ақпараты',
     email: 'Электронды пошта',
@@ -301,7 +301,7 @@ export const translations = {
     programsSubtitle: 'Развивайте важные навыки и знания для достижения успеха в быстро развивающейся области беспилотных летательных аппаратов.',
     exploreAll: 'Все курсы',
     
-    // Team - Keep in English
+    // Team - Keep in English as requested
     meetTeam: 'Meet Our Team',
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
@@ -363,7 +363,7 @@ export const translations = {
     uploadPhoto: 'Загрузить фото (необязательно)',
     submitFeedback: 'Отправить отзыв',
     
-    // Contact section - Keep in English
+    // Contact section - Keep in English as requested
     getInTouch: 'Get In Touch',
     contactInfo: 'Контактная информация',
     email: 'Электронная почта',
@@ -437,7 +437,7 @@ export const translations = {
     programsSubtitle: 'تطوير المهارات والمعرفة الأساسية للتفوق في مجال المركبات الجوية بدون طيار سريع التطور.',
     exploreAll: 'استكشاف جميع الدورات',
     
-    // Team - Keep in English
+    // Team - Keep in English as requested
     meetTeam: 'Meet Our Team',
     teamTitle: 'The Experts Behind DroneTech',
     teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
@@ -499,7 +499,7 @@ export const translations = {
     uploadPhoto: 'تحميل صورة (اختياري)',
     submitFeedback: 'إرسال الملاحظات',
     
-    // Contact section - Keep in English
+    // Contact section - Keep in English as requested
     getInTouch: 'Get In Touch',
     contactInfo: 'معلومات الاتصال',
     email: 'البريد الإلكتروني',
