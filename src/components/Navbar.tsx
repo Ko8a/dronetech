@@ -129,25 +129,30 @@ const Navbar = () => {
         {/* Mobile Menu - Fixed to ensure it's always visible with proper background */}
         {isMenuOpen && (
           <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center md:hidden">
+            {/* Logo at the top of the mobile menu */}
+            <div className="absolute top-6 left-6">
+              <img alt="DroneTech" className="h-10" src="/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" />
+            </div>
+            
             <nav className="flex flex-col items-center space-y-8 text-lg">
-              <Link to="/" className={cn("nav-link", location.pathname === "/" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+              <Link to="/" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
                 {t('home')}
               </Link>
-              <Link to="/competitions" className={cn("nav-link", location.pathname === "/competitions" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+              <Link to="/competitions" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/competitions" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
                 {t('competitions')}
               </Link>
               {/* Training link hidden as requested */}
-              {/* <Link to="/training" className={cn("nav-link", location.pathname === "/training" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+              {/* <Link to="/training" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/training" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
                 {t('training')}
               </Link> */}
-              <Link to="/contact" className={cn("nav-link", location.pathname === "/contact" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
+              <Link to="/contact" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/contact" && "text-primary font-medium")} onClick={() => setIsMenuOpen(false)}>
                 {t('contactUs')}
               </Link>
             </nav>
             
-            {/* Close button explicitly added at the top right for better visibility */}
+            {/* Close button explicitly with improved contrast and positioned for better visibility */}
             <button 
-              className="absolute top-6 right-6 text-foreground focus:outline-none z-50" 
+              className="absolute top-6 right-6 text-primary bg-background/90 rounded-full p-1 focus:outline-none z-50" 
               onClick={() => setIsMenuOpen(false)}
               aria-label="Close menu"
             >
