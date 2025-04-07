@@ -50,7 +50,8 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div>
+          {/* Training section in footer - hidden as requested */}
+          {/* <div>
             <h4 className="font-bold text-gray-200 mb-6">{t('training_footer')}</h4>
             <ul className="space-y-3">
               <li>
@@ -69,9 +70,9 @@ const Footer = () => {
                 <Link to="/training" className="text-gray-300 hover:text-primary transition-colors">{t('premiumCourses')}</Link>
               </li>
             </ul>
-          </div>
+          </div> */}
           
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="font-bold text-gray-200 mb-6">{t('contactInfo')}</h4>
             <ul className="space-y-4">
               <li className="flex items-start">
@@ -108,7 +109,8 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        {/* Privacy policy links - hidden as requested */}
+        {/* <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex space-x-6 mb-4 md:mb-0">
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
               {t('privacy')}
@@ -120,9 +122,11 @@ const Footer = () => {
               {t('cookies')}
             </a>
           </div>
-          
+        </div> */}
+        
+        <div className="border-t border-gray-700 mt-12 pt-8 flex justify-center">
           <div className="text-gray-400 text-sm">
-            {t('designed')}
+            Designed and developed by DroneTech
           </div>
         </div>
       </div>

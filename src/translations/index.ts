@@ -1,4 +1,3 @@
-
 import { Language } from '../contexts/LanguageContext';
 
 export const translations = {
@@ -166,10 +165,10 @@ export const translations = {
     programsSubtitle: 'Пилотсыз ұшу аппараттарының тез дамып келе жатқан саласында жетістікке жету үшін қажетті дағдылар мен білімді дамытыңыз.',
     exploreAll: 'Барлық курстарды қарау',
     
-    // Team
-    meetTeam: 'Біздің командамызбен танысыңыз',
-    teamTitle: 'DroneTech-тің артындағы сарапшылар',
-    teamSubtitle: 'Біздің салалық мамандар тобы авиация, инженерия, білім және технология саласындағы тәжірибені біріктіреді.',
+    // Team - Keep in English
+    meetTeam: 'Meet Our Team',
+    teamTitle: 'The Experts Behind DroneTech',
+    teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
     
     // Competition page
     premierUAVCompetition: 'Жетекші UAV жарысы',
@@ -228,8 +227,8 @@ export const translations = {
     uploadPhoto: 'Фото жүктеу (міндетті емес)',
     submitFeedback: 'Пікір жіберу',
     
-    // Contact section
-    getInTouch: 'Байланысыңыз',
+    // Contact section - Keep in English
+    getInTouch: 'Get In Touch',
     contactInfo: 'Байланыс ақпараты',
     email: 'Электронды пошта',
     phone: 'Телефон',
@@ -258,7 +257,7 @@ export const translations = {
     privacy: 'Құпиялылық саясаты',
     terms: 'Қызмет көрсету шарттары',
     cookies: 'Cookie саясаты',
-    designed: 'DroneTech компаниясы жасаған және әзірлеген',
+    designed: 'Designed and developed by DroneTech',
 
     // Language selector
     language: 'Тіл',
@@ -302,10 +301,10 @@ export const translations = {
     programsSubtitle: 'Развивайте важные навыки и знания для достижения успеха в быстро развивающейся области беспилотных летательных аппаратов.',
     exploreAll: 'Все курсы',
     
-    // Team
-    meetTeam: 'Наша команда',
-    teamTitle: 'Эксперты DroneTech',
-    teamSubtitle: 'Наша команда профессионалов объединяет опыт в авиации, инженерии, образовании и технологиях.',
+    // Team - Keep in English
+    meetTeam: 'Meet Our Team',
+    teamTitle: 'The Experts Behind DroneTech',
+    teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
     
     // Competition page
     premierUAVCompetition: 'Ведущие соревнования БПЛА',
@@ -364,8 +363,8 @@ export const translations = {
     uploadPhoto: 'Загрузить фото (необязательно)',
     submitFeedback: 'Отправить отзыв',
     
-    // Contact section
-    getInTouch: 'Свяжитесь с нами',
+    // Contact section - Keep in English
+    getInTouch: 'Get In Touch',
     contactInfo: 'Контактная информация',
     email: 'Электронная почта',
     phone: 'Телефон',
@@ -394,7 +393,7 @@ export const translations = {
     privacy: 'Политика конфиденциальности',
     terms: 'Условия использования',
     cookies: 'Политика использования файлов cookie',
-    designed: 'Разработано DroneTech',
+    designed: 'Designed and developed by DroneTech',
 
     // Language selector
     language: 'Язык',
@@ -438,10 +437,10 @@ export const translations = {
     programsSubtitle: 'تطوير المهارات والمعرفة الأساسية للتفوق في مجال المركبات الجوية بدون طيار سريع التطور.',
     exploreAll: 'استكشاف جميع الدورات',
     
-    // Team
-    meetTeam: 'التقِ بفريقنا',
-    teamTitle: 'الخبراء وراء DroneTech',
-    teamSubtitle: 'يجمع فريقنا من المحترفين في الصناعة بين الخبرة في مجال الطيران والهندسة والتعليم والتكنولوجيا.',
+    // Team - Keep in English
+    meetTeam: 'Meet Our Team',
+    teamTitle: 'The Experts Behind DroneTech',
+    teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
     
     // Competition page
     premierUAVCompetition: 'مسابقة الطائرات بدون طيار الرائدة',
@@ -500,8 +499,8 @@ export const translations = {
     uploadPhoto: 'تحميل صورة (اختياري)',
     submitFeedback: 'إرسال الملاحظات',
     
-    // Contact section
-    getInTouch: 'تواصل معنا',
+    // Contact section - Keep in English
+    getInTouch: 'Get In Touch',
     contactInfo: 'معلومات الاتصال',
     email: 'البريد الإلكتروني',
     phone: 'الهاتف',
@@ -530,7 +529,7 @@ export const translations = {
     privacy: 'سياسة الخصوصية',
     terms: 'شروط الخدمة',
     cookies: 'سياسة ملفات تعريف الارتباط',
-    designed: 'تصميم وتطوير بواسطة DroneTech',
+    designed: 'Designed and developed by DroneTech',
 
     // Language selector
     language: 'اللغة',
@@ -551,4 +550,3 @@ export const getTranslation = (language: Language, key: string): string => {
   if (!translations[language]) return translations.en[key] || key;
   return translations[language][key] || translations.en[key] || key;
 };
-
