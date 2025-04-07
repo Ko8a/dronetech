@@ -142,10 +142,10 @@ const Contact = () => {
             <div className="pt-6 border-t border-border">
               <h4 className="text-sm font-medium mb-4">Follow Us</h4>
               <div className="flex space-x-4">
-                <a href="#" className="bg-secondary p-2 rounded-full transition-colors hover:bg-primary/10" aria-label="Instagram">
+                <a href="https://www.instagram.com/dronetech.kz" target="_blank" rel="noopener noreferrer" className="bg-secondary p-2 rounded-full transition-colors hover:bg-primary/10" aria-label="Instagram">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="#" className="bg-secondary p-2 rounded-full transition-colors hover:bg-primary/10" aria-label="Telegram">
+                <a href="https://t.me/dronetechkz" target="_blank" rel="noopener noreferrer" className="bg-secondary p-2 rounded-full transition-colors hover:bg-primary/10" aria-label="Telegram">
                   <TelegramIcon className="h-5 w-5" />
                 </a>
               </div>
