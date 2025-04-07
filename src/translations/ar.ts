@@ -1,3 +1,4 @@
+
 export const arTranslations = {
   // Navigation
   home: 'الرئيسية',
@@ -32,6 +33,15 @@ export const arTranslations = {
   meetTeam: 'Meet Our Team',
   teamTitle: 'The Experts Behind DroneTech',
   teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
+  team_petrov_name: 'أليكس بيتروف',
+  team_petrov_title: 'مدير التكنولوجيا',
+  team_petrov_bio: 'مهندس طيران مع 15 عاماً من الخبرة في تطوير الطائرات بدون طيار ودمج الأنظمة.',
+  team_kim_name: 'ميرا كيم',
+  team_kim_title: 'مدير التعليم',
+  team_kim_bio: 'متخصصة في تكنولوجيا التعليم متخصصة في تطوير المناهج لتدريب المهارات التقنية.',
+  team_volkov_name: 'سيرغي فولكوف',
+  team_volkov_title: 'كبير الطيارين',
+  team_volkov_bio: 'طيار عسكري سابق مع خبرة واسعة في تدريب مشغلي الطائرات بدون طيار للمهام المعقدة.',
   
   // Competition page
   premierUAVCompetition: 'مسابقة الطائرات بدون طيار الرائدة',

@@ -32,7 +32,16 @@ export const kkTranslations = {
   meetTeam: 'Meet Our Team',
   teamTitle: 'The Experts Behind DroneTech',
   teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
-  team_petrov_name: f334543543fd,
+  team_petrov_name: 'Алекс Петров',
+  team_petrov_title: 'Бас технологиялық директор',
+  team_petrov_bio: 'UAV әзірлеу және жүйелік интеграция саласында 15 жылдық тәжі��ибесі бар авиация инженері.',
+  team_kim_name: 'Мира Ким',
+  team_kim_title: 'Білім беру директоры',
+  team_kim_bio: 'Техникалық дағдыларды оқыту үшін оқу бағдарламаларын дамытуға маманданған білім беру технологы.',
+  team_volkov_name: 'Сергей Волков',
+  team_volkov_title: 'Бас ұшқыш',
+  team_volkov_bio: 'Күрделі миссиялар үшін UAV операторларын оқытудағы үлкен тәжірибесі бар бұрынғы әскери ұшқыш.',
+  
   // Competition page
   premierUAVCompetition: 'Жетекші UAV жарысы',
   mdc: 'MDC',
