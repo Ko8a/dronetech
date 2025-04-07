@@ -2,21 +2,22 @@
 import React from 'react';
 import AnimatedElement from './ui/AnimatedElement';
 import { useTranslation } from '../hooks/useTranslation';
+import { TeamMemberKey, TeamTranslationKey } from '../translations/types';
 
 const Team = () => {
   const { t } = useTranslation();
   
   const teamMembers = [
     {
-      key: "petrov",
+      key: "petrov" as TeamMemberKey,
       image: "/lovable-uploads/team-photos/itece_pfoto_RD_-206.jpg",
     },
     {
-      key: "kim",
+      key: "kim" as TeamMemberKey,
       image: "/lovable-uploads/team-photos/photo_2025-04-07_16-50-37.jpg",
     },
     {
-      key: "volkov",
+      key: "volkov" as TeamMemberKey,
       image: "/lovable-uploads/team-photos/photo_2025-04-07_16-50-54.jpg",
     }
   ];
@@ -48,14 +49,14 @@ const Team = () => {
                 <div className="aspect-[4/5] relative overflow-hidden">
                   <img
                     src={member.image}
-                    alt={t(`team_${member.key}_name`)}
+                    alt={t(`team_${member.key}_name` as TeamTranslationKey)}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">{t(`team_${member.key}_name`)}</h3>
-                  <p className="text-primary font-medium mb-3">{t(`team_${member.key}_title`)}</p>
-                  <p className="text-muted-foreground">{t(`team_${member.key}_bio`)}</p>
+                  <h3 className="text-xl font-bold mb-1">{t(`team_${member.key}_name` as TeamTranslationKey)}</h3>
+                  <p className="text-primary font-medium mb-3">{t(`team_${member.key}_title` as TeamTranslationKey)}</p>
+                  <p className="text-muted-foreground">{t(`team_${member.key}_bio` as TeamTranslationKey)}</p>
                 </div>
               </div>
             </AnimatedElement>

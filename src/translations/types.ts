@@ -1,4 +1,8 @@
 
+export type TeamMemberKey = 'petrov' | 'kim' | 'volkov';
+export type TeamMemberProperty = 'name' | 'title' | 'bio';
+export type TeamTranslationKey = `team_${TeamMemberKey}_${TeamMemberProperty}`;
+
 export type TranslationKey =
   | 'home'
   | 'competitions'
@@ -24,15 +28,7 @@ export type TranslationKey =
   | 'meetTeam'
   | 'teamTitle'
   | 'teamSubtitle'
-  | 'team_petrov_name'
-  | 'team_petrov_title'
-  | 'team_petrov_bio'
-  | 'team_kim_name'
-  | 'team_kim_title'
-  | 'team_kim_bio'
-  | 'team_volkov_name'
-  | 'team_volkov_title'
-  | 'team_volkov_bio'
+  | TeamTranslationKey
   | 'premierUAVCompetition'
   | 'mdc'
   | 'multiDroneChampionship'
