@@ -143,5 +143,12 @@ export const arTranslations = {
   errorCode: '404 خطأ',
   pageNotFound: 'الصفحة غير موجودة',
   pageNotFoundMessage: 'عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها. ربما تم نقلها أو أنها غير موجودة.',
-  backToHome: 'العودة إلى الرئيسية'
+  backToHome: 'العودة إلى الرئيسية',
+  
+  // Timer translations
+  registrationStartsIn: 'تبدأ التسجيل للمسابقة القادمة في',
+  days: 'أيام',
+  hours: 'ساعات',
+  minutes: 'دقائق',
+  seconds: 'ثواني'
 };

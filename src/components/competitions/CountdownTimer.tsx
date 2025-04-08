@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 
 interface CountdownTimerProps {
   targetDate: Date;
@@ -20,6 +21,7 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
     minutes: 0,
     seconds: 0
   });
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -44,23 +46,23 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
 
   return (
     <div className="mb-10">
-      <p className="text-white/80 mb-4">Registration for next competition starts in:</p>
+      <p className="text-white/80 mb-4">{t('registrationStartsIn')}:</p>
       <div className="flex flex-wrap justify-center md:justify-start gap-4">
         <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 w-24 text-center">
           <span className="block text-3xl font-bold">{timeLeft.days}</span>
-          <span className="text-white/60 text-sm">Days</span>
+          <span className="text-white/60 text-sm">{t('days')}</span>
         </div>
         <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 w-24 text-center">
           <span className="block text-3xl font-bold">{timeLeft.hours}</span>
-          <span className="text-white/60 text-sm">Hours</span>
+          <span className="text-white/60 text-sm">{t('hours')}</span>
         </div>
         <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 w-24 text-center">
           <span className="block text-3xl font-bold">{timeLeft.minutes}</span>
-          <span className="text-white/60 text-sm">Minutes</span>
+          <span className="text-white/60 text-sm">{t('minutes')}</span>
         </div>
         <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 w-24 text-center">
           <span className="block text-3xl font-bold">{timeLeft.seconds}</span>
-          <span className="text-white/60 text-sm">Seconds</span>
+          <span className="text-white/60 text-sm">{t('seconds')}</span>
         </div>
       </div>
     </div>

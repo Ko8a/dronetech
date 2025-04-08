@@ -1,3 +1,4 @@
+
 export const kkTranslations = {
   // Navigation
   home: 'Басты бет',
@@ -142,5 +143,12 @@ export const kkTranslations = {
   errorCode: '404 Қате',
   pageNotFound: 'Бет табылмады',
   pageNotFoundMessage: 'Кешіріңіз, сіз іздеген бетті таба алмадық. Ол жылжытылған немесе жоқ болуы мүмкін.',
-  backToHome: 'Басты бетке оралу'
+  backToHome: 'Басты бетке оралу',
+  
+  // Timer translations
+  registrationStartsIn: 'Келесі жарысқа тіркелу басталғанға дейін',
+  days: 'Күн',
+  hours: 'Сағат',
+  minutes: 'Минут',
+  seconds: 'Секунд'
 };

@@ -143,5 +143,12 @@ export const enTranslations = {
   errorCode: '404 Error',
   pageNotFound: 'Page not found',
   pageNotFoundMessage: 'Sorry, we couldn\'t find the page you\'re looking for. It might have been moved or doesn\'t exist.',
-  backToHome: 'Back to Home'
+  backToHome: 'Back to Home',
+  
+  // Timer translations
+  registrationStartsIn: 'Registration for next competition starts in',
+  days: 'Days',
+  hours: 'Hours',
+  minutes: 'Minutes',
+  seconds: 'Seconds'
 };

@@ -120,6 +120,11 @@ export type TranslationKey =
   | 'errorCode'
   | 'pageNotFound'
   | 'pageNotFoundMessage'
-  | 'backToHome';
+  | 'backToHome'
+  | 'registrationStartsIn'
+  | 'days'
+  | 'hours'
+  | 'minutes'
+  | 'seconds';
 
 export type TranslationObject = Record<TranslationKey, string>;

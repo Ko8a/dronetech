@@ -1,3 +1,4 @@
+
 export const ruTranslations = {
   // Navigation
   home: 'Главная',
@@ -142,5 +143,12 @@ export const ruTranslations = {
   errorCode: '404 Ошибка',
   pageNotFound: 'Страница не найдена',
   pageNotFoundMessage: 'Извините, мы не смогли найти страницу, которую вы искали. Возможно, она была перемещена или не существует.',
-  backToHome: 'Вернуться на главную'
+  backToHome: 'Вернуться на главную',
+  
+  // Timer translations
+  registrationStartsIn: 'Регистрация на следующее соревнование начнется через',
+  days: 'Дней',
+  hours: 'Часов',
+  minutes: 'Минут',
+  seconds: 'Секунд'
 };
