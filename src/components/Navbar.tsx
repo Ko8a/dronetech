@@ -116,17 +116,17 @@ const Navbar = () => {
     <header className={cn('fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 lg:px-20', isScrolled ? 'bg-background/90 shadow-sm backdrop-blur-md' : 'bg-transparent')}>
       <div className="flex items-center justify-between" dir={dir}>
         <Link to="/" className="relative z-10">
-          <div className="h-8 md:h-10 flex items-center">
+          <div className="flex items-center">
             {showDarkLogo ? (
               <img 
                 alt="DroneTech" 
-                className="w-40 h-12 object-contain" 
+                className="w-24 md:w-40 h-8 md:h-12 object-contain" 
                 src="/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" 
               />
             ) : (
               <img 
                 alt="DroneTech" 
-                className="w-40 h-12 object-contain" 
+                className="w-24 md:w-40 h-8 md:h-12 object-contain" 
                 src="/lovable-uploads/Group 349.png" 
               />
             )}
