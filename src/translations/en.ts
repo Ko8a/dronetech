@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   // Navigation
   home: 'Home',
@@ -52,6 +51,10 @@ export const enTranslations = {
   registration: 'Registration',
   eventDetails: 'Event Details',
   dateTime: 'Date & Time',
+  eventDate: 'June 1, 2025',
+  eventTime: '9:00 AM - 6:00 PM',
+  eventVenue: 'AITU',
+  eventCity: 'Astana, Kazakhstan',
   location: 'Location',
   participants: 'Participants',
   prizes: 'Prizes',
@@ -60,6 +63,8 @@ export const enTranslations = {
   thirdPlace: '3rd Place: $1,000',
   openToTeams: 'Open to individuals and teams',
   allSkillLevels: 'All skill levels welcome',
+  
+  // Photo gallery
   photoGallery: 'Photo Gallery',
   competitionMoments: 'Moments from Past Events',
   galleryDescription: 'Relive the exciting moments and innovations from our previous MDC competitions.',
@@ -69,6 +74,8 @@ export const enTranslations = {
   failedToLoad: 'Failed to load',
   outOf: 'out of',
   images: 'images',
+  
+  // Regulations & Guidelines
   regulations: 'Regulations & Guidelines',
   competitionRules: 'Competition Rules',
   rulesDescription: 'Download the complete rulebook and review key participation requirements.',
@@ -87,6 +94,8 @@ export const enTranslations = {
   equipment2: 'Battery specifications must comply with safety guidelines',
   equipment3: 'Each team must bring backup equipment',
   equipment4: 'Technical inspections will be conducted before competing',
+  
+  // Testimonials
   testimonials: 'Testimonials',
   whatParticipantsSay: 'What Participants Say',
   testimonialsDescription: 'Hear from past competitors about their MDC experience.',

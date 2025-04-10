@@ -1,39 +1,49 @@
 
-export type TeamMemberKey = 'petrov' | 'kim' | 'volkov';
-export type TeamMemberProperty = 'name' | 'title' | 'bio';
-export type TeamTranslationKey = `team_${TeamMemberKey}_${TeamMemberProperty}`;
-
-export type TestimonialKey = 'askar' | 'laura' | 'marat';
-export type TestimonialProperty = 'quote' | 'name' | 'role';
-export type TestimonialTranslationKey = `testimonial_${TestimonialKey}_${TestimonialProperty}`;
-
 export type TranslationKey =
+  // Navigation
   | 'home'
   | 'competitions'
   | 'training'
   | 'contacts'
   | 'contactUs'
+  
+  // Hero section
   | 'heroTitle'
   | 'heroSubtitle'
   | 'learnMore'
   | 'startTraining'
   | 'registerCompetition'
   | 'registration'
+  
+  // Problem statement
   | 'problemTitle'
   | 'problemText1'
   | 'problemText2'
   | 'initiative'
   | 'quote'
   | 'president'
+  
+  // Products
   | 'ourPrograms'
   | 'programsTitle'
   | 'programsSubtitle'
   | 'exploreAll'
+  
+  // Team
   | 'meetTeam'
   | 'teamTitle'
   | 'teamSubtitle'
-  | TeamTranslationKey
-  | TestimonialTranslationKey
+  | 'team_petrov_name'
+  | 'team_petrov_title'
+  | 'team_petrov_bio'
+  | 'team_kim_name'
+  | 'team_kim_title'
+  | 'team_kim_bio'
+  | 'team_volkov_name'
+  | 'team_volkov_title'
+  | 'team_volkov_bio'
+  
+  // Competition page
   | 'premierUAVCompetition'
   | 'mdc'
   | 'multiDroneChampionship'
@@ -42,6 +52,10 @@ export type TranslationKey =
   | 'registrationForm'
   | 'eventDetails'
   | 'dateTime'
+  | 'eventDate'
+  | 'eventTime'
+  | 'eventVenue'
+  | 'eventCity'
   | 'location'
   | 'participants'
   | 'prizes'
@@ -80,6 +94,17 @@ export type TranslationKey =
   | 'testimonials'
   | 'whatParticipantsSay'
   | 'testimonialsDescription'
+  
+  // Testimonials
+  | 'testimonial_askar_quote'
+  | 'testimonial_askar_name'
+  | 'testimonial_askar_role'
+  | 'testimonial_laura_quote'
+  | 'testimonial_laura_name'
+  | 'testimonial_laura_role'
+  | 'testimonial_marat_quote'
+  | 'testimonial_marat_name'
+  | 'testimonial_marat_role'
   | 'shareYourExperience'
   | 'fullName'
   | 'rolePosition'
@@ -92,6 +117,8 @@ export type TranslationKey =
   | 'submitting'
   | 'thankYouForFeedback'
   | 'feedbackSubmitted'
+  
+  // Contact section
   | 'getInTouch'
   | 'contactInfo'
   | 'email'
@@ -107,6 +134,8 @@ export type TranslationKey =
   | 'messagePlaceholder'
   | 'sending'
   | 'findUs'
+  
+  // Footer
   | 'rights'
   | 'quickLinks'
   | 'training_footer'
@@ -120,19 +149,29 @@ export type TranslationKey =
   | 'terms'
   | 'cookies'
   | 'designed'
+
+  // Language selector
   | 'language'
   | 'english'
   | 'kazakh'
   | 'russian'
   | 'arabic'
+  
+  // Error page
   | 'errorCode'
   | 'pageNotFound'
   | 'pageNotFoundMessage'
   | 'backToHome'
+  
+  // Timer translations
   | 'registrationStartsIn'
   | 'days'
   | 'hours'
   | 'minutes'
   | 'seconds';
 
-export type TranslationObject = Record<TranslationKey, string>;
+export type TestimonialKey = 'askar' | 'laura' | 'marat';
+
+export interface Testimonial {
+  key: TestimonialKey;
+}

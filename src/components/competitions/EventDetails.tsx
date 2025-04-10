@@ -24,9 +24,9 @@ const EventDetails = () => {
                 <div>
                   <h3 className="font-semibold text-lg mb-2">{t('dateTime')}</h3>
                   <p className="text-muted-foreground">
-                    June 1, 2025
+                    {t('eventDate')}
                   </p>
-                  <p className="text-muted-foreground">9:00 AM - 6:00 PM</p>
+                  <p className="text-muted-foreground">{t('eventTime')}</p>
                 </div>
               </div>
             </AnimatedElement>
@@ -38,8 +38,8 @@ const EventDetails = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-2">{t('location')}</h3>
-                  <p className="text-muted-foreground">AITU</p>
-                  <p className="text-muted-foreground">Astana, Kazakhstan</p>
+                  <p className="text-muted-foreground">{t('eventVenue')}</p>
+                  <p className="text-muted-foreground">{t('eventCity')}</p>
                 </div>
               </div>
             </AnimatedElement>
