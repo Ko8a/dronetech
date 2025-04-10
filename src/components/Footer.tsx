@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram } from 'lucide-react';
@@ -84,8 +83,8 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <Phone className="w-5 h-5 text-primary mr-3 mt-0.5" />
-                <a href="tel:+77071234567" className="text-gray-300 hover:text-primary transition-colors">
-                  +7 707 123 4567
+                <a href="tel:+77475442244" className="text-gray-300 hover:text-primary transition-colors">
+                  +7 747 544 22 44
                 </a>
               </li>
               <li className="flex items-start">

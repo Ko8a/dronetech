@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import AnimatedElement from './ui/AnimatedElement';
 import { cn } from '@/lib/utils';
@@ -122,8 +121,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-muted-foreground mb-1">{t('phone')}</h4>
-                  <a href="tel:+1-800-123-4567" className="text-lg font-medium link-hover">
-                    +1 (800) 123-4567
+                  <a href="tel:+77475442244" className="text-lg font-medium link-hover">
+                    +7 747 544 22 44
                   </a>
                 </div>
               </div>
