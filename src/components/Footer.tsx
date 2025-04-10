@@ -38,7 +38,7 @@ const Footer = () => {
               <img 
                 src="public/lovable-uploads/Group 349.png" 
                 alt="DroneTech" 
-                className="h-16 w-auto" 
+                className="w-40 h-auto" 
               />
             </Link>
             <p className="text-gray-300 mb-6 max-w-md">
