@@ -115,7 +115,8 @@ const Navbar = () => {
   const textColor = (isScrolled || alwaysDarkText) ? 'text-foreground' : 'text-white';
   const activeTextColor = (isScrolled || alwaysDarkText) ? 'text-primary' : 'text-primary';
   
-  return <header className={cn('fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 lg:px-20', isScrolled ? 'bg-background/90 shadow-sm backdrop-blur-md' : 'bg-transparent')}>
+  return (
+    <header className={cn('fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 lg:px-20', isScrolled ? 'bg-background/90 shadow-sm backdrop-blur-md' : 'bg-transparent')}>
       <div className="flex items-center justify-between" dir={dir}>
         <Link to="/" className="relative z-10">
           <div className="h-8 md:h-10 flex items-center">
@@ -187,6 +188,8 @@ const Navbar = () => {
           </div>
         )}
       </div>
-    </header>;
+    </header>
+  );
 };
+
 export default Navbar;
