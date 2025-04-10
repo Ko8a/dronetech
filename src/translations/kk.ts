@@ -1,4 +1,3 @@
-
 export const kkTranslations = {
   // Navigation
   home: 'Басты бет',
@@ -29,13 +28,13 @@ export const kkTranslations = {
   programsSubtitle: 'Пилотсыз ұшу аппараттарының тез дамып келе жатқан саласында жетістікке жету үшін қажетті дағдылар мен білімді дамытыңыз.',
   exploreAll: 'Барлық курстарды қарау',
   
-  // Team - Keep in English as requested
-  meetTeam: 'Meet Our Team',
-  teamTitle: 'The Experts Behind DroneTech',
-  teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
+  // Team
+  meetTeam: 'Біздің командамыз',
+  teamTitle: 'DroneTech компаниясының сарапшылары',
+  teamSubtitle: 'Біздің саланың мамандары командасы авиация, инженерия, білім және технология саласындағы тәжірибені біріктіреді.',
   team_petrov_name: 'Алекс Петров',
   team_petrov_title: 'Бас технологиялық директор',
-  team_petrov_bio: 'UAV әзірлеу және жүйелік интеграция саласында 15 жылдық тәжі��ибесі бар авиация инженері.',
+  team_petrov_bio: 'UAV әзірлеу және жүйелік интеграция саласында 15 жылдық тәжірибесі бар авиация инженері.',
   team_kim_name: 'Мира Ким',
   team_kim_title: 'Білім беру директоры',
   team_kim_bio: 'Техникалық дағдыларды оқыту үшін оқу бағдарламаларын дамытуға маманданған білім беру технологы.',
@@ -100,10 +99,10 @@ export const kkTranslations = {
   uploadPhoto: 'Фото жүктеу (міндетті емес)',
   submitFeedback: 'Пікір жіберу',
   
-  // Contact section - Keep in English as requested
-  getInTouch: 'Get In Touch',
+  // Contact section
+  getInTouch: 'Бізбен байланысыңыз',
   contactInfo: 'Байланыс ақпараты',
-  email: 'Электронды пошта',
+  email: 'Электрондық пошта',
   phone: 'Телефон',
   headquarters: 'Штаб-пәтері',
   followUs: 'Бізді қадағалаңыз',

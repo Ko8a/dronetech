@@ -1,4 +1,3 @@
-
 export const ruTranslations = {
   // Navigation
   home: 'Главная',
@@ -29,10 +28,10 @@ export const ruTranslations = {
   programsSubtitle: 'Развивайте важные навыки и знания для достижения успеха в быстро развивающейся области беспилотных летательных аппаратов.',
   exploreAll: 'Все курсы',
   
-  // Team - Keep in English as requested
-  meetTeam: 'Meet Our Team',
-  teamTitle: 'The Experts Behind DroneTech',
-  teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
+  // Team
+  meetTeam: 'Наша команда',
+  teamTitle: 'Эксперты DroneTech',
+  teamSubtitle: 'Наша команда профессионалов отрасли объединяет опыт в авиации, инженерии, образовании и технологиях.',
   team_petrov_name: 'Алекс Петров',
   team_petrov_title: 'Технический директор',
   team_petrov_bio: 'Авиационный инженер с 15-летним опытом разработки БПЛА и системной интеграции.',
@@ -100,8 +99,8 @@ export const ruTranslations = {
   uploadPhoto: 'Загрузить фото (необязательно)',
   submitFeedback: 'Отправить отзыв',
   
-  // Contact section - Keep in English as requested
-  getInTouch: 'Get In Touch',
+  // Contact section
+  getInTouch: 'Связаться с нами',
   contactInfo: 'Контактная информация',
   email: 'Электронная почта',
   phone: 'Телефон',

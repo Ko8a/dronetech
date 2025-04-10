@@ -1,11 +1,14 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import AnimatedElement from './ui/AnimatedElement';
 import { cn } from '@/lib/utils';
 import { Mail, Phone, MapPin, Send, Instagram } from 'lucide-react';
 import TelegramIcon from './icons/TelegramIcon';
 import { toast } from 'sonner';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -69,11 +72,11 @@ const Contact = () => {
         <AnimatedElement animation="animate-fade-in" threshold={0.1}>
           <div className="text-center mb-16">
             <span className="inline-block px-3 py-1 bg-blue-50 text-primary rounded-full text-sm font-medium mb-3">
-              Get In Touch
+              {t('getInTouch')}
             </span>
-            <h2 className="section-title">Contact Us</h2>
+            <h2 className="section-title">{t('contactUs')}</h2>
             <p className="section-subtitle">
-              Have questions about our products or services? We'd love to hear from you.
+              {t('heroSubtitle')}
             </p>
           </div>
         </AnimatedElement>
@@ -98,7 +101,7 @@ const Contact = () => {
             animation="animate-fade-in-left"
             className="lg:col-span-2 bg-white rounded-xl overflow-hidden shadow-sm p-6 lg:p-8"
           >
-            <h3 className="text-xl font-bold mb-6">Contact Information</h3>
+            <h3 className="text-xl font-bold mb-6">{t('contactInfo')}</h3>
             
             <div className="space-y-6 mb-8">
               <div className="flex items-start">
@@ -106,7 +109,7 @@ const Contact = () => {
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-muted-foreground mb-1">Email</h4>
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1">{t('email')}</h4>
                   <a href="mailto:info@dronetech.com" className="text-lg font-medium link-hover">
                     info@dronetech.com
                   </a>
@@ -118,7 +121,7 @@ const Contact = () => {
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-muted-foreground mb-1">Phone</h4>
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1">{t('phone')}</h4>
                   <a href="tel:+1-800-123-4567" className="text-lg font-medium link-hover">
                     +1 (800) 123-4567
                   </a>
@@ -130,7 +133,7 @@ const Contact = () => {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-muted-foreground mb-1">Headquarters</h4>
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1">{t('headquarters')}</h4>
                   <p className="text-lg font-medium">
                     53 Kabanbay Batyr Ave<br />
                     Astana, 010000, Kazakhstan
@@ -140,7 +143,7 @@ const Contact = () => {
             </div>
             
             <div className="pt-6 border-t border-border">
-              <h4 className="text-sm font-medium mb-4">Follow Us</h4>
+              <h4 className="text-sm font-medium mb-4">{t('followUs')}</h4>
               <div className="flex space-x-4">
                 <a href="https://www.instagram.com/dronetech.kz" target="_blank" rel="noopener noreferrer" className="bg-secondary p-2 rounded-full transition-colors hover:bg-primary/10" aria-label="Instagram">
                   <Instagram className="h-5 w-5" />
@@ -156,13 +159,13 @@ const Contact = () => {
             animation="animate-fade-in-right"
             className="lg:col-span-3 bg-white rounded-xl overflow-hidden shadow-sm p-6 lg:p-8"
           >
-            <h3 className="text-xl font-bold mb-6">Send Us a Message</h3>
+            <h3 className="text-xl font-bold mb-6">{t('sendMessage')}</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="block text-sm font-medium text-muted-foreground">
-                    Full Name
+                    {t('fullName')}
                   </label>
                   <input
                     id="name"
@@ -172,13 +175,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-                    placeholder="John Doe"
+                    placeholder={t('yourName')}
                   />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="email" className="block text-sm font-medium text-muted-foreground">
-                    Email Address
+                    {t('yourEmail')}
                   </label>
                   <input
                     id="email"
@@ -188,14 +191,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-                    placeholder="john@example.com"
+                    placeholder={t('emailPlaceholder')}
                   />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label htmlFor="subject" className="block text-sm font-medium text-muted-foreground">
-                  Subject
+                  {t('subject')}
                 </label>
                 <input
                   id="subject"
@@ -205,13 +208,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  placeholder="How can we help you?"
+                  placeholder={t('subjectPlaceholder')}
                 />
               </div>
               
               <div className="space-y-2">
                 <label htmlFor="message" className="block text-sm font-medium text-muted-foreground">
-                  Message
+                  {t('message')}
                 </label>
                 <textarea
                   id="message"
@@ -221,7 +224,7 @@ const Contact = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  placeholder="Your message here..."
+                  placeholder={t('messagePlaceholder')}
                 />
               </div>
               
@@ -236,11 +239,11 @@ const Contact = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Sending...
+                    {t('sending')}
                   </>
                 ) : (
                   <>
-                    Send Message
+                    {t('sendMessage')}
                     <Send className="ml-2 h-4 w-4" />
                   </>
                 )}
@@ -250,7 +253,7 @@ const Contact = () => {
         </div>
         
         <AnimatedElement animation="animate-fade-in" threshold={0.1} className="mt-16">
-          <h3 className="text-2xl font-bold mb-6 text-center">Find Us</h3>
+          <h3 className="text-2xl font-bold mb-6 text-center">{t('findUs')}</h3>
           <div ref={mapContainer} className="w-full h-96 rounded-xl overflow-hidden shadow-md"></div>
         </AnimatedElement>
       </div>

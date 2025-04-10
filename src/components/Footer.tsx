@@ -36,7 +36,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="inline-block mb-6">
               <img 
-                src="/lovable-uploads/046a14f6-12af-4ee1-a6b1-f1874d2f5cfc.png" 
+                src="/lovable-uploads/dronetech-logo.png" 
                 alt="DroneTech" 
                 className="h-10" 
               />
@@ -112,7 +112,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-700 mt-12 pt-8 flex justify-center">
           <div className="text-gray-400 text-sm">
-            Designed and developed by DroneTech
+            {t('designed')}
           </div>
         </div>
       </div>

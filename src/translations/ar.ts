@@ -1,4 +1,3 @@
-
 export const arTranslations = {
   // Navigation
   home: 'الرئيسية',
@@ -29,10 +28,10 @@ export const arTranslations = {
   programsSubtitle: 'تطوير المهارات والمعرفة الأساسية للتفوق في مجال المركبات الجوية بدون طيار سريع التطور.',
   exploreAll: 'استكشاف جميع الدورات',
   
-  // Team - Keep in English as requested
-  meetTeam: 'Meet Our Team',
-  teamTitle: 'The Experts Behind DroneTech',
-  teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
+  // Team
+  meetTeam: 'تعرف على فريقنا',
+  teamTitle: 'الخبراء وراء DroneTeach',
+  teamSubtitle: 'يجمع فريقنا من المتخصصين في الصناعة بين الخبرة في الطيران والهندسة والتعليم والتكنولوجيا.',
   team_petrov_name: 'أليكس بيتروف',
   team_petrov_title: 'مدير التكنولوجيا',
   team_petrov_bio: 'مهندس طيران مع 15 عاماً من الخبرة في تطوير الطائرات بدون طيار ودمج الأنظمة.',
@@ -100,8 +99,8 @@ export const arTranslations = {
   uploadPhoto: 'تحميل صورة (اختياري)',
   submitFeedback: 'إرسال الملاحظات',
   
-  // Contact section - Keep in English as requested
-  getInTouch: 'Get In Touch',
+  // Contact section
+  getInTouch: 'تواصل معنا',
   contactInfo: 'معلومات الاتصال',
   email: 'البريد الإلكتروني',
   phone: 'الهاتف',
@@ -126,7 +125,7 @@ export const arTranslations = {
   opticalFlowSetup: 'إعداد OpticalFlow',
   payloadDropSystems: 'أنظمة إسقاط الحمولة',
   premiumCourses: 'دورات مميزة',
-  ourTeam: 'فريقنا',
+  ourTeam: 'فر��قنا',
   privacy: 'سياسة الخصوصية',
   terms: 'شروط الخدمة',
   cookies: 'سياسة ملفات تعريف الارتباط',
