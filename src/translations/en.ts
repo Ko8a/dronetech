@@ -1,3 +1,4 @@
+
 export const enTranslations = {
   // Navigation
   home: 'Home',
@@ -7,14 +8,15 @@ export const enTranslations = {
   contactUs: 'Contact Us',
   
   // Hero section
-  heroTitle: 'Elevating UAV Education & Innovation',
-  heroSubtitle: 'Training the next generation of UAV operators through cutting-edge educational programs and competitive events.',
+  heroTitle: 'Development of Education and Innovation in the Field of UAVs',
+  heroSubtitle: 'Training the next generation of UAV operators through advanced educational programs and competitive events.',
   learnMore: 'Learn More',
   startTraining: 'Start Training',
   registerCompetition: 'Registration',
+  registration: 'Registration',
   
   // Problem statement
-  problemTitle: 'The UAV Operator Shortage',
+  problemTitle: 'Shortage of UAV Operators',
   problemText1: 'The demand for qualified UAV operators is growing exponentially across industries, from agriculture and construction to emergency services and entertainment. However, there exists a significant gap between market demand and available skilled professionals.',
   problemText2: 'At DroneTech, we\'re addressing this critical shortage through comprehensive educational programs that combine theoretical knowledge with extensive hands-on training, preparing the next generation of UAV operators for real-world applications.',
   initiative: 'Presidential Initiative',
@@ -25,30 +27,29 @@ export const enTranslations = {
   ourPrograms: 'Our Educational Programs',
   programsTitle: 'Comprehensive UAV Training',
   programsSubtitle: 'Develop essential skills and knowledge to excel in the rapidly evolving field of unmanned aerial vehicles.',
-  exploreAll: 'Explore All Courses',
+  exploreAll: 'All Courses',
   
   // Team
-  meetTeam: 'Meet Our Team',
-  teamTitle: 'The Experts Behind DroneTech',
+  meetTeam: 'Our Team',
+  teamTitle: 'DroneTech Experts',
   teamSubtitle: 'Our team of industry professionals brings together expertise in aviation, engineering, education, and technology.',
-  team_petrov_name: 'Alex Petrov',
-  team_petrov_title: 'Chief Technology Officer',
-  team_petrov_bio: 'Aviation engineer with 15 years of experience in UAV development and system integration.',
-  team_kim_name: 'Mira Kim',
-  team_kim_title: 'Education Director',
-  team_kim_bio: 'Educational technologist specializing in curriculum development for technical skills training.',
-  team_volkov_name: 'Sergei Volkov',
-  team_volkov_title: 'Chief Pilot',
-  team_volkov_bio: 'Former military pilot with extensive experience training UAV operators for complex missions.',
+  team_petrov_name: 'Kobylandy Makhanbetkali',
+  team_petrov_title: 'Project Founder',
+  team_petrov_bio: 'Founder and Director of the "Drone Tech" startup — an expert in unmanned aerial vehicles with deep knowledge in drones, electronics, and education.',
+  team_kim_name: 'Alikhan Ryspay',
+  team_kim_title: 'Project Manager',
+  team_kim_bio: 'Head of the Development Fund for Rocket Science and Aircraft Modeling of Kazakhstan and Central Asia - KAZ ROCKETS.',
+  team_volkov_name: 'Doshan Esmaganbet',
+  team_volkov_title: 'Chief Engineer',
+  team_volkov_bio: 'Head of Development and Innovation Department. Has experience working with unmanned systems and radio electronics. WorldSkills Lyon prize winner, Electronics',
   
   // Competition page
   premierUAVCompetition: 'Premier UAV Competition',
   mdc: 'MDC',
-  multiDroneChampionship: 'Multi-Drone Championship',
-  competitionDescription: 'The ultimate test of UAV piloting skills, technical knowledge, and innovation. Join the elite competition showcasing the future of drone technology.',
+  multiDroneChampionship: '& KAT',
+  competitionDescription: 'The ultimate test of UAV piloting skills, technical knowledge, and innovation. Join the competition showcasing the future of drone technology.',
   registerNow: 'Register Now',
   registrationForm: 'Registration Form',
-  registration: 'Registration',
   eventDetails: 'Event Details',
   dateTime: 'Date & Time',
   eventDate: 'June 1, 2025',
@@ -58,13 +59,11 @@ export const enTranslations = {
   location: 'Location',
   participants: 'Participants',
   prizes: 'Prizes',
-  firstPlace: '1st Place: $5,000',
-  secondPlace: '2nd Place: $2,500',
-  thirdPlace: '3rd Place: $1,000',
+  firstPlace: '1st Place:',
+  secondPlace: '2nd Place:',
+  thirdPlace: '3rd Place:',
   openToTeams: 'Open to individuals and teams',
   allSkillLevels: 'All skill levels welcome',
-  
-  // Photo gallery
   photoGallery: 'Photo Gallery',
   competitionMoments: 'Moments from Past Events',
   galleryDescription: 'Relive the exciting moments and innovations from our previous MDC competitions.',
@@ -74,8 +73,6 @@ export const enTranslations = {
   failedToLoad: 'Failed to load',
   outOf: 'out of',
   images: 'images',
-  
-  // Regulations & Guidelines
   regulations: 'Regulations & Guidelines',
   competitionRules: 'Competition Rules',
   rulesDescription: 'Download the complete rulebook and review key participation requirements.',
@@ -86,7 +83,7 @@ export const enTranslations = {
   downloadRulebook: 'Download Rulebook',
   keyRules: 'Key Participation Rules',
   equipmentRequirements: 'Equipment Requirements',
-  rule1: 'Competitors must be 18+ or have parental consent',
+  rule1: 'Participants must be 18+ or have parental consent',
   rule2: 'Registration must be completed 14 days before the event',
   rule3: 'Teams may consist of up to 3 members',
   rule4: 'All pilots must hold basic UAV certifications',
@@ -94,23 +91,18 @@ export const enTranslations = {
   equipment2: 'Battery specifications must comply with safety guidelines',
   equipment3: 'Each team must bring backup equipment',
   equipment4: 'Technical inspections will be conducted before competing',
-  
-  // Testimonials
   testimonials: 'Testimonials',
   whatParticipantsSay: 'What Participants Say',
   testimonialsDescription: 'Hear from past competitors about their MDC experience.',
-  
-  // Testimonials quotes
-  testimonial_askar_quote: "DroneTech's MDC competition challenged me to push my piloting skills to new heights. The organization was professional, and the course design was incredibly innovative.",
-  testimonial_askar_name: "Askar Muratov",
-  testimonial_askar_role: "MDC 2023 Champion",
-  testimonial_laura_quote: "Participating in MDC was an incredible learning experience for our entire team. The technical challenges and competitive atmosphere prepared us for real-world UAV operations.",
-  testimonial_laura_name: "Laura Chen",
-  testimonial_laura_role: "Technical University Team Lead",
-  testimonial_marat_quote: "The level of talent at MDC was impressive. DroneTech has created an event that truly showcases the future of UAV technology and operations.",
-  testimonial_marat_name: "Marat Bakirov",
-  testimonial_marat_role: "Industry Judge",
-  
+  testimonial_askar_quote: "Nurbol is a member of a drone football team from Astana. He first came to MDC as part of a school team. He says that it was here that he felt the real team spirit and excitement of competition. He continues to train and plans to participate again.",
+  testimonial_askar_name: "Nurbol Yermekov",
+  testimonial_askar_role: "Drone Football Player",
+  testimonial_laura_quote: "The track was interesting, I really had to push myself to finish in time. I liked that there were both beginners and experienced pilots — there's someone to compare your level with. I got good experience and motivation.",
+  testimonial_laura_name: "Alisher Taubay",
+  testimonial_laura_role: "Micro-FPV Pilot",
+  testimonial_marat_quote: "I gathered guys from college who are interested in drones, and we went to MDC. For them, it was the first such trip — everything was new and exciting. We came back with a bunch of emotions, now they're asking for more training sessions and preparing for the next competition.",
+  testimonial_marat_name: "Yerlan Sarsenov",
+  testimonial_marat_role: "Teacher, Team Mentor",
   shareYourExperience: 'Share Your Experience',
   fullName: 'Full Name',
   rolePosition: 'Role / Position',
@@ -170,7 +162,7 @@ export const enTranslations = {
   backToHome: 'Back to Home',
   
   // Timer translations
-  registrationStartsIn: 'Registration for next competition starts in',
+  registrationStartsIn: 'Registration for next competition ends in',
   days: 'Days',
   hours: 'Hours',
   minutes: 'Minutes',
