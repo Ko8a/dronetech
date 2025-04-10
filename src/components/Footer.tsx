@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram } from 'lucide-react';
@@ -90,8 +91,8 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 text-primary mr-3 mt-0.5" />
                 <span className="text-gray-300">
-                  Astana, Kazakhstan<br />
-                  Digital Hub Technology Park
+                  Microdistrict Tastak-1, 1v<br />
+                  Almaty, Kazakhstan
                 </span>
               </li>
             </ul>

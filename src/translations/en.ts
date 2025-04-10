@@ -1,3 +1,4 @@
+
 export const enTranslations = {
   // Navigation
   home: 'Home',

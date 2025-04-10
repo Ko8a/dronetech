@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import AnimatedElement from './ui/AnimatedElement';
 import { cn } from '@/lib/utils';
@@ -24,7 +25,8 @@ const Contact = () => {
       try {
         const mapDiv = mapContainer.current;
         const mapIframe = document.createElement('iframe');
-        mapIframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.0433371548107!2d76.90992641537817!3d43.2347727791388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883692f027581c7%3A0x2426740f56437e63!2sNazarbayev%20University!5e0!3m2!1sen!2skz!4v1627306586541!5m2!1sen!2skz';
+        // Updated map location to Microdistrict Tastak-1, 1v, Almaty
+        mapIframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.039!2d76.856!3d43.239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDE0JzIwLjAiTiA3NsKwNTEnMjEuNiJF!5e0!3m2!1sen!2skz!4v1650000000000!5m2!1sen!2skz';
         mapIframe.style.border = '0';
         mapIframe.setAttribute('allowfullscreen', '');
         mapIframe.setAttribute('loading', 'lazy');
@@ -134,8 +136,8 @@ const Contact = () => {
                 <div>
                   <h4 className="text-sm font-medium text-muted-foreground mb-1">{t('headquarters')}</h4>
                   <p className="text-lg font-medium">
-                    53 Kabanbay Batyr Ave<br />
-                    Astana, 010000, Kazakhstan
+                    Microdistrict Tastak-1, 1v<br />
+                    Almaty, Kazakhstan
                   </p>
                 </div>
               </div>
