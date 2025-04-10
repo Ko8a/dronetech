@@ -6,8 +6,9 @@ import HeroSection from '../components/competitions/HeroSection';
 import EventDetails from '../components/competitions/EventDetails';
 import PhotoGallery from '../components/competitions/PhotoGallery';
 import CompetitionRegulations from '../components/competitions/CompetitionRegulations';
-import TestimonialsSection from '../components/competitions/TestimonialsSection';
+import TestimonialsSection, { Testimonial } from '../components/competitions/TestimonialsSection';
 import { useTranslation } from '../hooks/useTranslation';
+import { TestimonialKey } from '../translations/types';
 
 const Competitions = () => {
   const { t } = useTranslation();
@@ -27,11 +28,11 @@ const Competitions = () => {
     '/lovable-uploads/competition-photos/e536adfe-7047-42ae-bc6c-d9106edbed45.jpg'
   ];
 
-  // Use the key-based testimonials structure
-  const testimonials = [
-    { key: 'askar' },
-    { key: 'laura' },
-    { key: 'marat' }
+  // Use the key-based testimonials structure with proper typing
+  const testimonials: Testimonial[] = [
+    { key: 'askar' as TestimonialKey },
+    { key: 'laura' as TestimonialKey },
+    { key: 'marat' as TestimonialKey }
   ];
 
   return (

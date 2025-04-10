@@ -6,9 +6,10 @@ import { useTranslation } from '../../hooks/useTranslation';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { User } from 'lucide-react';
 import { toast } from "../ui/use-toast";
+import { TestimonialKey } from '../../translations/types';
 
-interface Testimonial {
-  key: 'askar' | 'laura' | 'marat';
+export interface Testimonial {
+  key: TestimonialKey;
 }
 
 interface TestimonialsSectionProps {
