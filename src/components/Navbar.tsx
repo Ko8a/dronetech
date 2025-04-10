@@ -122,7 +122,7 @@ const Navbar = () => {
             {isScrolled ? (
               <img 
                 alt="DroneTech" 
-                className="w-40 h-12 object-contain"" 
+                className="w-40 h-12 object-contain" 
                 src="/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" 
               />
             ) : (
