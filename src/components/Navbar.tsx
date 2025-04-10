@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -18,11 +17,10 @@ const Navbar = () => {
   const toggleMenu = () => {
     if (isMenuOpen) {
       setIsClosing(true);
-      // Add a small delay before actually closing the menu to allow animation to play
       setTimeout(() => {
         setIsMenuOpen(false);
         setIsClosing(false);
-      }, 300); // Match this with animation duration
+      }, 300);
     } else {
       setIsMenuOpen(true);
     }
@@ -45,14 +43,12 @@ const Navbar = () => {
   
   useEffect(() => {
     if (isMenuOpen) {
-      // Save current scroll position
       const scrollPosition = window.scrollY;
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollPosition}px`;
       document.body.style.width = '100%';
     } else {
-      // Restore scroll position when closing the menu
       const scrollY = document.body.style.top;
       document.body.style.overflow = '';
       document.body.style.position = '';
@@ -89,7 +85,6 @@ const Navbar = () => {
 
   const handleContactClick = (e: React.MouseEvent) => {
     if (location.pathname !== '/') {
-      // If not on homepage, don't prevent default navigation
       return;
     }
     
@@ -115,12 +110,14 @@ const Navbar = () => {
   const textColor = (isScrolled || alwaysDarkText) ? 'text-foreground' : 'text-white';
   const activeTextColor = (isScrolled || alwaysDarkText) ? 'text-primary' : 'text-primary';
   
+  const showDarkLogo = isScrolled || isCompetitions || isTraining;
+  
   return (
     <header className={cn('fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 lg:px-20', isScrolled ? 'bg-background/90 shadow-sm backdrop-blur-md' : 'bg-transparent')}>
       <div className="flex items-center justify-between" dir={dir}>
         <Link to="/" className="relative z-10">
           <div className="h-8 md:h-10 flex items-center">
-            {isScrolled ? (
+            {showDarkLogo ? (
               <img 
                 alt="DroneTech" 
                 className="w-40 h-12 object-contain" 
