@@ -25,8 +25,8 @@ const Contact = () => {
       try {
         const mapDiv = mapContainer.current;
         const mapIframe = document.createElement('iframe');
-        // Updated map location to Microdistrict Tastak-1, 1v, Almaty
-        mapIframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.039!2d76.856!3d43.239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDE0JzIwLjAiTiA3NsKwNTEnMjEuNiJF!5e0!3m2!1sen!2skz!4v1650000000000!5m2!1sen!2skz';
+        // Correctly updated map location to Microdistrict Tastak-1, 1v, Almaty
+        mapIframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.3917452959547!2d76.83671907670183!3d43.249380671519584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836eb301e67a89%3A0x1b8d9c83d7c96154!2z0JzQutGALiDQotCw0YHRgtCw0LosINCQ0LvQvNCw0YLRiw!5e0!3m2!1sen!2skz!4v1712736475656!5m2!1sen!2skz';
         mapIframe.style.border = '0';
         mapIframe.setAttribute('allowfullscreen', '');
         mapIframe.setAttribute('loading', 'lazy');
