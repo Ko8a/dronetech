@@ -116,7 +116,11 @@ const Navbar = () => {
   return <header className={cn('fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 lg:px-20', isScrolled ? 'bg-background/90 shadow-sm backdrop-blur-md' : 'bg-transparent')}>
       <div className="flex items-center justify-between" dir={dir}>
         <Link to="/" className="relative z-10">
-          <img alt="DroneTech" className="h-10 md:h-12" src="/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" />
+          {isScrolled ? (
+            <img alt="DroneTech" className="h-10 md:h-12" src="/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" />
+          ) : (
+            <img alt="DroneTech" className="h-10 md:h-12" src="/lovable-uploads/Group 349.png" />
+          )}
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">
@@ -145,7 +149,7 @@ const Navbar = () => {
 
         {isMenuOpen && (
           <div className={cn(
-            "fixed inset-0 bg-background z-40 flex flex-col items-center justify-center md:hidden",
+            "fixed inset-0 top-0 bg-background z-40 flex flex-col items-center justify-center md:hidden",
             isClosing ? "animate-slide-out-right" : "animate-slide-in-right"
           )}>
             <nav className="flex flex-col items-center space-y-8 text-lg">
@@ -169,13 +173,7 @@ const Navbar = () => {
               </Link>
             </nav>
             
-            <button 
-              className="absolute top-6 right-6 text-black bg-gray-200 hover:bg-gray-300 rounded-full p-1.5 focus:outline-none z-50" 
-              onClick={toggleMenu}
-              aria-label="Close menu"
-            >
-              <X className="w-6 h-6" />
-            </button>
+            {/* Remove this duplicated button */}
           </div>
         )}
       </div>
