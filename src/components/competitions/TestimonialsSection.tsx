@@ -1,10 +1,11 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import AnimatedElement from '../ui/AnimatedElement';
 import TestimonialCard from './TestimonialCard';
 import { useTranslation } from '../../hooks/useTranslation';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { User } from 'lucide-react';
+import { toast } from "../ui/use-toast";
 
 interface Testimonial {
   name: string;
@@ -19,6 +20,29 @@ interface TestimonialsSectionProps {
 
 const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
   const { t } = useTranslation();
+  const [name, setName] = useState('');
+  const [role, setRole] = useState('');
+  const [feedback, setFeedback] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      toast({
+        title: t('thankYouForFeedback'),
+        description: t('feedbackSubmitted'),
+      });
+      
+      // Reset form
+      setName('');
+      setRole('');
+      setFeedback('');
+      setIsSubmitting(false);
+    }, 1000);
+  };
   
   return (
     <section className="py-16 bg-secondary/50">
@@ -51,7 +75,7 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
         <div className="max-w-5xl mx-auto mt-12 bg-white rounded-xl shadow-sm p-8">
           <AnimatedElement animation="animate-fade-in" delay={600} threshold={0.1}>
             <h3 className="text-xl font-bold mb-6">{t('shareYourExperience')}</h3>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-1">
@@ -60,8 +84,11 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
                   <input
                     type="text"
                     id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
                     placeholder={t('yourName')}
+                    required
                   />
                 </div>
                 <div>
@@ -71,8 +98,11 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
                   <input
                     type="text"
                     id="role"
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
                     className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
                     placeholder={t('participantRole')}
+                    required
                   />
                 </div>
               </div>
@@ -84,8 +114,11 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
                 <textarea
                   id="feedback"
                   rows={4}
+                  value={feedback}
+                  onChange={(e) => setFeedback(e.target.value)}
                   className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
                   placeholder={t('shareExperience')}
+                  required
                 ></textarea>
               </div>
               
@@ -102,9 +135,10 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
               
               <button
                 type="submit"
-                className="inline-flex items-center rounded-lg bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2"
+                disabled={isSubmitting}
+                className="inline-flex items-center rounded-lg bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2 disabled:opacity-70"
               >
-                {t('submitFeedback')}
+                {isSubmitting ? t('submitting') : t('submitFeedback')}
               </button>
             </form>
           </AnimatedElement>

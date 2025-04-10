@@ -1,3 +1,4 @@
+
 export const kkTranslations = {
   // Navigation
   home: 'Басты бет',
@@ -98,6 +99,9 @@ export const kkTranslations = {
   shareExperience: 'Тәжірибеңізбен бөлісіңіз...',
   uploadPhoto: 'Фото жүктеу (міндетті емес)',
   submitFeedback: 'Пікір жіберу',
+  submitting: 'Жіберілуде...',
+  thankYouForFeedback: 'Пікіріңіз үшін рахмет!',
+  feedbackSubmitted: 'Сіздің пікіріңіз сәтті жіберілді.',
   
   // Contact section
   getInTouch: 'Бізбен байланысыңыз',

@@ -99,6 +99,9 @@ export const enTranslations = {
   shareExperience: 'Share your experience...',
   uploadPhoto: 'Upload Photo (Optional)',
   submitFeedback: 'Submit Feedback',
+  submitting: 'Submitting...',
+  thankYouForFeedback: 'Thank you for your feedback!',
+  feedbackSubmitted: 'Your feedback has been submitted successfully.',
   
   // Contact section
   getInTouch: 'Get In Touch',

@@ -1,3 +1,4 @@
+
 export const arTranslations = {
   // Navigation
   home: 'الرئيسية',
@@ -98,6 +99,9 @@ export const arTranslations = {
   shareExperience: 'شارك تجربتك...',
   uploadPhoto: 'تحميل صورة (اختياري)',
   submitFeedback: 'إرسال الملاحظات',
+  submitting: 'جاري الإرسال...',
+  thankYouForFeedback: 'شكراً على ملاحظاتك!',
+  feedbackSubmitted: 'تم إرسال ملاحظاتك بنجاح.',
   
   // Contact section
   getInTouch: 'تواصل معنا',
