@@ -36,7 +36,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="inline-block mb-6">
               <img 
-                src="/lovable-uploads/dronetech-logo.png" 
+                src="public/lovable-uploads/Group 349.png" 
                 alt="DroneTech" 
                 className="h-10" 
               />
