@@ -170,6 +170,12 @@ export type TranslationKey =
   | 'minutes'
   | 'seconds';
 
+// Define the TeamMemberKey type
+export type TeamMemberKey = 'petrov' | 'kim' | 'volkov';
+
+// Create a type for team-specific translation keys
+export type TeamTranslationKey = `team_${TeamMemberKey}_${'name' | 'title' | 'bio'}`;
+
 export type TestimonialKey = 'askar' | 'laura' | 'marat';
 
 export interface Testimonial {

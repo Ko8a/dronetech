@@ -1,3 +1,4 @@
+
 export const ruTranslations = {
   // Navigation
   home: 'Главная',
@@ -49,7 +50,6 @@ export const ruTranslations = {
   competitionDescription: 'Высший тест навыков пилотирования БПЛА, технических знаний и инноваций. Присоединяйтесь к элитному соревнованию, демонстрирующему будущее технологий дронов.',
   registerNow: 'Зарегистрироваться',
   registrationForm: 'Форма регистрации',
-  registration: 'Регистрация',
   eventDetails: 'Детали мероприятия',
   dateTime: 'Дата и время',
   eventDate: '1 июня, 2025',
