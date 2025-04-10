@@ -162,7 +162,7 @@ export const ruTranslations = {
   backToHome: 'Вернуться на главную',
   
   // Timer translations
-  registrationStartsIn: 'Регистрация на следующее соревнование закончиться через:',
+  registrationStartsIn: 'Регистрация на следующее соревнование закончиться через',
   days: 'Дней',
   hours: 'Часов',
   minutes: 'Минут',
