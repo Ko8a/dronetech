@@ -46,8 +46,8 @@ export const ruTranslations = {
   // Competition page
   premierUAVCompetition: 'Ведущие соревнования БПЛА',
   mdc: 'MDC',
-  multiDroneChampionship: 'Мульти-дрон чемпионат',
-  competitionDescription: 'Высший тест навыков пилотирования БПЛА, технических знаний и инноваций. Присоединяйтесь к элитному соревнованию, демонстрирующему будущее технологий дронов.',
+  multiDroneChampionship: '& KAT',
+  competitionDescription: 'Высший тест навыков пилотирования БПЛА, технических знаний и инноваций. Присоединяйтесь к  соревнованию, демонстрирующему будущее технологий дронов.',
   registerNow: 'Зарегистрироваться',
   registrationForm: 'Форма регистрации',
   eventDetails: 'Детали мероприятия',
@@ -59,9 +59,9 @@ export const ruTranslations = {
   location: 'Место проведения',
   participants: 'Участники',
   prizes: 'Призы',
-  firstPlace: '1-е место: 5 000 $',
-  secondPlace: '2-е место: 2 500 $',
-  thirdPlace: '3-е место: 1 000 $',
+  firstPlace: '1-е место:',
+  secondPlace: '2-е место:',
+  thirdPlace: '3-е место:',
   openToTeams: 'Открыто для индивидуальных участников и команд',
   allSkillLevels: 'Все уровни подготовки приветствуются',
   photoGallery: 'Фотогалерея',
@@ -162,7 +162,7 @@ export const ruTranslations = {
   backToHome: 'Вернуться на главную',
   
   // Timer translations
-  registrationStartsIn: 'Регистрация на следующее соревнование начнется через',
+  registrationStartsIn: 'Регистрация на следующее соревнование закончиться через:',
   days: 'Дней',
   hours: 'Часов',
   minutes: 'Минут',
