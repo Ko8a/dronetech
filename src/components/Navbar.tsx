@@ -45,12 +45,14 @@ const Navbar = () => {
   
   useEffect(() => {
     if (isMenuOpen) {
-      const scrollPosition = window.pageYOffset;
+      // Save current scroll position
+      const scrollPosition = window.scrollY;
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollPosition}px`;
       document.body.style.width = '100%';
     } else {
+      // Restore scroll position when closing the menu
       const scrollY = document.body.style.top;
       document.body.style.overflow = '';
       document.body.style.position = '';
@@ -116,7 +118,7 @@ const Navbar = () => {
   return <header className={cn('fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 lg:px-20', isScrolled ? 'bg-background/90 shadow-sm backdrop-blur-md' : 'bg-transparent')}>
       <div className="flex items-center justify-between" dir={dir}>
         <Link to="/" className="relative z-10">
-          <div className="h-10 md:h-12 flex items-center">
+          <div className="h-8 md:h-10 flex items-center">
             {isScrolled ? (
               <img 
                 alt="DroneTech" 
@@ -159,8 +161,8 @@ const Navbar = () => {
 
         {isMenuOpen && (
           <div className={cn(
-            "fixed inset-0 top-0 bg-background z-40 flex flex-col items-center justify-center md:hidden",
-            isClosing ? "animate-slide-out-right" : "animate-slide-in-right"
+            "fixed inset-0 top-0 left-0 right-0 bg-background z-40 flex flex-col items-center justify-center md:hidden",
+            isClosing ? "animate-slide-out-top" : "animate-slide-in-top"
           )}>
             <nav className="flex flex-col items-center space-y-8 text-lg">
               <Link to="/" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/" && "text-primary font-medium")} onClick={toggleMenu}>
@@ -182,8 +184,6 @@ const Navbar = () => {
                 {t('contactUs')}
               </Link>
             </nav>
-            
-            {/* Remove this duplicated button */}
           </div>
         )}
       </div>
