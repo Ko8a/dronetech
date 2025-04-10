@@ -27,28 +27,11 @@ const Competitions = () => {
     '/lovable-uploads/competition-photos/e536adfe-7047-42ae-bc6c-d9106edbed45.jpg'
   ];
 
-  // Use consistent user avatar for all testimonials
-  const userPhotoUrl = "/lovable-uploads/team-photos/user.png";
-  
+  // Use the key-based testimonials structure
   const testimonials = [
-    {
-      name: "Askar Muratov",
-      role: "MDC 2023 Champion",
-      comment: "DroneTech's MDC competition challenged me to push my piloting skills to new heights. The organization was professional, and the course design was incredibly innovative.",
-      image: userPhotoUrl
-    },
-    {
-      name: "Laura Chen",
-      role: "Technical University Team Lead",
-      comment: "Participating in MDC was an incredible learning experience for our entire team. The technical challenges and competitive atmosphere prepared us for real-world UAV operations.",
-      image: userPhotoUrl
-    },
-    {
-      name: "Marat Bakirov",
-      role: "Industry Judge",
-      comment: "The level of talent at MDC was impressive. DroneTech has created an event that truly showcases the future of UAV technology and operations.",
-      image: userPhotoUrl
-    }
+    { key: 'askar' },
+    { key: 'laura' },
+    { key: 'marat' }
   ];
 
   return (

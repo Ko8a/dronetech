@@ -1,4 +1,3 @@
-
 export const arTranslations = {
   // Navigation
   home: 'الرئيسية',
@@ -50,7 +49,7 @@ export const arTranslations = {
   competitionDescription: 'الاختبار النهائي لمهارات قيادة الطائرات بدون طيار، والمعرفة التقنية، والابتكار. انضم إلى المنافسة النخبوية التي تعرض مستقبل تكنولوجيا الطائرات بدون طيار.',
   registerNow: 'سجل الآن',
   registrationForm: 'نموذج التسجيل',
-  eventDetails: 'تفاصيل الحدث',
+  eventDetails: 'تف��صيل الحدث',
   dateTime: 'التاريخ والوقت',
   location: 'الموقع',
   participants: 'المشاركون',
@@ -87,9 +86,23 @@ export const arTranslations = {
   equipment2: 'يجب أن تتوافق مواصفات البطارية مع إرشادات السلامة',
   equipment3: 'يجب على كل فريق إحضار معدات احتياطية',
   equipment4: 'سيتم إجراء فحوصات فنية قبل المنافسة',
+  
+  // Testimonials
   testimonials: 'الشهادات',
   whatParticipantsSay: 'ماذا يقول المشاركون',
   testimonialsDescription: 'استمع من المتسابقين السابقين حول تجربتهم في MDC.',
+  
+  // Testimonials quotes
+  testimonial_askar_quote: "تحدتني مسابقة DroneTeach MDC لدفع مهارات الطيران لدي إلى آفاق جديدة. كان التنظيم احترافيًا، وكان تصميم المسار مبتكرًا بشكل لا يصدق.",
+  testimonial_askar_name: "عسكر مراتوف",
+  testimonial_askar_role: "بطل MDC 2023",
+  testimonial_laura_quote: "كانت المشاركة في MDC تجربة تعليمية رائعة لفريقنا بأكمله. التحديات التقنية والأجواء التنافسية أعدتنا لعمليات الطائرات بدون طيار في العالم الحقيقي.",
+  testimonial_laura_name: "لورا تشن",
+  testimonial_laura_role: "قائدة فريق الجامعة التقنية",
+  testimonial_marat_quote: "كان مستوى المواهب في MDC مثيرًا للإعجاب. لقد أنشأت DroneTeach حدثًا يعرض حقًا مستقبل تكنولوجيا وعمليات الطائرات بدون طيار.",
+  testimonial_marat_name: "مراد باكيروف",
+  testimonial_marat_role: "حكم من الصناعة",
+  
   shareYourExperience: 'شارك تجربتك',
   fullName: 'الاسم الكامل',
   rolePosition: 'الدور / المنصب',

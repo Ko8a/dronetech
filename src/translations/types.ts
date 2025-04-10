@@ -3,6 +3,10 @@ export type TeamMemberKey = 'petrov' | 'kim' | 'volkov';
 export type TeamMemberProperty = 'name' | 'title' | 'bio';
 export type TeamTranslationKey = `team_${TeamMemberKey}_${TeamMemberProperty}`;
 
+export type TestimonialKey = 'askar' | 'laura' | 'marat';
+export type TestimonialProperty = 'quote' | 'name' | 'role';
+export type TestimonialTranslationKey = `testimonial_${TestimonialKey}_${TestimonialProperty}`;
+
 export type TranslationKey =
   | 'home'
   | 'competitions'
@@ -29,6 +33,7 @@ export type TranslationKey =
   | 'teamTitle'
   | 'teamSubtitle'
   | TeamTranslationKey
+  | TestimonialTranslationKey
   | 'premierUAVCompetition'
   | 'mdc'
   | 'multiDroneChampionship'

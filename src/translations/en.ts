@@ -90,6 +90,18 @@ export const enTranslations = {
   testimonials: 'Testimonials',
   whatParticipantsSay: 'What Participants Say',
   testimonialsDescription: 'Hear from past competitors about their MDC experience.',
+  
+  // Testimonials quotes
+  testimonial_askar_quote: "DroneTech's MDC competition challenged me to push my piloting skills to new heights. The organization was professional, and the course design was incredibly innovative.",
+  testimonial_askar_name: "Askar Muratov",
+  testimonial_askar_role: "MDC 2023 Champion",
+  testimonial_laura_quote: "Participating in MDC was an incredible learning experience for our entire team. The technical challenges and competitive atmosphere prepared us for real-world UAV operations.",
+  testimonial_laura_name: "Laura Chen",
+  testimonial_laura_role: "Technical University Team Lead",
+  testimonial_marat_quote: "The level of talent at MDC was impressive. DroneTech has created an event that truly showcases the future of UAV technology and operations.",
+  testimonial_marat_name: "Marat Bakirov",
+  testimonial_marat_role: "Industry Judge",
+  
   shareYourExperience: 'Share Your Experience',
   fullName: 'Full Name',
   rolePosition: 'Role / Position',

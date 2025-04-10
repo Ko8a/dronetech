@@ -8,10 +8,7 @@ import { User } from 'lucide-react';
 import { toast } from "../ui/use-toast";
 
 interface Testimonial {
-  name: string;
-  role: string;
-  comment: string;
-  image: string;
+  key: 'askar' | 'laura' | 'marat';
 }
 
 interface TestimonialsSectionProps {
@@ -62,11 +59,11 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
-              key={testimonial.name}
-              name={testimonial.name}
-              role={testimonial.role}
-              comment={testimonial.comment}
-              image={testimonial.image}
+              key={`testimonial-${testimonial.key}`}
+              nameKey={`testimonial_${testimonial.key}_name`}
+              roleKey={`testimonial_${testimonial.key}_role`}
+              quoteKey={`testimonial_${testimonial.key}_quote`}
+              image={"/lovable-uploads/team-photos/user.png"}
               index={index}
             />
           ))}

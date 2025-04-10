@@ -1,4 +1,3 @@
-
 export const kkTranslations = {
   // Navigation
   home: 'Басты бет',
@@ -87,9 +86,22 @@ export const kkTranslations = {
   equipment2: 'Батарея сипаттамалары қауіпсіздік нұсқауларына сәйкес келуі керек',
   equipment3: 'Әрбір команда қосалқы жабдық әкелуі керек',
   equipment4: 'Жарысқа қатысу алдында техникалық тексерістер жүргізіледі',
+  
   testimonials: 'Пікірлер',
   whatParticipantsSay: 'Қатысушылар не айтады',
   testimonialsDescription: 'Өткен қатысушылардың MDC тәжірибесі туралы пікірлерін тыңдаңыз.',
+  
+  // Testimonials quotes
+  testimonial_askar_quote: "DroneTech компаниясының MDC жарысы менің ұшқыштық дағдыларымды жаңа биіктіктерге көтеруге мүмкіндік берді. Ұйымдастыру кәсіби болды, және трасса дизайны өте инновациялық болды.",
+  testimonial_askar_name: "Асқар Мұратов",
+  testimonial_askar_role: "MDC 2023 чемпионы",
+  testimonial_laura_quote: "MDC-ға қатысу біздің барлық командамыз үшін керемет оқу тәжірибесі болды. Техникалық міндеттер мен бәсекелестік атмосфера бізді UAV-мен нақты жұмыс істеуге дайындады.",
+  testimonial_laura_name: "Лаура Чен",
+  testimonial_laura_role: "Техникалық университет командасының жетекшісі",
+  testimonial_marat_quote: "MDC-дағы талант деңгейі әсерлі болды. DroneTech UAV технологиясы мен операцияларының болашағын шынымен көрсететін іс-шара жасады.",
+  testimonial_marat_name: "Мара�� Бәкіров",
+  testimonial_marat_role: "Индустрия төрешісі",
+  
   shareYourExperience: 'Тәжірибеңізбен бөлісіңіз',
   fullName: 'Толық аты',
   rolePosition: 'Рөлі / қызметі',

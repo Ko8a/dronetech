@@ -1,4 +1,3 @@
-
 export const ruTranslations = {
   // Navigation
   home: 'Главная',
@@ -90,6 +89,15 @@ export const ruTranslations = {
   testimonials: 'Отзывы',
   whatParticipantsSay: 'Что говорят участники',
   testimonialsDescription: 'Услышьте от прошлых конкурсантов об их опыте на MDC.',
+  testimonial_askar_quote: "Соревнование MDC от DroneTech бросило вызов моим навыкам пилотирования и подняло их на новую высоту. Организация была профессиональной, а дизайн трассы невероятно инновационным.",
+  testimonial_askar_name: "Аскар Муратов",
+  testimonial_askar_role: "Чемпион MDC 2023",
+  testimonial_laura_quote: "Участие в MDC стало невероятным опытом обучения для всей нашей команды. Технические задачи и конкурентная атмо��фера подготовили нас к реальным операциям с БПЛА.",
+  testimonial_laura_name: "Лаура Чен",
+  testimonial_laura_role: "Руководитель команды Технического университета",
+  testimonial_marat_quote: "Уровень таланта на MDC был впечатляющим. DroneTech создал мероприятие, которое действительно демонстрирует будущее технологий и операций БПЛА.",
+  testimonial_marat_name: "Марат Бакиров",
+  testimonial_marat_role: "Судья от индустрии",
   shareYourExperience: 'Поделитесь своим опытом',
   fullName: 'Полное имя',
   rolePosition: 'Роль / должность',
