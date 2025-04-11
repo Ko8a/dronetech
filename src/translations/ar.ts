@@ -140,6 +140,7 @@ export const arTranslations = {
   phoneNumber: 'رقم الهاتف',
   telegram: 'تليجرام',
   enterTelegram: '@اسم_المستخدم',
+  examplePhoneNumber: 'مثال على رقم الهاتف', // Added the missing translation key
   removeParticipant: 'إزالة المشارك',
   addParticipant: 'إضافة مشارك',
   submit: 'إرسال التسجيل',
