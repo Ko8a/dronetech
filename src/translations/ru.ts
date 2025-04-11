@@ -140,6 +140,7 @@ export const ruTranslations = {
   phoneNumber: 'Номер телефона',
   telegram: 'Telegram',
   enterTelegram: '@имя_пользователя',
+  examplePhoneNumber: 'Пример номера телефона',
   removeParticipant: 'Удалить участника',
   addParticipant: 'Добавить участника',
   submit: 'Отправить регистрацию',

@@ -149,7 +149,59 @@ export type TranslationKey =
   | 'minParticipants'
   | 'submissionError'
   | 'submissionErrorDescription'
-  | 'rolePosition';
+  | 'rolePosition'
+  
+  // Contact section
+  | 'getInTouch'
+  | 'contactInfo'
+  | 'email'
+  | 'phone'
+  | 'headquarters'
+  | 'followUs'
+  | 'sendMessage'
+  | 'yourEmail'
+  | 'subject'
+  | 'message'
+  | 'emailPlaceholder'
+  | 'subjectPlaceholder'
+  | 'messagePlaceholder'
+  | 'sending'
+  | 'findUs'
+  
+  // Footer
+  | 'rights'
+  | 'quickLinks'
+  | 'training_footer'
+  | 'freeLessons'
+  | 'rtkInstallation'
+  | 'opticalFlowSetup'
+  | 'payloadDropSystems'
+  | 'premiumCourses'
+  | 'ourTeam'
+  | 'privacy'
+  | 'terms'
+  | 'cookies'
+  | 'designed'
+
+  // Language selector
+  | 'language'
+  | 'english'
+  | 'kazakh'
+  | 'russian'
+  | 'arabic'
+  
+  // Error page
+  | 'errorCode'
+  | 'pageNotFound'
+  | 'pageNotFoundMessage'
+  | 'backToHome'
+  
+  // Timer translations
+  | 'registrationStartsIn'
+  | 'days'
+  | 'hours'
+  | 'minutes'
+  | 'seconds';
 
 // Define the TeamMemberKey type
 export type TeamMemberKey = 'petrov' | 'kim' | 'volkov';

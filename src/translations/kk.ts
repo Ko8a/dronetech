@@ -140,6 +140,7 @@ export const kkTranslations = {
   phoneNumber: 'Телефон нөмірі',
   telegram: 'Telegram',
   enterTelegram: '@қолданушыаты',
+  examplePhoneNumber: 'Телефон нөмірінің мысалы',
   removeParticipant: 'Қатысушыны жою',
   addParticipant: 'Қатысушы қосу',
   submit: 'Тіркеуді жіберу',

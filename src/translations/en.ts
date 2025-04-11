@@ -140,7 +140,7 @@ export const enTranslations = {
   phoneNumber: 'Phone Number',
   telegram: 'Telegram',
   enterTelegram: '@username',
-  examplePhoneNumber: 'Example phone number', // Added the missing translation key
+  examplePhoneNumber: 'Example phone number',
   removeParticipant: 'Remove Participant',
   addParticipant: 'Add Participant',
   submit: 'Submit Registration',
