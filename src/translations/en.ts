@@ -1,3 +1,4 @@
+
 export const enTranslations = {
   // Navigation
   home: 'Home',
@@ -116,7 +117,6 @@ export const enTranslations = {
   feedbackSubmitted: 'Your feedback has been submitted successfully.',
   
   // Registration form
-  registrationForm: 'Registration Form',
   basicInfo: 'Basic Information',
   country: 'Country',
   selectCountry: 'Select a country',
@@ -136,7 +136,6 @@ export const enTranslations = {
   selectCompetitionType: 'Select competition type',
   participantsInfo: 'Participants Information',
   participant: 'Participant',
-  fullName: 'Full Name',
   enterParticipantName: 'Enter participant\'s full name',
   phoneNumber: 'Phone Number',
   telegram: 'Telegram',

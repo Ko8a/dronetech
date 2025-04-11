@@ -1,3 +1,4 @@
+
 export const ruTranslations = {
   // Navigation
   home: 'Главная',
@@ -92,7 +93,7 @@ export const ruTranslations = {
   equipment4: 'Перед соревнованиями будут проводиться технические проверки',
   testimonials: 'Отзывы',
   whatParticipantsSay: 'Что говорят участники',
-  testimonialsDescription: 'Услышьте ��т прошлых конкурсантов об их опыте на MDC.',
+  testimonialsDescription: 'Услышьте от прошлых конкурсантов об их опыте на MDC.',
   testimonial_askar_quote: "Нурбол — участник дрон-футбольной команды из Астаны. Он впервые попал на MDC в составе школьной сборной. Говорит, что именно здесь почувствовал настоящий командный дух и азарт соревнований. Сейчас продолжает тренироваться и планирует участвовать снова.",
   testimonial_askar_name: "Нурбол Ермеков",
   testimonial_askar_role: "Игрок в дрон-футбол",
@@ -116,7 +117,6 @@ export const ruTranslations = {
   feedbackSubmitted: 'Ваш отзыв успешно отправлен.',
   
   // Registration form
-  registrationForm: 'Форма регистрации',
   basicInfo: 'Основная информация',
   country: 'Страна',
   selectCountry: 'Выберите страну',
@@ -136,7 +136,6 @@ export const ruTranslations = {
   selectCompetitionType: 'Выберите тип соревнования',
   participantsInfo: 'Информация об участниках',
   participant: 'Участник',
-  fullName: 'ФИО',
   enterParticipantName: 'Введите ФИО участника',
   phoneNumber: 'Номер телефона',
   telegram: 'Telegram',

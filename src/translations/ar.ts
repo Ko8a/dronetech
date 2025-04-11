@@ -1,3 +1,4 @@
+
 export const arTranslations = {
   // Navigation
   home: 'الرئيسية',
@@ -46,7 +47,7 @@ export const arTranslations = {
   premierUAVCompetition: 'مسابقة الطائرات بدون طيار الرائدة',
   mdc: 'MDC',
   multiDroneChampionship: '& KAT',
-  competitionDescription: 'الاختبار النهائي لمهارات قيادة الطائرات بدون طيار، والمعرفة التقنية، والابتكار. انضم إلى المنافسة التي تعرض مستقبل تكنولوج��ا الطائرات بدون طيار.',
+  competitionDescription: 'الاختبار النهائي لمهارات قيادة الطائرات بدون طيار، والمعرفة التقنية، والابتكار. انضم إلى المنافسة التي تعرض مستقبل تكنولوجيا الطائرات بدون طيار.',
   registerNow: 'سجل الآن',
   registrationForm: 'نموذج التسجيل',
   eventDetails: 'تفاصيل الحدث',
@@ -116,7 +117,6 @@ export const arTranslations = {
   feedbackSubmitted: 'تم إرسال ملاحظاتك بنجاح.',
   
   // Registration form
-  registrationForm: 'نموذج التسجيل',
   basicInfo: 'المعلومات الأساسية',
   country: 'الدولة',
   selectCountry: 'اختر دولة',
@@ -133,10 +133,9 @@ export const arTranslations = {
   mentorEmail: 'البريد الإلكتروني للمرشد',
   enterMentorEmail: 'أدخل البريد الإلكتروني للمرشد',
   competitionType: 'نوع المسابقة',
-  selectCompetitionType: 'اختر نوع ا��مسابقة',
+  selectCompetitionType: 'اختر نوع المسابقة',
   participantsInfo: 'معلومات المشاركين',
   participant: 'المشارك',
-  fullName: 'الاسم الكامل',
   enterParticipantName: 'أدخل الاسم الكامل للمشارك',
   phoneNumber: 'رقم الهاتف',
   telegram: 'تليجرام',

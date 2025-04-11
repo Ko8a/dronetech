@@ -24,8 +24,12 @@ const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
   // Format phone number as user types
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>, onChange: (value: string) => void) => {
     const value = e.target.value;
-    const formattedValue = formatPhoneNumber(value, selectedCountry);
-    onChange(formattedValue);
+    // Make sure value starts with +
+    const formattedValue = value.startsWith('+') ? value : '+' + value;
+    // Format according to X XXX XXX XX XX pattern
+    const cleanedValue = formattedValue.replace(/[^\d+]/g, '');
+    const result = formatPhoneNumber(cleanedValue, selectedCountry);
+    onChange(result);
   };
 
   return (

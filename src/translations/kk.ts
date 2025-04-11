@@ -1,3 +1,4 @@
+
 export const kkTranslations = {
   // Navigation
   home: 'Басты бет',
@@ -116,7 +117,6 @@ export const kkTranslations = {
   feedbackSubmitted: 'Сіздің пікіріңіз сәтті жіберілді.',
   
   // Registration form
-  registrationForm: 'Тіркеу формасы',
   basicInfo: 'Негізгі ақпарат',
   country: 'Ел',
   selectCountry: 'Елді таңдаңыз',
@@ -136,7 +136,6 @@ export const kkTranslations = {
   selectCompetitionType: 'Жарыс түрін таңдаңыз',
   participantsInfo: 'Қатысушылар туралы ақпарат',
   participant: 'Қатысушы',
-  fullName: 'Толық аты-жөні',
   enterParticipantName: 'Қатысушының толық аты-жөнін енгізіңіз',
   phoneNumber: 'Телефон нөмірі',
   telegram: 'Telegram',
@@ -191,7 +190,7 @@ export const kkTranslations = {
   // Error page
   errorCode: '404 Қате',
   pageNotFound: 'Бет табылмады',
-  pageNotFoundMessage: 'Кешіріңіз, сіз іздеген бетті таба алм��дық. Ол жылжытылған немесе жоқ болуы мүмкін.',
+  pageNotFoundMessage: 'Кешіріңіз, сіз іздеген бетті таба алмадық. Ол жылжытылған немесе жоқ болуы мүмкін.',
   backToHome: 'Басты бетке оралу',
   
   // Timer translations
