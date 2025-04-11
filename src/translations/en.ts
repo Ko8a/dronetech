@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   // Navigation
   home: 'Home',
@@ -115,6 +114,40 @@ export const enTranslations = {
   submitting: 'Submitting...',
   thankYouForFeedback: 'Thank you for your feedback!',
   feedbackSubmitted: 'Your feedback has been submitted successfully.',
+  
+  // Registration form
+  registrationForm: 'Registration Form',
+  basicInfo: 'Basic Information',
+  country: 'Country',
+  selectCountry: 'Select a country',
+  city: 'City',
+  selectCity: 'Select a city',
+  institution: 'Institution',
+  enterInstitution: 'Enter your institution',
+  teamName: 'Team Name',
+  enterTeamName: 'Enter your team name',
+  mentorInfo: 'Mentor Information',
+  mentorFullName: 'Mentor Full Name',
+  enterMentorName: 'Enter mentor\'s full name',
+  mentorPhone: 'Mentor Phone',
+  mentorEmail: 'Mentor Email',
+  enterMentorEmail: 'Enter mentor\'s email',
+  competitionType: 'Competition Type',
+  selectCompetitionType: 'Select competition type',
+  participantsInfo: 'Participants Information',
+  participant: 'Participant',
+  fullName: 'Full Name',
+  enterParticipantName: 'Enter participant\'s full name',
+  phoneNumber: 'Phone Number',
+  telegram: 'Telegram',
+  enterTelegram: '@username',
+  removeParticipant: 'Remove Participant',
+  addParticipant: 'Add Participant',
+  submit: 'Submit Registration',
+  validationError: 'Validation Error',
+  minParticipants: 'requires at least 5 competitors.',
+  submissionError: 'Submission Error',
+  submissionErrorDescription: 'There was a problem submitting your registration. Please try again.',
   
   // Contact section
   getInTouch: 'Get In Touch',

@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/form";
 import { formatPhoneNumber } from "./utils";
 import { FormValues } from "./schema";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface MentorFieldsProps {
   form: UseFormReturn<FormValues>;
@@ -18,6 +19,8 @@ interface MentorFieldsProps {
 }
 
 const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
+  const { t } = useTranslation();
+  
   // Format phone number as user types
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>, onChange: (value: string) => void) => {
     const value = e.target.value;
@@ -27,7 +30,7 @@ const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
 
   return (
     <>
-      <h3 className="text-xl font-semibold border-b pb-2">Mentor Information</h3>
+      <h3 className="text-xl font-semibold border-b pb-2">{t('mentorInfo')}</h3>
         
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Mentor Full Name */}
@@ -36,9 +39,9 @@ const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
           name="mentorFullName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Mentor Full Name</FormLabel>
+              <FormLabel>{t('mentorFullName')}</FormLabel>
               <FormControl>
-                <Input placeholder="Enter mentor's full name" {...field} />
+                <Input placeholder={t('enterMentorName')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -51,12 +54,12 @@ const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
           name="mentorPhone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Mentor Phone</FormLabel>
+              <FormLabel>{t('mentorPhone')}</FormLabel>
               <FormControl>
                 <Input 
-                  placeholder={selectedCountry === "Kazakhstan" ? "+7-(7XX)-XXX-XX-XX" : "+X-(XXX)-XXX-XX-XX"} 
+                  placeholder="+X XXX XXX XX XX"
                   onChange={(e) => handlePhoneChange(e, field.onChange)}
-                  value={field.value}
+                  value={field.value || "+"}
                   onBlur={field.onBlur}
                   name={field.name}
                 />
@@ -73,9 +76,9 @@ const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
         name="mentorEmail"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Mentor Email</FormLabel>
+            <FormLabel>{t('mentorEmail')}</FormLabel>
             <FormControl>
-              <Input type="email" placeholder="Enter mentor's email" {...field} />
+              <Input type="email" placeholder={t('enterMentorEmail')} {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

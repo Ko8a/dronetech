@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/select";
 import { countries, citiesByCountry } from "./utils";
 import { FormValues } from "./schema";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface BasicInfoFieldsProps {
   form: UseFormReturn<FormValues>;
@@ -30,6 +31,8 @@ const BasicInfoFields = ({
   selectedCountry, 
   onCountryChange 
 }: BasicInfoFieldsProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -39,14 +42,14 @@ const BasicInfoFields = ({
           name="country"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Country</FormLabel>
+              <FormLabel>{t('country')}</FormLabel>
               <Select 
                 onValueChange={(value) => onCountryChange(value)}
                 defaultValue={field.value}
               >
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a country" />
+                    <SelectValue placeholder={t('selectCountry')} />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -66,7 +69,7 @@ const BasicInfoFields = ({
           name="city"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>City</FormLabel>
+              <FormLabel>{t('city')}</FormLabel>
               <Select 
                 onValueChange={field.onChange}
                 defaultValue={field.value}
@@ -74,7 +77,7 @@ const BasicInfoFields = ({
               >
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a city" />
+                    <SelectValue placeholder={t('selectCity')} />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -98,9 +101,9 @@ const BasicInfoFields = ({
           name="institution"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Institution</FormLabel>
+              <FormLabel>{t('institution')}</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your institution" {...field} />
+                <Input placeholder={t('enterInstitution')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -113,9 +116,9 @@ const BasicInfoFields = ({
           name="teamName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Team Name</FormLabel>
+              <FormLabel>{t('teamName')}</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your team name" {...field} />
+                <Input placeholder={t('enterTeamName')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

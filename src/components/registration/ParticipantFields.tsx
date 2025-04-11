@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/form";
 import { formatPhoneNumber } from "./utils";
 import { FormValues } from "./schema";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface ParticipantFieldsProps {
   index: number;
@@ -28,6 +29,8 @@ const ParticipantFields = ({
   canRemove, 
   onRemove 
 }: ParticipantFieldsProps) => {
+  const { t } = useTranslation();
+  
   // Format phone number as user types
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>, onChange: (value: string) => void) => {
     const value = e.target.value;
@@ -37,7 +40,7 @@ const ParticipantFields = ({
 
   return (
     <div className="space-y-6 p-4 border rounded-md">
-      <h4 className="font-medium">Participant {index + 1}</h4>
+      <h4 className="font-medium">{t('participant')} {index + 1}</h4>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Participant Full Name */}
@@ -46,9 +49,9 @@ const ParticipantFields = ({
           name={`participants.${index}.fullName`}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Full Name</FormLabel>
+              <FormLabel>{t('fullName')}</FormLabel>
               <FormControl>
-                <Input placeholder="Enter participant's full name" {...field} />
+                <Input placeholder={t('enterParticipantName')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -61,12 +64,12 @@ const ParticipantFields = ({
           name={`participants.${index}.phone`}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone Number</FormLabel>
+              <FormLabel>{t('phoneNumber')}</FormLabel>
               <FormControl>
                 <Input 
-                  placeholder={selectedCountry === "Kazakhstan" ? "+7-(7XX)-XXX-XX-XX" : "+X-(XXX)-XXX-XX-XX"} 
+                  placeholder="+X XXX XXX XX XX"
                   onChange={(e) => handlePhoneChange(e, field.onChange)}
-                  value={field.value}
+                  value={field.value || "+"}
                   onBlur={field.onBlur}
                   name={field.name}
                 />
@@ -83,9 +86,9 @@ const ParticipantFields = ({
         name={`participants.${index}.telegram`}
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Telegram</FormLabel>
+            <FormLabel>{t('telegram')}</FormLabel>
             <FormControl>
-              <Input placeholder="@username" {...field} />
+              <Input placeholder={t('enterTelegram')} {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -100,7 +103,7 @@ const ParticipantFields = ({
           onClick={onRemove}
           className="w-full mt-2"
         >
-          Remove Participant
+          {t('removeParticipant')}
         </Button>
       )}
     </div>
@@ -108,4 +111,3 @@ const ParticipantFields = ({
 };
 
 export default ParticipantFields;
-

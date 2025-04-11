@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/select";
 import { competitionTypes } from "./utils";
 import { FormValues } from "./schema";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface CompetitionTypeFieldProps {
   form: UseFormReturn<FormValues>;
@@ -27,20 +28,22 @@ const CompetitionTypeField = ({
   form, 
   onCompetitionTypeChange 
 }: CompetitionTypeFieldProps) => {
+  const { t } = useTranslation();
+  
   return (
     <FormField
       control={form.control}
       name="competitionType"
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Competition Type</FormLabel>
+          <FormLabel>{t('competitionType')}</FormLabel>
           <Select 
             onValueChange={(value) => onCompetitionTypeChange(value)}
             defaultValue={field.value}
           >
             <FormControl>
               <SelectTrigger>
-                <SelectValue placeholder="Select competition type" />
+                <SelectValue placeholder={t('selectCompetitionType')} />
               </SelectTrigger>
             </FormControl>
             <SelectContent>

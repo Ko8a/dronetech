@@ -1,4 +1,3 @@
-
 export const kkTranslations = {
   // Navigation
   home: 'Басты бет',
@@ -116,6 +115,40 @@ export const kkTranslations = {
   thankYouForFeedback: 'Пікіріңіз үшін рахмет!',
   feedbackSubmitted: 'Сіздің пікіріңіз сәтті жіберілді.',
   
+  // Registration form
+  registrationForm: 'Тіркеу формасы',
+  basicInfo: 'Негізгі ақпарат',
+  country: 'Ел',
+  selectCountry: 'Елді таңдаңыз',
+  city: 'Қала',
+  selectCity: 'Қаланы таңдаңыз',
+  institution: 'Мекеме',
+  enterInstitution: 'Мекемеңізді енгізіңіз',
+  teamName: 'Команда атауы',
+  enterTeamName: 'Команда атауын енгізіңіз',
+  mentorInfo: 'Тәлімгер туралы ақпарат',
+  mentorFullName: 'Тәлімгердің толық аты-жөні',
+  enterMentorName: 'Тәлімгердің толық аты-жөнін енгізіңіз',
+  mentorPhone: 'Тәлімгердің телефоны',
+  mentorEmail: 'Тәлімгердің электрондық поштасы',
+  enterMentorEmail: 'Тәлімгердің электрондық поштасын енгізіңіз',
+  competitionType: 'Жарыс түрі',
+  selectCompetitionType: 'Жарыс түрін таңдаңыз',
+  participantsInfo: 'Қатысушылар туралы ақпарат',
+  participant: 'Қатысушы',
+  fullName: 'Толық аты-жөні',
+  enterParticipantName: 'Қатысушының толық аты-жөнін енгізіңіз',
+  phoneNumber: 'Телефон нөмірі',
+  telegram: 'Telegram',
+  enterTelegram: '@қолданушыаты',
+  removeParticipant: 'Қатысушыны жою',
+  addParticipant: 'Қатысушы қосу',
+  submit: 'Тіркеуді жіберу',
+  validationError: 'Тексеру қатесі',
+  minParticipants: 'кем дегенде 5 қатысушы болуы керек.',
+  submissionError: 'Жіберу қатесі',
+  submissionErrorDescription: 'Тіркеуді жіберуде мәселе туындады. Қайталап көріңіз.',
+  
   // Contact section
   getInTouch: 'Бізбен байланысыңыз',
   contactInfo: 'Байланыс ақпараты',
@@ -158,7 +191,7 @@ export const kkTranslations = {
   // Error page
   errorCode: '404 Қате',
   pageNotFound: 'Бет табылмады',
-  pageNotFoundMessage: 'Кешіріңіз, сіз іздеген бетті таба алмадық. Ол жылжытылған немесе жоқ болуы мүмкін.',
+  pageNotFoundMessage: 'Кешіріңіз, сіз іздеген бетті таба алм��дық. Ол жылжытылған немесе жоқ болуы мүмкін.',
   backToHome: 'Басты бетке оралу',
   
   // Timer translations

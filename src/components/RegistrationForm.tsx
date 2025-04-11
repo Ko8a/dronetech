@@ -10,6 +10,7 @@ import {
   AlertDialog,
   AlertDialogContent,
 } from "@/components/ui/alert-dialog";
+import { useTranslation } from "@/hooks/useTranslation";
 
 // Import our components and utilities
 import { formSchema, FormValues } from './registration/schema';
@@ -25,6 +26,7 @@ const RegistrationForm = () => {
   const [selectedCompetitionType, setSelectedCompetitionType] = useState<string>("");
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -34,10 +36,10 @@ const RegistrationForm = () => {
       institution: "",
       teamName: "",
       mentorFullName: "",
-      mentorPhone: "",
+      mentorPhone: "+",
       mentorEmail: "",
       competitionType: "",
-      participants: [{ fullName: "", phone: "", telegram: "" }]
+      participants: [{ fullName: "", phone: "+", telegram: "" }]
     },
   });
 
@@ -64,7 +66,7 @@ const RegistrationForm = () => {
       
       if (currentParticipants.length < requiredCompetitors) {
         const participantsToAdd = requiredCompetitors - currentParticipants.length;
-        const newParticipants = Array(participantsToAdd).fill({ fullName: "", phone: "", telegram: "" });
+        const newParticipants = Array(participantsToAdd).fill({ fullName: "", phone: "+", telegram: "" });
         
         const updatedParticipants = [...currentParticipants, ...newParticipants];
         form.setValue("participants", updatedParticipants);
@@ -114,8 +116,8 @@ const RegistrationForm = () => {
       
       if (validParticipants.length < 5) {
         toast({
-          title: "Validation Error",
-          description: "Drone Soccer requires at least 5 competitors.",
+          title: t('validationError'),
+          description: `${data.competitionType} ${t('minParticipants')}`,
           variant: "destructive"
         });
         return;
@@ -129,14 +131,24 @@ const RegistrationForm = () => {
       setShowSuccessDialog(true);
       
       // Reset the form
-      form.reset();
+      form.reset({
+        country: "",
+        city: "",
+        institution: "",
+        teamName: "",
+        mentorFullName: "",
+        mentorPhone: "+",
+        mentorEmail: "",
+        competitionType: "",
+        participants: [{ fullName: "", phone: "+", telegram: "" }]
+      });
       setSelectedCountry("");
       setSelectedCompetitionType("");
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
-        title: "Submission Error",
-        description: "There was a problem submitting your registration. Please try again.",
+        title: t('submissionError'),
+        description: t('submissionErrorDescription'),
         variant: "destructive"
       });
     }
@@ -156,10 +168,11 @@ const RegistrationForm = () => {
   return (
     <>
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold">Registration Form</h2>
+        <h2 className="text-2xl font-bold">{t('registrationForm')}</h2>
         
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <h3 className="text-xl font-semibold border-b pb-2">{t('basicInfo')}</h3>
             <BasicInfoFields 
               form={form} 
               selectedCountry={selectedCountry} 
@@ -178,7 +191,7 @@ const RegistrationForm = () => {
 
             {selectedCompetition && (
               <>
-                <h3 className="text-xl font-semibold border-b pb-2">Participants Information</h3>
+                <h3 className="text-xl font-semibold border-b pb-2">{t('participantsInfo')}</h3>
                 
                 {fields.map((field, index) => (
                   <ParticipantFields
@@ -200,17 +213,17 @@ const RegistrationForm = () => {
                     variant="outline"
                     onClick={() => {
                       if (fields.length < 6) {
-                        append({ fullName: "", phone: "", telegram: "" });
+                        append({ fullName: "", phone: "+", telegram: "" });
                       }
                     }}
                   >
-                    Add Participant
+                    {t('addParticipant')}
                   </Button>
                 )}
               </>
             )}
             
-            <Button type="submit" className="w-full">Submit Registration</Button>
+            <Button type="submit" className="w-full">{t('submit')}</Button>
           </form>
         </Form>
       </div>
