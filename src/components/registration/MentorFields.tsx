@@ -26,7 +26,7 @@ const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
     const value = e.target.value;
     // Make sure value starts with +
     const formattedValue = value.startsWith('+') ? value : '+' + value;
-    // Format according to X XXX XXX XX XX pattern
+    // Format according to +X XXX XXX XX XX pattern
     const cleanedValue = formattedValue.replace(/[^\d+]/g, '');
     const result = formatPhoneNumber(cleanedValue, selectedCountry);
     onChange(result);
@@ -59,15 +59,26 @@ const MentorFields = ({ form, selectedCountry }: MentorFieldsProps) => {
           render={({ field }) => (
             <FormItem>
               <FormLabel>{t('mentorPhone')}</FormLabel>
-              <FormControl>
-                <Input 
-                  placeholder="+X XXX XXX XX XX"
-                  onChange={(e) => handlePhoneChange(e, field.onChange)}
-                  value={field.value || "+"}
-                  onBlur={field.onBlur}
-                  name={field.name}
-                />
-              </FormControl>
+              <div className="relative">
+                <FormControl>
+                  <Input 
+                    placeholder="+7 XXX XXX XX XX"
+                    onChange={(e) => handlePhoneChange(e, field.onChange)}
+                    value={field.value || "+"}
+                    onBlur={field.onBlur}
+                    name={field.name}
+                    className="bg-transparent"
+                  />
+                </FormControl>
+                <div className="absolute inset-0 flex items-center pointer-events-none">
+                  <span className="text-muted-foreground/30 pl-3 select-none">
+                    {!field.value || field.value === "+" ? "+7 XXX XXX XX XX" : ""}
+                  </span>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">
+                {t('examplePhoneNumber')}: +7 705 123 45 67
+              </p>
               <FormMessage />
             </FormItem>
           )}
