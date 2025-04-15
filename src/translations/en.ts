@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   // Navigation
   home: 'Home',
@@ -83,10 +82,7 @@ export const enTranslations = {
   downloadRulebook: 'Download Rulebook',
   keyRules: 'Key Participation Rules',
   equipmentRequirements: 'Equipment Requirements',
-  rule1: 'Participants must be 18+ or have parental consent',
-  rule2: 'Registration must be completed 14 days before the event',
-  rule3: 'Teams may consist of up to 3 members',
-  rule4: 'All pilots must hold basic UAV certifications',
+  rule1: 'Participants must be 8+ years old',
   equipment1: 'Drones must weigh less than 2kg and meet safety standards',
   equipment2: 'Battery specifications must comply with safety guidelines',
   equipment3: 'Each team must bring backup equipment',
