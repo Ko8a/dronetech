@@ -83,10 +83,13 @@ export const enTranslations = {
   keyRules: 'Key Participation Rules',
   equipmentRequirements: 'Equipment Requirements',
   rule1: 'Participants must be 8+ years old',
+  rule2: 'Registration must be completed 14 days before the event',
   equipment1: 'Drones must weigh less than 2kg and meet safety standards',
   equipment2: 'Battery specifications must comply with safety guidelines',
   equipment3: 'Each team must bring backup equipment',
   equipment4: 'Technical inspections will be conducted before competing',
+  
+  // Testimonials
   testimonials: 'Testimonials',
   whatParticipantsSay: 'What Participants Say',
   testimonialsDescription: 'Hear from past competitors about their MDC experience.',

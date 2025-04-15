@@ -66,22 +66,6 @@ const CompetitionRegulations = () => {
                     </div>
                     <span>{t('rule2')}</span>
                   </li>
-                  <li className="flex items-start">
-                    <div className="bg-green-100 p-1 rounded-full mr-3 mt-1">
-                      <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                    </div>
-                    <span>{t('rule3')}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-green-100 p-1 rounded-full mr-3 mt-1">
-                      <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                    </div>
-                    <span>{t('rule4')}</span>
-                  </li>
                 </ul>
               </div>
               
