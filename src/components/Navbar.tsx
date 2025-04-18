@@ -121,7 +121,7 @@ const Navbar = () => {
               <img 
                 alt="DroneTech" 
                 className="w-24 md:w-40 h-8 md:h-12 object-contain" 
-                src="/lovable-uploads/7c4f8a5e-8b00-456c-b69d-29456da6c7c3.png" 
+                src="/lovable-uploads/LogoBlack.png" 
               />
             ) : (
               <img 
