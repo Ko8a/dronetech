@@ -160,7 +160,7 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className={cn(
             "fixed inset-0 top-0 left-0 right-0 bg-background z-40 flex flex-col items-center justify-center md:hidden",
-            isClosing ? "animate-slide-out-top" : "animate-slide-in-top"
+    
           )}>
             <nav className="flex flex-col items-center space-y-8 text-lg">
               <Link to="/" className={cn("nav-link text-foreground hover:text-primary", location.pathname === "/" && "text-primary font-medium")} onClick={toggleMenu}>
