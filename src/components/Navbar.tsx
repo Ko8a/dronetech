@@ -113,8 +113,9 @@ const Navbar = () => {
   const showDarkLogo = isScrolled || isCompetitions || isTraining;
   
   return (
+    <> 
     <header className={cn('fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 lg:px-20', isScrolled ? 'bg-background/90 shadow-sm backdrop-blur-md' : 'bg-transparent')}>
-      <div className="relative flex items-center justify-between" dir={dir}>
+      <div className="flex items-center justify-between" dir={dir}>
         <Link to="/" className="relative z-10">
           <div className="flex items-center">
             {showDarkLogo ? (
@@ -157,7 +158,10 @@ const Navbar = () => {
           </button>
         </div>
 
-        {isMenuOpen && (
+        
+      </div>
+    </header>
+      {isMenuOpen && (
           <div className={cn(
             "fixed inset-0 top-0 left-0 right-0 bg-background z-40 flex flex-col items-center justify-center md:hidden absolute"
     
@@ -184,8 +188,8 @@ const Navbar = () => {
             </nav>
           </div>
         )}
-      </div>
-    </header>
+    </>
+    
   );
 };
 
