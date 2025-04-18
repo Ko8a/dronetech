@@ -30,7 +30,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ isScrolled = false 
   const currentFlag = languages.find(lang => lang.code === language)?.flag || '🌐';
 
   // Background and text color based on scroll position
-  const bgColor = isScrolled ? 'bg-secondary/80' : 'bg-black/20';
+  const bgColor = isScrolled ? 'bg-secondary/80' : 'bg-white/50';
   const textColor = isScrolled ? 'text-foreground' : 'text-primary';
   
   return (
