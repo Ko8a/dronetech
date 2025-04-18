@@ -159,7 +159,7 @@ const Navbar = () => {
 
         {isMenuOpen && (
           <div className={cn(
-            "fixed inset-0 top-0 left-0 right-0 bg-background z-40 flex flex-col items-center justify-center md:hidden",
+            "fixed inset-0 top-0 left-0 right-0 bg-background z-40 flex flex-col items-center justify-center md:hidden"
     
           )}>
             <nav className="flex flex-col items-center space-y-8 text-lg">
