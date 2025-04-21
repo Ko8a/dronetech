@@ -36,7 +36,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="inline-block mb-6">
               <img 
-                src="public/lovable-uploads/logowhite.png" 
+                src="/lovable-uploads/logowhite.png" 
                 alt="DroneTech" 
                 className="w-40 h-auto" 
               />
@@ -60,7 +60,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link 
-                  to={isHomePage ? "#contact" : "/#contact"} 
+                  to={isHomePage ? "#contact" : "/"} 
                   className="text-gray-300 hover:text-primary transition-colors"
                   onClick={handleContactClick}
                 >

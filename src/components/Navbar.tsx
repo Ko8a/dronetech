@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -84,19 +85,21 @@ const Navbar = () => {
   };
 
   const handleContactClick = (e: React.MouseEvent) => {
-    if (location.pathname !== '/') {
-      return;
-    }
-
-    e.preventDefault();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      const yOffset = -80;
-      const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({
-        top: y,
-        behavior: 'smooth',
-      });
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        const yOffset = -80;
+        const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth',
+        });
+        setIsMenuOpen(false);
+      }
+    } else {
+      // If not on homepage, navigate to homepage with contact hash
+      // No preventDefault here to allow navigation
       setIsMenuOpen(false);
     }
   };
@@ -150,7 +153,7 @@ const Navbar = () => {
               {t('competitions')}
             </Link>
             <Link
-              to={isSubpage ? '/#contact' : '#contact'}
+              to={isSubpage ? '/' : '#contact'}
               className={cn('nav-link', textColor)}
               onClick={handleContactClick}
             >
@@ -199,11 +202,11 @@ const Navbar = () => {
               {t('competitions')}
             </Link>
             <Link
-              to={isSubpage ? '/#contact' : '#contact'}
+              to={isSubpage ? '/' : '#contact'}
               className="nav-link text-foreground hover:text-primary"
               onClick={(e) => {
                 toggleMenu();
-                if (!isSubpage) {
+                if (location.pathname === '/') {
                   handleContactClick(e);
                 }
               }}
