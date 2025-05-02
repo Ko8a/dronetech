@@ -21,7 +21,7 @@ export const citiesByCountry: Record<string, string[]> = {
   Other: ["Other"]
 };
 
-// Competition types - Removed Drone Soccer
+// Competition types - Added Drone Simulator
 export const competitionTypes = [
   { 
     id: "drone-race-5inch", 
@@ -32,6 +32,12 @@ export const competitionTypes = [
   { 
     id: "drone-race-micro", 
     label: "Drone Race Micro", 
+    mentors: 1, 
+    competitors: 1 
+  },
+  { 
+    id: "drone-simulator", 
+    label: "Drone Simulator", 
     mentors: 1, 
     competitors: 1 
   }
