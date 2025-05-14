@@ -53,7 +53,7 @@ export const enTranslations = {
   dateTime: 'Date & Time',
   eventDate: 'June 1, 2025',
   eventTime: '9:00 AM - 6:00 PM',
-  eventVenue: 'AITU',
+  eventVenue: 'Zerde School, Tole Bi 26',
   eventCity: 'Astana, Kazakhstan',
   location: 'Location',
   participants: 'Participants',
