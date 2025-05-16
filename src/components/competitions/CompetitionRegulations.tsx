@@ -34,7 +34,7 @@ const CompetitionRegulations = () => {
                 </ul>
               </div>
               <a 
-                href="https://docs.google.com/document/d/1zeaUbhghQi6XcOZwImKqgsPRsAFWutuD/edit?usp=sharing&ouid=100434000340394186692&rtpof=true&sd=true"
+                href="https://docs.google.com/document/d/14XRCErYMmmzP_yuTmhgXWNLTmFqmLdB5/edit?usp=sharing&ouid=100434000340394186692&rtpof=true&sd=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2"
