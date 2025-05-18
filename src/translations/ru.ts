@@ -89,6 +89,12 @@ export const ruTranslations = {
   equipment3: 'Каждая команда должна принести запасное оборудование',
   equipment4: 'Перед соревнованиями будут проводиться технические проверки',
   
+  // New Competition Schedule section
+  scheduleSection: 'Расписание соревнований',
+  scheduleTitle: 'Расписание',
+  scheduleDescription: 'Просмотрите подробное расписание дня соревнований.',
+  viewSchedule: 'Просмотреть расписание',
+  
   // Testimonials
   testimonials: 'Отзывы',
   whatParticipantsSay: 'Что говорят участники',
