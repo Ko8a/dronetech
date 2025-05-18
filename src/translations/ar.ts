@@ -1,3 +1,4 @@
+
 export const arTranslations = {
   // Navigation
   home: 'الرئيسية',
@@ -204,6 +205,6 @@ export const arTranslations = {
   days: 'أيام',
   hours: 'ساعات',
   minutes: 'دقائق',
-  seconds: 'ثوانٍ',
-  equipmentRequirements: 'متطلبات المعدات'
+  seconds: 'ثوانٍ'
 };
+
