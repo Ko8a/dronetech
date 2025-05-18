@@ -82,6 +82,7 @@ export type TranslationKey =
   | 'lastUpdated'
   | 'downloadRulebook'
   | 'keyRules'
+  | 'equipmentRequirements'
   | 'rule1'
   | 'rule2'
   | 'rule3'

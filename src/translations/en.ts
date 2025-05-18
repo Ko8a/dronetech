@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   // Navigation
   home: 'Home',
@@ -204,5 +203,7 @@ export const enTranslations = {
   days: 'Days',
   hours: 'Hours',
   minutes: 'Minutes',
-  seconds: 'Seconds'
+  seconds: 'Seconds',
+  
+  equipmentRequirements: 'Equipment Requirements',
 };
