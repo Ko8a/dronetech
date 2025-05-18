@@ -82,7 +82,6 @@ export type TranslationKey =
   | 'lastUpdated'
   | 'downloadRulebook'
   | 'keyRules'
-  | 'equipmentRequirements'
   | 'rule1'
   | 'rule2'
   | 'rule3'
@@ -94,6 +93,12 @@ export type TranslationKey =
   | 'testimonials'
   | 'whatParticipantsSay'
   | 'testimonialsDescription'
+  
+  // Schedule section
+  | 'scheduleSection'
+  | 'scheduleTitle'
+  | 'scheduleDescription'
+  | 'viewSchedule'
   
   // Testimonials
   | 'testimonial_askar_quote'
