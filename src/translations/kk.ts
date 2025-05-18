@@ -78,7 +78,7 @@ export const kkTranslations = {
   rulebook: 'KAT және MDC 2025 ережелер жинағы',
   rulebookDescription: 'Толық ережелер, бағалау критерийлері және жабдық сипаттамалары.',
   pdfFormat: 'PDF форматы, 2.4 МБ',
-  lastUpdated: 'Соңғы жаңарту: Сәуір 2025',
+  lastUpdated: 'Соңғы жаңарту: Мамыр 2025',
   downloadRulebook: 'Ережелер жинағын жүктеу',
   keyRules: 'Қатысудың негізгі ережелері',
   equipmentRequirements: 'Жабдық талаптары',

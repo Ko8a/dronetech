@@ -78,7 +78,7 @@ export const ruTranslations = {
   rulebook: 'Свод правил KAT и MDC 2025',
   rulebookDescription: 'Полные правила, критерии оценки и спецификации оборудования.',
   pdfFormat: 'Формат PDF, 2.4 МБ',
-  lastUpdated: 'Последнее обновление: Апрель 2025',
+  lastUpdated: 'Последнее обновление: Май 2025',
   downloadRulebook: 'Скачать правила',
   keyRules: 'Основные правила участия',
   equipmentRequirements: 'Требования к оборудованию',

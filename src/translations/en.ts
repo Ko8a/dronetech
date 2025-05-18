@@ -78,7 +78,7 @@ export const enTranslations = {
   rulebook: 'KAT & MDC 2025 Rulebook',
   rulebookDescription: 'Complete regulations, scoring criteria, and equipment specifications.',
   pdfFormat: 'PDF format, 2.4 MB',
-  lastUpdated: 'Last updated: April 2025',
+  lastUpdated: 'Last updated: May 2025',
   downloadRulebook: 'Download Rulebook',
   keyRules: 'Key Participation Rules',
   equipmentRequirements: 'Equipment Requirements',
