@@ -89,6 +89,12 @@ export const arTranslations = {
   equipment3: 'يجب على كل فريق إحضار معدات احتياطية',
   equipment4: 'سيتم إجراء فحوصات فنية قبل المنافسة',
   
+  // New Competition Schedule section
+  scheduleSection: 'جدول المسابقة',
+  scheduleTitle: 'جدول المواعيد',
+  scheduleDescription: 'عرض الجدول التفصيلي ليوم المسابقة.',
+  viewSchedule: 'عرض الجدول',
+  
   // Testimonials section
   testimonials: 'الشهادات',
   whatParticipantsSay: 'ماذا يقول المشاركون',
@@ -99,7 +105,7 @@ export const arTranslations = {
   testimonial_laura_quote: "كان المسار مثيراً للاهتمام، كان علي أن أضغط على نفسي حقاً لإنهائه في الوقت المحدد. أعجبني وجود المبتدئين والطيارين ذوي الخبرة - هناك من تقارن مستواك معه. حصلت على خبرة جيدة وتحفيز.",
   testimonial_laura_name: "عليشير طوباي",
   testimonial_laura_role: "طيار مايكرو-FPV",
-  testimonial_marat_quote: "جمعت شباباً من الكلية مهتمين بالطائرات بدون طيار، وذهبنا إلى MDC. بالنسبة لهم، كانت هذه أول رحلة من هذا القبيل - كل شيء جديد وحي. عدنا بالكثير من المشاعر، الآن هم أنفسهم يطلبون المزيد من التدريبات والاستعداد لل��نافسة القادمة.",
+  testimonial_marat_quote: "جمعت شباباً من الكلية مهتمين بالطائرات بدون طيار، وذهبنا إلى MDC. بالنسبة لهم، كانت هذه أول رحلة من هذا القبيل - كل شيء جديد وحي. عدنا بالكثير من المشاعر، الآن هم أنفسهم يطلبون المزيد من التدريبات والاستعداد للمنافسة القادمة.",
   testimonial_marat_name: "يرلان سارسينوف",
   testimonial_marat_role: "مدرس، مرشد الفريق",
   shareYourExperience: 'شارك تجربتك',
@@ -198,5 +204,6 @@ export const arTranslations = {
   days: 'أيام',
   hours: 'ساعات',
   minutes: 'دقائق',
-  seconds: 'ثوانٍ'
+  seconds: 'ثوانٍ',
+  equipmentRequirements: 'متطلبات المعدات'
 };

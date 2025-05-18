@@ -89,6 +89,12 @@ export const kkTranslations = {
   equipment3: 'Әр команда қосалқы жабдық әкелуі керек',
   equipment4: 'Жарысқа дейін техникалық тексерулер жүргізіледі',
   
+  // New Competition Schedule section
+  scheduleSection: 'Жарыс кестесі',
+  scheduleTitle: 'Уақыт кестесі',
+  scheduleDescription: 'Жарыс күніне арналған егжей-тегжейлі кестені қараңыз.',
+  viewSchedule: 'Кестені қарау',
+  
   // Testimonials section
   testimonials: 'Пікірлер',
   whatParticipantsSay: 'Қатысушылар не дейді',
