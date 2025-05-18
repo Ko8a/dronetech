@@ -1,3 +1,4 @@
+
 export const enTranslations = {
   // Navigation
   home: 'Home',
@@ -81,13 +82,18 @@ export const enTranslations = {
   lastUpdated: 'Last updated: May 2025',
   downloadRulebook: 'Download Rulebook',
   keyRules: 'Key Participation Rules',
-  equipmentRequirements: 'Equipment Requirements',
   rule1: 'Participants must be 8+ years old',
   rule2: 'Registration must be completed 14 days before the event',
   equipment1: 'Drones must weigh less than 2kg and meet safety standards',
   equipment2: 'Battery specifications must comply with safety guidelines',
   equipment3: 'Each team must bring backup equipment',
   equipment4: 'Technical inspections will be conducted before competing',
+  
+  // New Competition Schedule section
+  scheduleSection: 'Competition Schedule',
+  scheduleTitle: 'Time Table',
+  scheduleDescription: 'View the detailed schedule for the competition day.',
+  viewSchedule: 'View Schedule',
   
   // Testimonials
   testimonials: 'Testimonials',

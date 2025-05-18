@@ -6,6 +6,7 @@ import HeroSection from '../components/competitions/HeroSection';
 import EventDetails from '../components/competitions/EventDetails';
 import PhotoGallery from '../components/competitions/PhotoGallery';
 import CompetitionRegulations from '../components/competitions/CompetitionRegulations';
+import ScheduleSection from '../components/competitions/ScheduleSection';
 import TestimonialsSection, { Testimonial } from '../components/competitions/TestimonialsSection';
 import { useTranslation } from '../hooks/useTranslation';
 import { TestimonialKey } from '../translations/types';
@@ -42,6 +43,7 @@ const Competitions = () => {
       <main className="flex-grow pt-20">
         <HeroSection targetDate={targetDate} />
         <EventDetails />
+        <ScheduleSection />
         <PhotoGallery galleryImages={galleryImages} />
         <CompetitionRegulations />
         <TestimonialsSection testimonials={testimonials} />
