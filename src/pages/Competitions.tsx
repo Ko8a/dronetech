@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -14,8 +13,8 @@ import { TestimonialKey } from '../translations/types';
 const Competitions = () => {
   const { t } = useTranslation();
   
-  // Set target date for countdown (May 25, 2025)
-  const targetDate = new Date(2025, 4, 25); // Month is 0-indexed, so 4 = May
+  // Set target date for countdown (May 26, 2025 at 00:00)
+  const targetDate = new Date(2025, 4, 26, 0, 0, 0, 0); // Month is 0-indexed, so 4 = May
   
   // Updated gallery images with competition photos
   const galleryImages = [
