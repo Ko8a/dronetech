@@ -14,6 +14,7 @@ export type TranslationKey =
   | 'startTraining'
   | 'registerCompetition'
   | 'registration'
+  | 'registrationEnded'
   
   // Problem statement
   | 'problemTitle'
@@ -147,7 +148,7 @@ export type TranslationKey =
   | 'phoneNumber'
   | 'telegram'
   | 'enterTelegram'
-  | 'examplePhoneNumber'  // Added the missing key here
+  | 'examplePhoneNumber'
   | 'removeParticipant'
   | 'addParticipant'
   | 'submit'
@@ -156,6 +157,16 @@ export type TranslationKey =
   | 'submissionError'
   | 'submissionErrorDescription'
   | 'rolePosition'
+  
+  // Registrations page
+  | 'registrationsList'
+  | 'droneRace5inch'
+  | 'droneRaceMicro'
+  | 'droneSimulator'
+  | 'teamsRegistered'
+  | 'noRegistrations'
+  | 'registeredOn'
+  | 'loading'
   
   // Contact section
   | 'getInTouch'

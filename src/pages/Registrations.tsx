@@ -39,7 +39,12 @@ const Registrations = () => {
       if (error) {
         console.error('Error fetching registrations:', error);
       } else {
-        setRegistrations(data || []);
+        // Type assertion to handle the Json type from Supabase
+        const typedData = data?.map(record => ({
+          ...record,
+          participants: Array.isArray(record.participants) ? record.participants : []
+        })) || [];
+        setRegistrations(typedData);
       }
     } catch (error) {
       console.error('Error:', error);
