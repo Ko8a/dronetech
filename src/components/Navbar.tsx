@@ -24,7 +24,6 @@ const Navbar = () => {
   const navItems = [
     { name: t('home'), path: '/' },
     { name: t('competitions'), path: '/competitions' },
-    { name: 'Registrations', path: '/registrations' },
     { name: t('training'), path: '/training' },
     { name: t('contacts'), path: '/contact' },
   ];

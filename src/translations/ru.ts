@@ -1,3 +1,4 @@
+
 export const ruTranslations = {
   // Navigation
   home: 'Главная',
@@ -13,6 +14,7 @@ export const ruTranslations = {
   startTraining: 'Начать обучение',
   registerCompetition: 'Регистрация',
   registration: 'Регистрация',
+  registrationEnded: 'Время регистрации закончилось',
   
   // Problem statement
   problemTitle: 'Нехватка операторов БПЛА',
@@ -99,7 +101,7 @@ export const ruTranslations = {
   testimonials: 'Отзывы',
   whatParticipantsSay: 'Что говорят участники',
   testimonialsDescription: 'Услышьте от прошлых конкурсантов об их опыте на MDC.',
-  testimonial_askar_quote: "Нурбол — участник дрон-футбольной команды из Астаны. Он впервые попал на MDC в составе школьной сборной. Говорит, что именно здесь почувствовал н��стоящий командный дух и азарт соревнований. Сейчас продолжает тренироваться и планирует участвовать снова.",
+  testimonial_askar_quote: "Нурбол — участник дрон-футбольной команды из Астаны. Он впервые попал на MDC в составе школьной сборной. Говорит, что именно здесь почувствовал настоящий командный дух и азарт соревнований. Сейчас продолжает тренироваться и планирует участвовать снова.",
   testimonial_askar_name: "Нурбол Ермеков",
   testimonial_askar_role: "Игрок в дрон-футбол",
   testimonial_laura_quote: "Трасса интересная, приходилось реально напрягаться, чтобы уложиться во время. Понравилось, что были и новички, и опытные пилоты — есть с кем сравнить уровень. Получил хороший опыт и мотивацию.",
@@ -153,6 +155,20 @@ export const ruTranslations = {
   minParticipants: 'требует минимум 5 участников.',
   submissionError: 'Ошибка отправки',
   submissionErrorDescription: 'При отправке регистрации возникла проблема. Пожалуйста, попробуйте снова.',
+  
+  // Registrations page
+  registrationsList: 'Список регистраций',
+  listOfParticipants: 'Список участников',
+  participantName: 'Имя участника',
+  mentorName: 'Имя ментора',
+  participantsRegistered: 'участников зарегистрировано',
+  droneRace5inch: 'Гонки дронов 5 дюймов',
+  droneRaceMicro: 'Гонки микро-дронов',
+  droneSimulator: 'Симулятор дронов',
+  teamsRegistered: 'команд зарегистрировано',
+  noRegistrations: 'Пока нет регистраций',
+  registeredOn: 'Зарегистрирован',
+  loading: 'Загрузка...',
   
   // Contact section
   getInTouch: 'Связаться с нами',

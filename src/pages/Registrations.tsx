@@ -116,10 +116,19 @@ const Registrations = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       
-      <main className="flex-grow pt-20">
+      {/* Hero section with black background stripe */}
+      <section className="relative pt-20 pb-12 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-black/80"></div>
+        </div>
+        
+        <div className="container mx-auto px-6 py-12 relative z-10 text-white">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">{t('listOfParticipants')}</h1>
+        </div>
+      </section>
+      
+      <main className="flex-grow">
         <div className="container mx-auto px-6 py-12">
-          <h1 className="text-4xl font-bold text-center mb-12">{t('listOfParticipants')}</h1>
-          
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Drone Race 5inch Column */}
             <div>
