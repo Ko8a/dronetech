@@ -1,3 +1,4 @@
+
 export const kkTranslations = {
   // Navigation
   home: 'Басты бет',
@@ -13,6 +14,7 @@ export const kkTranslations = {
   startTraining: 'Оқуды бастау',
   registerCompetition: 'Тіркелу',
   registration: 'Тіркелу',
+  registrationEnded: 'Тіркелу мерзімі аяқталды',
   
   // Problem statement
   problemTitle: 'БПЛА операторларының тапшылығы',
@@ -153,6 +155,20 @@ export const kkTranslations = {
   minParticipants: 'кем дегенде 5 қатысушы болуы керек.',
   submissionError: 'Жіберу қатесі',
   submissionErrorDescription: 'Тіркеуді жіберуде мәселе туындады. Қайталап көріңіз.',
+  
+  // Registrations page
+  registrationsList: 'Тіркелулер тізімі',
+  listOfParticipants: 'Қатысушылар тізімі',
+  participantName: 'Қатысушының аты',
+  mentorName: 'Тәлімгер аты',
+  participantsRegistered: 'қатысушы тіркелді',
+  droneRace5inch: 'Дрон жарысы 5 дюйм',
+  droneRaceMicro: 'Микро-дрон жарысы',
+  droneSimulator: 'Дрон симуляторы',
+  teamsRegistered: 'команда тіркелді',
+  noRegistrations: 'Әзірге тіркеулер жоқ',
+  registeredOn: 'Тіркелген күні',
+  loading: 'Жүктелуде...',
   
   // Contact section
   getInTouch: 'Бізбен байланысыңыз',
