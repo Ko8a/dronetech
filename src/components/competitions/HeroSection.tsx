@@ -3,6 +3,8 @@ import React from 'react';
 import AnimatedElement from '../ui/AnimatedElement';
 import CountdownTimer from './CountdownTimer';
 import { useTranslation } from '../../hooks/useTranslation';
+import { Button } from '../ui/button';
+import { Link } from 'react-router-dom';
 
 interface HeroSectionProps {
   targetDate: Date;
@@ -48,9 +50,14 @@ const HeroSection = ({ targetDate }: HeroSectionProps) => {
         
         <AnimatedElement animation="animate-fade-in" delay={1000}>
           <div className="text-center">
-            <p className="text-red-400 text-lg font-semibold mb-2">
+            <p className="text-red-400 text-lg font-semibold mb-4">
               {t('registrationEnded')}
             </p>
+            <Button asChild variant="outline" className="bg-white/10 text-white border-white/30 hover:bg-white/20">
+              <Link to="/registrations">
+                {t('listOfParticipants')}
+              </Link>
+            </Button>
           </div>
         </AnimatedElement>
       </div>

@@ -157,6 +157,10 @@ export const enTranslations = {
   
   // Registrations page
   registrationsList: 'Registrations List',
+  listOfParticipants: 'List of Participants',
+  participantName: 'Participant Name',
+  mentorName: 'Mentor Name',
+  participantsRegistered: 'participants registered',
   droneRace5inch: 'Drone Race 5inch',
   droneRaceMicro: 'Drone Race Micro',
   droneSimulator: 'Drone Simulator',

@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useTranslation } from '../hooks/useTranslation';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../components/ui/table';
 
 interface RegistrationRecord {
   id: string;
@@ -57,23 +58,40 @@ const Registrations = () => {
     return registrations.filter(reg => reg.competition_type === competitionType);
   };
 
-  const renderRegistrationCard = (registration: RegistrationRecord) => (
-    <Card key={registration.id} className="mb-4">
-      <CardHeader>
-        <CardTitle className="text-lg">{registration.team_name}</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-2">
-        <p><strong>{t('institution')}:</strong> {registration.institution}</p>
-        <p><strong>{t('country')}:</strong> {registration.country}</p>
-        <p><strong>{t('city')}:</strong> {registration.city}</p>
-        <p><strong>{t('mentorFullName')}:</strong> {registration.mentor_name}</p>
-        <p><strong>{t('participants')}:</strong> {registration.participants?.length || 0}</p>
-        <div className="text-sm text-gray-600">
-          {t('registeredOn')}: {new Date(registration.created_at).toLocaleDateString()}
-        </div>
-      </CardContent>
-    </Card>
-  );
+  const renderParticipantsTable = (registrations: RegistrationRecord[]) => {
+    const allParticipants: { participantName: string; teamName: string; mentorName: string }[] = [];
+    
+    registrations.forEach(registration => {
+      registration.participants.forEach((participant: any) => {
+        allParticipants.push({
+          participantName: participant.fullName || '',
+          teamName: registration.team_name,
+          mentorName: registration.mentor_name
+        });
+      });
+    });
+
+    return (
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>{t('participantName')}</TableHead>
+            <TableHead>{t('teamName')}</TableHead>
+            <TableHead>{t('mentorName')}</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {allParticipants.map((participant, index) => (
+            <TableRow key={index}>
+              <TableCell>{participant.participantName}</TableCell>
+              <TableCell>{participant.teamName}</TableCell>
+              <TableCell>{participant.mentorName}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    );
+  };
 
   if (loading) {
     return (
@@ -100,7 +118,7 @@ const Registrations = () => {
       
       <main className="flex-grow pt-20">
         <div className="container mx-auto px-6 py-12">
-          <h1 className="text-4xl font-bold text-center mb-12">{t('registrationsList')}</h1>
+          <h1 className="text-4xl font-bold text-center mb-12">{t('listOfParticipants')}</h1>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Drone Race 5inch Column */}
@@ -110,18 +128,18 @@ const Registrations = () => {
               </h2>
               <div className="text-center mb-4">
                 <span className="text-lg font-medium">
-                  {droneRace5inch.length} {t('teamsRegistered')}
+                  {droneRace5inch.reduce((total, reg) => total + reg.participants.length, 0)} {t('participantsRegistered')}
                 </span>
               </div>
-              {droneRace5inch.length > 0 ? (
-                droneRace5inch.map(renderRegistrationCard)
-              ) : (
-                <Card>
-                  <CardContent className="text-center py-8">
-                    <p className="text-gray-500">{t('noRegistrations')}</p>
-                  </CardContent>
-                </Card>
-              )}
+              <Card>
+                <CardContent className="p-6">
+                  {droneRace5inch.length > 0 ? (
+                    renderParticipantsTable(droneRace5inch)
+                  ) : (
+                    <p className="text-center text-gray-500">{t('noRegistrations')}</p>
+                  )}
+                </CardContent>
+              </Card>
             </div>
 
             {/* Drone Race Micro Column */}
@@ -131,18 +149,18 @@ const Registrations = () => {
               </h2>
               <div className="text-center mb-4">
                 <span className="text-lg font-medium">
-                  {droneRaceMicro.length} {t('teamsRegistered')}
+                  {droneRaceMicro.reduce((total, reg) => total + reg.participants.length, 0)} {t('participantsRegistered')}
                 </span>
               </div>
-              {droneRaceMicro.length > 0 ? (
-                droneRaceMicro.map(renderRegistrationCard)
-              ) : (
-                <Card>
-                  <CardContent className="text-center py-8">
-                    <p className="text-gray-500">{t('noRegistrations')}</p>
-                  </CardContent>
-                </Card>
-              )}
+              <Card>
+                <CardContent className="p-6">
+                  {droneRaceMicro.length > 0 ? (
+                    renderParticipantsTable(droneRaceMicro)
+                  ) : (
+                    <p className="text-center text-gray-500">{t('noRegistrations')}</p>
+                  )}
+                </CardContent>
+              </Card>
             </div>
 
             {/* Drone Simulator Column */}
@@ -152,18 +170,18 @@ const Registrations = () => {
               </h2>
               <div className="text-center mb-4">
                 <span className="text-lg font-medium">
-                  {droneSimulator.length} {t('teamsRegistered')}
+                  {droneSimulator.reduce((total, reg) => total + reg.participants.length, 0)} {t('participantsRegistered')}
                 </span>
               </div>
-              {droneSimulator.length > 0 ? (
-                droneSimulator.map(renderRegistrationCard)
-              ) : (
-                <Card>
-                  <CardContent className="text-center py-8">
-                    <p className="text-gray-500">{t('noRegistrations')}</p>
-                  </CardContent>
-                </Card>
-              )}
+              <Card>
+                <CardContent className="p-6">
+                  {droneSimulator.length > 0 ? (
+                    renderParticipantsTable(droneSimulator)
+                  ) : (
+                    <p className="text-center text-gray-500">{t('noRegistrations')}</p>
+                  )}
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

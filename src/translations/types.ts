@@ -160,6 +160,10 @@ export type TranslationKey =
   
   // Registrations page
   | 'registrationsList'
+  | 'listOfParticipants'
+  | 'participantName'
+  | 'mentorName'
+  | 'participantsRegistered'
   | 'droneRace5inch'
   | 'droneRaceMicro'
   | 'droneSimulator'
