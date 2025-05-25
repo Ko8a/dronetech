@@ -1,4 +1,5 @@
 
+
 export const ruTranslations = {
   // Navigation
   home: 'Главная',
@@ -160,6 +161,7 @@ export const ruTranslations = {
   registrationsList: 'Список регистраций',
   listOfParticipants: 'Список участников',
   participantName: 'Имя участника',
+  teamName: 'Название команды',
   mentorName: 'Имя ментора',
   participantsRegistered: 'участников зарегистрировано',
   droneRace5inch: 'Гонки дронов 5 дюймов',
