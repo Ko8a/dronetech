@@ -2,9 +2,6 @@
 import React from 'react';
 import AnimatedElement from '../ui/AnimatedElement';
 import CountdownTimer from './CountdownTimer';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import RegistrationForm from '../RegistrationForm';
 import { useTranslation } from '../../hooks/useTranslation';
 
 interface HeroSectionProps {
@@ -50,19 +47,11 @@ const HeroSection = ({ targetDate }: HeroSectionProps) => {
         </AnimatedElement>
         
         <AnimatedElement animation="animate-fade-in" delay={1000}>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button className="inline-flex items-center rounded-lg bg-primary px-8 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/90 focus:ring-offset-2">
-                {t('registerNow')}
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold">{t('registrationForm')}</DialogTitle>
-              </DialogHeader>
-              <RegistrationForm />
-            </DialogContent>
-          </Dialog>
+          <div className="text-center">
+            <p className="text-red-400 text-lg font-semibold mb-2">
+              {t('registrationEnded')}
+            </p>
+          </div>
         </AnimatedElement>
       </div>
     </section>

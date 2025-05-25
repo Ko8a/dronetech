@@ -1,222 +1,106 @@
 
-import { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils';
+import React, { useState, useEffect } from 'react';
+import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { useLanguage } from '../contexts/LanguageContext';
-import { useTranslation } from '../hooks/useTranslation';
 import LanguageSelector from './LanguageSelector';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
   const location = useLocation();
-  const { dir } = useLanguage();
   const { t } = useTranslation();
-
-  const toggleMenu = () => {
-    if (isMenuOpen) {
-      setIsClosing(true);
-      setTimeout(() => {
-        setIsMenuOpen(false);
-        setIsClosing(false);
-      }, 300);
-    } else {
-      setIsMenuOpen(true);
-    }
-  };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      const scrollPosition = window.scrollY;
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollPosition}px`;
-      document.body.style.width = '100%';
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
-      }
-    }
-
-    return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-    };
-  }, [isMenuOpen]);
-
-  const scrollToSection = (id: string) => {
-    if (location.pathname !== '/') {
-      return;
-    }
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = -80;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({
-        top: y,
-        behavior: 'smooth',
-      });
-      setIsMenuOpen(false);
-    }
-  };
-
-  const handleContactClick = (e: React.MouseEvent) => {
-    if (location.pathname === '/') {
-      e.preventDefault();
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        const yOffset = -80;
-        const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({
-          top: y,
-          behavior: 'smooth',
-        });
-        setIsMenuOpen(false);
-      }
-    } else {
-      // If not on homepage, navigate to homepage with contact hash
-      // No preventDefault here to allow navigation
-      setIsMenuOpen(false);
-    }
-  };
-
-  const isSubpage = location.pathname !== '/';
-  const isCompetitions = location.pathname === '/competitions';
-  const isTraining = location.pathname === '/training';
-
-  const alwaysDarkText = isCompetitions || isTraining;
-
-  const textColor = isScrolled || alwaysDarkText ? 'text-foreground' : 'text-white';
-  const activeTextColor = isScrolled || alwaysDarkText ? 'text-primary' : 'text-primary';
-
-  const showDarkLogo = isScrolled || isCompetitions || isTraining || isMenuOpen;
+  const navItems = [
+    { name: t('home'), path: '/' },
+    { name: t('competitions'), path: '/competitions' },
+    { name: 'Registrations', path: '/registrations' },
+    { name: t('training'), path: '/training' },
+    { name: t('contacts'), path: '/contact' },
+  ];
 
   return (
-    <>
-      <header
-        className={cn(
-          'fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 lg:px-20',
-          isScrolled ? 'bg-background/90 shadow-sm backdrop-blur-md' : 'bg-transparent'
-        )}
-      >
-        <div className="flex items-center justify-between" dir={dir}>
-          <Link to="/" className="relative z-10">
-            <div className="flex items-center">
-              {showDarkLogo ? (
-                <img
-                  alt="DroneTech"
-                  className="w-24 md:w-40 h-8 md:h-12 object-contain"
-                  src="/lovable-uploads/LogoBlack.png"
-                />
-              ) : (
-                <img
-                  alt="DroneTech"
-                  className="w-24 md:w-40 h-8 md:h-12 object-contain"
-                  src="/lovable-uploads/logowhite.png"
-                />
-              )}
-            </div>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    }`}>
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="/lovable-uploads/dronetech-logo.png" 
+              alt="DroneTech" 
+              className="h-10 w-auto"
+            />
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className={cn('nav-link', textColor, location.pathname === '/' && activeTextColor)}>
-              {t('home')}
-            </Link>
-            <Link
-              to="/competitions"
-              className={cn('nav-link', textColor, location.pathname === '/competitions' && activeTextColor)}
-            >
-              {t('competitions')}
-            </Link>
-            <Link
-              to={isSubpage ? '/' : '#contact'}
-              className={cn('nav-link', textColor)}
-              onClick={handleContactClick}
-            >
-              {t('contactUs')}
-            </Link>
-            <LanguageSelector isScrolled={isScrolled} />
-          </nav>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`font-medium transition-colors hover:text-primary ${
+                  location.pathname === item.path
+                    ? 'text-primary'
+                    : isScrolled
+                    ? 'text-gray-900'
+                    : 'text-white'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <LanguageSelector />
+          </div>
 
-          <div className="flex items-center space-x-4 md:hidden">
-            <LanguageSelector isScrolled={isScrolled} />
-            <button
-              className={cn('relative z-50 focus:outline-none', textColor)}
-              onClick={toggleMenu}
-              aria-label="Toggle menu"
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center space-x-4">
+            <LanguageSelector />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(!isOpen)}
+              className={isScrolled ? 'text-gray-900' : 'text-white'}
             >
-              {isMenuOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6" />}
-            </button>
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
           </div>
         </div>
-      </header>
-      {isMenuOpen && (
-        <div
-          className={cn(
-            'fixed inset-0 top-0 left-0 right-0 bg-background z-40 flex flex-col items-center justify-center md:hidden'
-          )}
-        >
-          <nav className="flex flex-col items-center space-y-8 text-lg">
-            <Link
-              to="/"
-              className={cn(
-                'nav-link text-foreground hover:text-primary',
-                location.pathname === '/' && 'text-primary font-medium'
-              )}
-              onClick={toggleMenu}
-            >
-              {t('home')}
-            </Link>
-            <Link
-              to="/competitions"
-              className={cn(
-                'nav-link text-foreground hover:text-primary',
-                location.pathname === '/competitions' && 'text-primary font-medium'
-              )}
-              onClick={toggleMenu}
-            >
-              {t('competitions')}
-            </Link>
-            <Link
-              to={isSubpage ? '/' : '#contact'}
-              className="nav-link text-foreground hover:text-primary"
-              onClick={(e) => {
-                toggleMenu();
-                if (location.pathname === '/') {
-                  handleContactClick(e);
-                }
-              }}
-            >
-              {t('contactUs')}
-            </Link>
-          </nav>
-        </div>
-      )}
-    </>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-lg shadow-lg mt-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-primary hover:bg-gray-50 ${
+                    location.pathname === item.path
+                      ? 'text-primary bg-gray-50'
+                      : 'text-gray-900'
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 

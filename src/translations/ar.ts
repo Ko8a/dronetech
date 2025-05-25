@@ -1,4 +1,3 @@
-
 export const arTranslations = {
   // Navigation
   home: 'الرئيسية',
@@ -14,6 +13,7 @@ export const arTranslations = {
   startTraining: 'ابدأ التدريب',
   registerCompetition: 'تسجيل',
   registration: 'تسجيل',
+  registrationEnded: 'انتهى وقت التسجيل',
   
   // Problem statement
   problemTitle: 'نقص مشغلي الطائرات بدون طيار',
@@ -155,6 +155,16 @@ export const arTranslations = {
   submissionError: 'خطأ في الإرسال',
   submissionErrorDescription: 'حدثت مشكلة أثناء إرسال التسجيل. يرجى المحاولة مرة أخرى.',
   
+  // Registrations page
+  registrationsList: 'قائمة التسجيلات',
+  droneRace5inch: 'سباق الطائرات بدون طيار 5 بوصة',
+  droneRaceMicro: 'سباق الطائرات بدون طيار المصغرة',
+  droneSimulator: 'محاكي الطائرات بدون طيار',
+  teamsRegistered: 'فرق مسجلة',
+  noRegistrations: 'لا توجد تسجيلات بعد',
+  registeredOn: 'مسجل في',
+  loading: 'جاري التحميل...',
+  
   // Contact section
   getInTouch: 'تواصل معنا',
   contactInfo: 'معلومات الاتصال',
@@ -207,4 +217,3 @@ export const arTranslations = {
   minutes: 'دقائق',
   seconds: 'ثوانٍ'
 };
-

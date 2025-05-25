@@ -1,3 +1,4 @@
+
 export const enTranslations = {
   // Navigation
   home: 'Home',
@@ -13,6 +14,7 @@ export const enTranslations = {
   startTraining: 'Start Training',
   registerCompetition: 'Registration',
   registration: 'Registration',
+  registrationEnded: 'Registration time has ended',
   
   // Problem statement
   problemTitle: 'Shortage of UAV Operators',
@@ -152,6 +154,16 @@ export const enTranslations = {
   minParticipants: 'requires at least 5 competitors.',
   submissionError: 'Submission Error',
   submissionErrorDescription: 'There was a problem submitting your registration. Please try again.',
+  
+  // Registrations page
+  registrationsList: 'Registrations List',
+  droneRace5inch: 'Drone Race 5inch',
+  droneRaceMicro: 'Drone Race Micro',
+  droneSimulator: 'Drone Simulator',
+  teamsRegistered: 'teams registered',
+  noRegistrations: 'No registrations yet',
+  registeredOn: 'Registered on',
+  loading: 'Loading...',
   
   // Contact section
   getInTouch: 'Get In Touch',
