@@ -42,7 +42,7 @@ const Navbar = () => {
             <img 
               src={isScrolled || !isHomePage ? "/lovable-uploads/LogoBlack.png" : "/lovable-uploads/logowhite.png"}
               alt="DroneTech" 
-              className="h-3 w-auto object-contain"
+              className="h-5 w-auto object-contain"
               onError={(e) => {
                 console.error('Logo failed to load:', e.currentTarget.src);
                 // Fallback to black logo if white logo fails
