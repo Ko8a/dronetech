@@ -37,7 +37,7 @@ const Navbar = () => {
   const handleCompetitionsClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === '/competitions') {
-      // If already on competitions page, scroll to top
+      // If already on competitions page, scroll to top immediately
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       // Navigate to competitions page
