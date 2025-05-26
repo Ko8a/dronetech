@@ -37,7 +37,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/dronetech-logo.png" 
+              src={isScrolled ? "/lovable-uploads/LogoBlack.png" : "/lovable-uploads/logowhite.png"}
               alt="DroneTech" 
               className="h-10 w-auto"
             />
