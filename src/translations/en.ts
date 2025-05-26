@@ -42,7 +42,7 @@ export const enTranslations = {
   team_kim_bio: 'Head of the Development Fund for Rocket Science and Aircraft Modeling of Kazakhstan and Central Asia - KAZ ROCKETS.',
   team_volkov_name: 'Doshan Esmaganbet',
   team_volkov_title: 'Chief Engineer',
-  team_volkov_bio: 'Head of Development and Innovation Department. Has experience working with unmanned systems and radio electronics. WorldSkills Lyon prize winner, Electronics',
+  team_volkov_bio: 'Head of Development and Innovation Department. Has experience working with unmanned systems and radio electronics. Participant of WorldSkills Lyon, Electronics',
   
   // Competition page
   premierUAVCompetition: 'Premier UAV Competition',
