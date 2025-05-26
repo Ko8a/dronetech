@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LanguageSelector from './LanguageSelector';
 import { useTranslation } from '../hooks/useTranslation';
 
@@ -10,6 +10,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -21,10 +22,30 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      // If on home page, scroll to contact section
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on other page, navigate to home and then scroll to contact
+      navigate('/', { replace: true });
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+    setIsOpen(false);
+  };
+
   const navItems = [
     { name: t('home'), path: '/' },
     { name: t('competitions'), path: '/competitions' },
-    { name: t('contacts'), path: '/contact' },
   ];
 
   // Determine if we're on the home page
@@ -69,6 +90,17 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            <a
+              href="#contact"
+              onClick={handleContactClick}
+              className={`font-medium transition-colors hover:text-primary ${
+                (isScrolled || !isHomePage)
+                  ? 'text-gray-900'
+                  : 'text-white'
+              }`}
+            >
+              {t('contacts')}
+            </a>
             <LanguageSelector isScrolled={isScrolled || !isHomePage} />
           </div>
 
@@ -104,6 +136,13 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+              <a
+                href="#contact"
+                onClick={handleContactClick}
+                className="block px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-primary hover:bg-gray-50 text-gray-900"
+              >
+                {t('contacts')}
+              </a>
             </div>
           </div>
         )}
