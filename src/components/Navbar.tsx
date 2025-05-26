@@ -22,6 +22,30 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      // If already on home page, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // Navigate to home page
+      navigate('/');
+    }
+    setIsOpen(false);
+  };
+
+  const handleCompetitionsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === '/competitions') {
+      // If already on competitions page, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // Navigate to competitions page
+      navigate('/competitions');
+    }
+    setIsOpen(false);
+  };
+
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === '/') {
@@ -43,11 +67,6 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
-  const navItems = [
-    { name: t('home'), path: '/' },
-    { name: t('competitions'), path: '/competitions' },
-  ];
-
   // Determine if we're on the home page
   const isHomePage = location.pathname === '/';
 
@@ -58,7 +77,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <a href="/" onClick={handleHomeClick} className="flex items-center space-x-2">
             <img 
               src={isScrolled || !isHomePage ? "/lovable-uploads/LogoBlack.png" : "/lovable-uploads/logowhite.png"}
               alt="DroneTech" 
@@ -71,25 +90,36 @@ const Navbar = () => {
                 }
               }}
             />
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.path
-                    ? 'text-primary'
-                    : (isScrolled || !isHomePage)
-                    ? 'text-gray-900'
-                    : 'text-white'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <a
+              href="/"
+              onClick={handleHomeClick}
+              className={`font-medium transition-colors hover:text-primary ${
+                location.pathname === '/'
+                  ? 'text-primary'
+                  : (isScrolled || !isHomePage)
+                  ? 'text-gray-900'
+                  : 'text-white'
+              }`}
+            >
+              {t('home')}
+            </a>
+            <a
+              href="/competitions"
+              onClick={handleCompetitionsClick}
+              className={`font-medium transition-colors hover:text-primary ${
+                location.pathname === '/competitions'
+                  ? 'text-primary'
+                  : (isScrolled || !isHomePage)
+                  ? 'text-gray-900'
+                  : 'text-white'
+              }`}
+            >
+              {t('competitions')}
+            </a>
             <a
               href="#contact"
               onClick={handleContactClick}
@@ -122,20 +152,28 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-lg shadow-lg mt-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-primary hover:bg-gray-50 ${
-                    location.pathname === item.path
-                      ? 'text-primary bg-gray-50'
-                      : 'text-gray-900'
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              <a
+                href="/"
+                onClick={handleHomeClick}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-primary hover:bg-gray-50 ${
+                  location.pathname === '/'
+                    ? 'text-primary bg-gray-50'
+                    : 'text-gray-900'
+                }`}
+              >
+                {t('home')}
+              </a>
+              <a
+                href="/competitions"
+                onClick={handleCompetitionsClick}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-primary hover:bg-gray-50 ${
+                  location.pathname === '/competitions'
+                    ? 'text-primary bg-gray-50'
+                    : 'text-gray-900'
+                }`}
+              >
+                {t('competitions')}
+              </a>
               <a
                 href="#contact"
                 onClick={handleContactClick}
