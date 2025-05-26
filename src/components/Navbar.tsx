@@ -28,18 +28,28 @@ const Navbar = () => {
     { name: t('contacts'), path: '/contact' },
   ];
 
+  // Determine if we're on the home page
+  const isHomePage = location.pathname === '/';
+
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      isScrolled || !isHomePage ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/dronetech-logo.png" 
+              src={isScrolled || !isHomePage ? "/lovable-uploads/LogoBlack.png" : "/lovable-uploads/logowhite.png"}
               alt="DroneTech" 
-              className="h-10 w-auto"
+              className="h-10 w-auto object-contain"
+              onError={(e) => {
+                console.error('Logo failed to load:', e.currentTarget.src);
+                // Fallback to black logo if white logo fails
+                if (e.currentTarget.src.includes('logowhite.png')) {
+                  e.currentTarget.src = "/lovable-uploads/LogoBlack.png";
+                }
+              }}
             />
           </Link>
 
@@ -52,7 +62,7 @@ const Navbar = () => {
                 className={`font-medium transition-colors hover:text-primary ${
                   location.pathname === item.path
                     ? 'text-primary'
-                    : isScrolled
+                    : (isScrolled || !isHomePage)
                     ? 'text-gray-900'
                     : 'text-white'
                 }`}
@@ -60,17 +70,17 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <LanguageSelector />
+            <LanguageSelector isScrolled={isScrolled || !isHomePage} />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
-            <LanguageSelector />
+            <LanguageSelector isScrolled={isScrolled || !isHomePage} />
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className={isScrolled ? 'text-gray-900' : 'text-white'}
+              className={(isScrolled || !isHomePage) ? 'text-gray-900' : 'text-white'}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
