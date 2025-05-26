@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/competitions/HeroSection';
@@ -12,6 +12,11 @@ import { TestimonialKey } from '../translations/types';
 
 const Competitions = () => {
   const { t } = useTranslation();
+  
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   // Set target date for countdown (May 26, 2025 at 00:00)
   const targetDate = new Date(2025, 4, 26, 0, 0, 0, 0); // Month is 0-indexed, so 4 = May
